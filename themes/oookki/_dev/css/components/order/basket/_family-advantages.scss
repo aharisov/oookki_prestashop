@@ -1,0 +1,49 @@
+.family-advantages {
+    li {
+        position: relative;
+        margin-bottom: $mb-m;
+        padding: 1rem 1.5rem 1rem 2.5rem;
+        background: $colorGrayTransparent;
+        border-radius: $borderRadiusCommon;
+    }
+
+    svg {
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
+    }
+    svg path {
+        fill: $colorRedTransparent;
+    }
+}
+@media (max-width: 900px) and (max-height: 430px) {
+    .family-advantages {
+        height: 100px;
+        padding-right: 5px;
+        overflow-y: scroll;
+    }
+}
+@media (max-width: 900px) and (min-height: 431px) and (max-height: 630px) {
+    .family-advantages {
+        height: 250px;
+        padding-right: 5px;
+        overflow-y: scroll;
+    }
+}
+@media (min-width: 768px) {
+    #abon-advants-modal.modal {
+        max-width: 640px;
+    }
+    .family-advantages {
+        li {
+            padding-left: 4.5rem;
+        }
+        svg {
+            top: 50%;
+            left: 1.5rem;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

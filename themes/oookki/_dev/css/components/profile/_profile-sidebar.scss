@@ -1,0 +1,89 @@
+.profile-sidebar {
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    margin-right: $mb-l;
+    padding: 1.5rem 1rem;
+    background: $colorGrayTransparent;
+    border-radius: $borderRadiusCommon;
+    box-shadow: 1px 5px 10px #b1b1b1;
+
+    .sidebar-block {
+        margin-bottom: $mb-l;
+        padding-bottom: $mb-l;
+        border-bottom: 1px solid $colorRedTransparent2;
+
+        &:last-child {
+            margin-bottom: 0;
+            border: none;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: $mb-m;
+            font-size: $fontXS;
+            color: $colorRedTransparent2;
+            svg, i {
+                width: 25px;
+                height: 25px;
+                margin-right: $mb-s;
+            }
+            span {
+                color: $colorPrimary;
+            }
+        }
+        ul {
+            margin-left: $mb-s;
+            li {
+                position: relative;
+                margin-bottom: $mb-xs;
+                padding-left: 15px;
+
+                &::before {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 8px;
+                    height: 8px;
+                    background: $colorRedTransparent2;
+                    border-radius: $borderRadiusCircle;
+                    transform: translateY(-50%);
+                    content: "";
+                    transition: $transition;
+                }
+
+                &:hover, &.active {
+                    a {
+                        color: $colorRed;
+                    }
+                    &::before {
+                        background: $colorRed;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        display: flex;
+        margin: 0 auto;
+
+        svg, i {
+            margin-right: $mb-s;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .profile-sidebar {
+        display: block;
+        padding: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .profile-sidebar {
+        max-width: 360px;
+    }
+}

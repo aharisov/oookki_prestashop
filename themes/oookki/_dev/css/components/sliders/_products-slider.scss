@@ -1,0 +1,28 @@
+.products-slider {
+    .subtitle {
+        position: absolute;
+        top: -1rem;
+    }
+    
+    .swiper-wrapper {
+        padding-bottom: 4rem;
+    }
+    &:has(.swiper-pagination-lock) .swiper-wrapper {
+        padding-bottom: 0;
+    }
+    .swiper .swiper-pagination {
+        bottom: 1rem;
+    }
+    .swiper .swiper-button-prev, .swiper .swiper-button-next {
+        top: auto;
+        bottom: 0.5rem;
+        right: 2px;
+        transform: none;
+        width: 40px;
+        height: 40px;
+    }
+    .swiper .swiper-button-prev {
+        left: auto;
+        right: 3.5rem;
+    }
+}

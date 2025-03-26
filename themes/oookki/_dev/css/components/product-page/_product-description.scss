@@ -1,0 +1,98 @@
+.description-section {
+    margin-bottom: $mb-xl;
+
+    .text {
+        margin-bottom: $mb-m;
+
+        p {
+            font-size: $fontXS;
+        }
+        i {
+            display: block; 
+            margin-top: $mb-s;
+            font-style: italic;
+            color: $colorGray;
+        }
+    }
+    .media {
+        position: relative;
+        figure, video, picture {
+            width: 100%;
+        }
+        video, .cover {
+            border-radius: $borderRadiusCommon;
+            transition: $transition;
+            max-height: 380px;
+        }
+        picture img {
+            border-radius: $borderRadiusCommon;
+        }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            cursor: pointer;
+
+            img {
+                @include imgFit;
+                border-radius: $borderRadiusCommon;
+            }
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-image: url("../img/ic-play-circle.svg");
+                @include bgImg;
+                color: $colorGrayHover;
+                content: "";
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .description-section {
+        .media {
+            .cover {
+                &::after {
+                    width: 100px;
+                    height: 100px;
+                    transition: $transition;
+                }
+            }
+            &:hover .cover::after {
+                transform: scale(1.1) translate(-50%, -50%);
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .description-section {
+        display: flex;
+        justify-content: space-between;
+    
+        &:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        .text {
+            width: 35%;
+
+            p {
+                font-size: $fontS;
+            }
+        }
+        .media {
+            width: 60%;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .description-section {
+        margin-bottom: $mb-xl;
+    }
+}

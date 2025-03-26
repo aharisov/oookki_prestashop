@@ -1,0 +1,407 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid $colorBorder;
+    border-radius: $borderRadiusCommon;
+    transition: $transition;
+
+    &.hidden {
+        display: none;
+    }
+    &.in-compare {
+        border-color: $colorPrimary;
+    }
+    .colors {
+        position: absolute;
+        top: 50%;
+        left: 1.5rem;
+        transform: translateY(-50%);
+        flex-direction: column;
+
+        span {
+            position: relative;
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            margin-bottom: $mb-xs;
+            border-radius: $borderRadiusCommon;
+
+            &.na {
+                opacity: 0.8;
+            }
+            &.na::before {
+                position: absolute;
+                top: -3px;
+                left: 9px;
+                width: 1px;
+                height: 26px;
+                background: $colorPrimary;
+                transform: rotate(45deg);
+                content: "";
+            }
+        }
+    }
+    .badges {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: $mb-m;
+
+        .badge {
+            position: absolute;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem 1rem;
+            margin: 0;
+            border-radius: $borderRadiusS;
+            font-size: $fontXXS;
+
+            &.new {
+                bottom: -40px;
+                right: 1rem;
+                background: $colorRed;
+                color: $colorWhite;
+            }
+            &.offer {
+                top: 1rem;
+                left: 1rem;
+                background: $colorGray;
+                color: $colorWhite;
+            }
+            &.special {
+                top: auto;
+                bottom: 1rem;
+                left: 1rem;
+                background: $colorOrange;
+                color: $colorWhite;
+            }
+            &.discount {
+                right: 1rem;
+                top: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.2rem 1rem;
+                background: $colorRedTransparent;
+                border-radius: 10px;
+                font-family: $fontTitle;
+                font-size: $fontXS;
+                color: $colorWhite;
+            }
+        }
+    }
+    
+    .pic {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 240px;
+        margin-bottom: $mb-m;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 2rem 0;
+            border-top-left-radius: $borderRadiusInner;
+            border-top-right-radius: $borderRadiusInner;
+            background: $colorSecond;
+        }
+        img {
+            @include imgFit;
+            object-fit: contain;
+            transition: $transition;
+        }
+        .icon {
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid $colorRed;
+            border-radius: $borderRadiusCircle;
+            background-image: url("../img/ic-5g-new.svg");
+            @include bgImg;
+            background-position: center;
+            background-size: 80%;
+
+            &.energy {
+                background: none;
+                border: none;
+            }
+        }
+    }
+    .name {
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+        font-size: $fontS;
+        transition: $transition;
+
+        a {
+            display: inline-block;
+        }
+        span {
+            position: relative;
+            &::after {
+                position: absolute;
+                width: 100%;
+                transform: scaleX(0);
+                height: 2px;
+                bottom: -2px;
+                left: 0;
+                background-color: $colorRed;
+                transition: transform 0.25s ease-out;
+                transform-origin: bottom right;
+                content: '';
+            }
+        }
+    }
+    .brand, .name {
+        margin: 0 1.2rem;
+    }
+    .inner {
+        position: relative;
+        padding: $mb-m 1.2rem 1.8rem;
+
+        .props {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: $mb-l;
+
+            label {
+                cursor: pointer;
+                span {
+                    display: inline-flex;
+                    padding: 0.3rem 0.6rem;
+                    border: 1px solid $colorPrimary;
+                    border-radius: $borderRadiusS;
+                    font-family: $fontTitle;
+                    transition: $transition;
+                }
+                input {
+                    display: none;
+
+                    &:checked + span {
+                        border-color: $colorRed;
+                    }
+                }
+                &:hover span {
+                    background-color: $colorGrayTransparent;
+                }
+                &:hover input:checked + span {
+                    background-color: $colorWhite;
+                }
+            }
+        }
+        .price {
+            margin-bottom: $mb-l;
+        }
+        .price-inner {
+            span {
+                display: inline-flex;
+                font-family: $fontTitle;
+                font-size: $fontS;
+                font-weight: bold;
+            }
+            .price-old {
+                margin-left: 1rem;
+                font-family: $fontPrimary;
+                font-size: $fontXS;
+                font-weight: normal;
+                color: $colorGray;
+                text-decoration: line-through;
+            }
+        }
+        .price-suptitle {
+            font-size: $font14;
+            color: $colorGrayLight;
+        }
+        .price-credit {
+            font-size: $font16;
+            color: $colorGray;
+        }
+        .price-note {
+            padding: 0;
+            color: $colorGray;
+            transition: $transition;
+
+            &:hover {
+                color: $colorPrimary;
+            }
+
+            .icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                height: 20px;
+                border: 1px solid $colorBorder;
+                border-radius: $borderRadiusCircle;
+                font-size: $font14;
+            }
+        }
+        .to-cart {
+            height: 50px;
+
+            svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+        .compare {
+            display: flex;
+            justify-content: center;
+            padding-top: 1rem;
+            border-top: 1px solid $colorGrayHover;
+
+            @include customCheckbox; 
+
+            input:disabled + span {
+                opacity: 0.6;
+            }
+            input:disabled + span::before {
+                opacity: 0.6;
+            }
+            label:hover input:disabled + span::before {
+                border-color: $colorBorder;
+            }
+        }
+    }
+
+    .promo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+        border-bottom-left-radius: $borderRadiusInner;
+        border-bottom-right-radius: $borderRadiusInner;
+        background: $colorRedTransparent;
+        color: $colorWhite;
+
+        .hidden {
+            display: none;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        &.empty {
+            display: none;
+            background: transparent;
+        }
+    }
+}
+
+.home-products {
+    .product-card {
+        .inner .price {
+            margin-bottom: 0;
+        }
+    }
+}
+.recommend-list {
+    .product-card {
+        .name {
+            font-size: $fontXS;  
+            font-weight: 400;     
+        }
+        .inner {
+            .price-inner {
+                span {
+                    font-size: $fontS;
+                }
+                .price-old {
+                    font-size: $fontXS;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    .product-card {
+        .promo {
+            height: 60px;
+            
+            p {
+                font-size: $font14;
+            }
+        }
+        .name-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .product-card:has(.promo.empty) {
+        .inner {
+            height: 100%;
+            .compare {
+                position: absolute;
+                bottom: -25px;
+                left: 0;
+                width: 100%;
+            }
+        } 
+    }
+    .product-card .promo.empty {
+        display: block;
+    }
+}
+@media (min-width: 1024px) {
+    .product-card {
+        .brand, .name {
+            margin: 0 1rem;
+        }
+        .inner {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .badges {
+            .badge {
+                font-size: $font16;
+
+                &.new {
+                    bottom: -50px;
+                }
+            }
+        }
+        .pic a:hover {
+            background: $colorGrayTransparent;
+            img {
+                transform: scale(1.1);
+            }
+        }
+        .name a:hover {
+            color: $colorRed;
+
+            span::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+        }
+        .brand a:hover {
+            border-bottom: 1px solid $colorGray;
+            color: $colorGray;
+        }
+    }
+}
+@media (min-width: 1320px) {
+    .product-card {
+        .promo {
+            p {
+                font-size: $font16;
+            }
+        }
+    }
+}

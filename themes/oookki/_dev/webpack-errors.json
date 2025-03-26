@@ -1,0 +1,113 @@
+assets by status 1.14 MiB [cached] 22 assets
+assets by path . 1.93 MiB
+  assets by status 1.93 MiB [emitted]
+    asset theme.js 1.66 MiB [emitted] [minimized] [big] (name: theme)
+    asset ../css/theme.css 278 KiB [emitted] [big] (name: theme)
+  assets by status 0 bytes [compared for emit]
+    asset ../css/error.css 0 bytes [compared for emit] (name: error)
+    asset error.js 0 bytes [compared for emit] [minimized] (name: error)
+Entrypoint theme [big] 1.93 MiB (1.14 MiB) = ../css/theme.css 278 KiB theme.js 1.66 MiB 22 auxiliary assets
+Entrypoint error = ../css/error.css 0 bytes error.js 0 bytes
+orphan modules 725 KiB (javascript) 1.14 MiB (asset) 2.09 KiB (runtime) [orphan] 78 modules
+runtime modules 718 bytes 3 modules
+built modules 2.05 MiB (javascript) 291 KiB (css/mini-extract) [built]
+  modules by path ./js/ 511 KiB 25 modules
+  modules by path ./css/ 217 KiB (css/mini-extract) 100 bytes (javascript)
+    css modules 217 KiB 3 modules
+    javascript modules 100 bytes
+      ./css/theme.scss 50 bytes [built] [code generated]
+      ./css/error.scss 50 bytes [built] [code generated]
+  modules by path ./node_modules/ 1.55 MiB (javascript) 73.7 KiB (css/mini-extract)
+    ./node_modules/events/events.js 11.3 KiB [built] [code generated]
+    ./node_modules/@fortawesome/fontawesome-free/js/all.js 1.54 MiB [built] [code generated]
+    css ./node_modules/css-loader/dist/cjs.js!./node_modules/@fortawesome/fontawesome-free/css/all.min.css 73.7 KiB [built] [code generated]
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 8, column 8 of file:///Volumes/Formation/LibertyMedia/oookki/oookki_prestashop/themes/oookki/_dev/css/theme.scss:8:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+8 | @import "./partials/variables";
+
+
+css/theme.scss 9:9  root stylesheet
+ @ ./css/theme.scss
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 9, column 8 of file:///Volumes/Formation/LibertyMedia/oookki/oookki_prestashop/themes/oookki/_dev/css/theme.scss:9:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 | @import "./partials/mixins";
+
+
+css/theme.scss 10:9  root stylesheet
+ @ ./css/theme.scss
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 13, column 8 of file:///Volumes/Formation/LibertyMedia/oookki/oookki_prestashop/themes/oookki/_dev/css/theme.scss:13:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+13 | @import 'swiper/css/bundle';
+
+
+css/theme.scss 14:9  root stylesheet
+ @ ./css/theme.scss
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 14, column 8 of file:///Volumes/Formation/LibertyMedia/oookki/oookki_prestashop/themes/oookki/_dev/css/theme.scss:14:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+14 | @import "./photoswipe";
+
+
+css/theme.scss 15:9  root stylesheet
+ @ ./css/theme.scss
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 17, column 8 of file:///Volumes/Formation/LibertyMedia/oookki/oookki_prestashop/themes/oookki/_dev/css/theme.scss:17:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+17 | @import "./partials/reset";
+
+
+css/theme.scss 18:9  root stylesheet
+ @ ./css/theme.scss
+
+WARNING in ./css/theme.scss (./css/theme.scss.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/theme.scss)
+Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+51 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+ @ ./css/theme.scss
+
+WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  ../css/2582b0e4bcf85eceead0.ttf (416 KiB)
+  ../css/theme.css (278 KiB)
+  theme.js (1.66 MiB)
+
+WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  theme (1.93 MiB)
+      ../css/theme.css
+      theme.js
+
+WARNING in webpack performance recommendations: 
+You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
+For more info visit https://webpack.js.org/guides/code-splitting/
+
+webpack 5.98.0 compiled with 9 warnings in 5188 ms

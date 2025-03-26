@@ -1,0 +1,104 @@
+.order-header {
+    height: auto;
+    padding: 0.5rem 0;
+
+    .order-steps {
+        display: none;
+        .order-step {
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+            path {
+                fill: $colorBorder;
+            }
+            span {
+                display: inline-flex;
+                width: 30px;
+                height: 2px;
+                margin: 0 $mb-s;
+                background: $colorBorder;
+            }
+
+            &.current, &.ready {
+                path {
+                    fill: $colorGreen;
+                }
+                span {
+                    background: $colorGreen;
+                }
+            }
+        }
+    }
+    .order-current-step {
+        align-items: center;
+        .content {
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: $mb-m;
+
+            .sup-title {
+                margin-bottom: -3px;
+                font-style: italic;
+                color: $colorRedTransparent2;
+            }
+            .title {
+                font-family: $fontTitle;
+                font-size: $fontXS;
+            }
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+            path {fill: $colorGreen;}
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .order-header {
+        .order-steps {
+            display: flex;
+        }
+        .order-current-step {
+            .content  {
+                margin: 0;
+            }
+            .icon-mobile {
+                display: none;
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .order-header {
+        & + main {
+            margin-top: 7rem;
+        }
+        .order-steps {
+            .order-step {
+                span {
+                    width: 50px;
+                    height: 3px;
+                    border-radius: 10px;
+                }
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        .order-current-step {
+            .content .sup-title {
+                font-weight: bold;
+            }
+            .content .title {
+                font-size: $fontM;
+            }
+        }
+    }
+}

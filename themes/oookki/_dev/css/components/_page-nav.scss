@@ -1,0 +1,82 @@
+.page-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    .prev, .next {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 40px;
+        height: 40px;
+        border: 1px solid $colorBorder;
+        border-radius: $borderRadiusCircle;
+        background-image: url("../img/ic-arrow-left.svg");
+        @include bgImg;
+        background-position: center;
+        background-size: 80%;
+
+        &:hover {
+            background-position: 2px center;
+            background-color: $colorGrayHover;
+        }
+    }
+    .next {
+        transform: rotate(180deg);
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 0.5rem;
+
+        li {
+            margin: 0 0.3rem 0.3rem;
+        }
+        a, span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid $colorBorder;
+            border-radius: $borderRadiusCircle;
+
+            &.current {
+                background: $colorPrimary;
+                border-color: $colorPrimary;
+                color: $colorWhite;
+            }
+        }
+        span {
+            padding-top: 0.3rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .page-nav {
+        ul {
+            margin: 0 1rem;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .page-nav {
+        ul li {
+            a:hover {
+                border-color: $colorRed;
+                color: $colorRed;
+            }
+            a.current:hover {
+                background: $colorPrimary;
+                border-color: $colorPrimary;
+                color: $colorWhite;
+            }
+        }
+    }
+}

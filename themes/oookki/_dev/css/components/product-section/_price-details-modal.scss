@@ -1,0 +1,140 @@
+.price-details-modal {
+    &.modal {
+        .modal-inner {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+    }
+    
+    .price-details .block {
+        margin-bottom: 1rem;
+
+        .line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+
+            .left {
+                width: 60%;
+
+                i {
+                    font-size: $font14;
+                    font-style: italic;
+                    color: $colorGray;
+                }
+            }
+        }
+        .line-sum {
+            padding-top: $mb-xs;
+            border-top: 1px solid $colorBorder;
+            font-weight: bold;
+
+            .right {
+                font-family: $fontTitle;
+            }
+        }
+    }
+
+    .credit-note {
+        padding: 0.5rem;
+        background: $colorSecond;
+        border-radius: $borderRadiusCommon;
+
+        p {
+            margin-bottom: $mb-xs;
+            font-size: $font14;
+        }
+        .flex {
+            align-items: center;
+        }
+        svg {
+            width: auto;
+            height: 20px;
+            margin-left: 1rem;
+        }
+        svg path {
+            fill: #fa5022;
+        }
+    }
+}
+/*
+@media (max-height: 500px) {
+    .price-details-modal.modal {
+        padding: 1rem;
+        h4 {
+            margin-bottom: 0;
+        }
+        .price-details {
+            height: 100px;
+            padding-right: 5px;
+            overflow-y: scroll;
+        }
+        &.plan-details-modal {
+            .plan-modal-content {
+                height: 120px;
+                padding-right: 5px;
+                overflow-y: scroll;
+            }
+            .price-details {
+                height: auto;
+                padding-right: 0;
+                overflow: auto;
+            }
+        }
+        .credit-note {
+            p {
+                margin-bottom: 0.2rem;
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (min-height: 501px) and (max-height: 600px) {
+    .price-details-modal {
+        .price-details {
+            height: 150px;
+            padding-right: 5px;
+            overflow-y: scroll;
+        }
+        &.plan-details-modal {
+            .plan-modal-content {
+                height: 150px;
+                padding-right: 5px;
+                overflow-y: scroll;
+            }
+            .price-details {
+                height: auto;
+                padding-right: 0;
+                overflow: auto;
+            }
+        }
+        .credit-note {
+            p {
+                margin-bottom: 0.2rem;
+                font-size: 12px;
+            }
+        }
+    }
+}*/
+@media (min-width: 768px) {
+    .price-details-modal {
+        .price-details .block {
+            margin-bottom: 2rem;
+            .line {
+                margin-bottom: $mb-xs;
+            }
+        }
+        .credit-note {
+            padding: 1rem;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .price-details-modal.modal {
+        max-width: 800px;
+
+        .modal-inner {
+            gap: 0;
+        }
+    }
+}
