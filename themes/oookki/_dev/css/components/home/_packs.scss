@@ -34,33 +34,59 @@
         font-size: $fontXS;
 
         li {
+            position: relative;
             min-height: 40px;
             margin-bottom: $mb-s;
             padding-left: 50px;
             @include bgImg;
             background-size: 30px;
             background-position: 0 0;
+
+            &::before {
+                position: absolute;
+                left: 0;
+                top: -3px;
+                width: 30px;
+                height: 30px;
+                font-family: FontAwesome;
+                font-size: 25px;
+            }
+            &:first-child::before {
+                content: "\f095";
+            }
+            &:nth-child(2)::before {
+                content: "\f7cd";
+            }
+            &:nth-child(3)::before {
+                content: "\f27a";
+            }
+            &.c4G::before {
+                content: "\f012";
+            }
+            &.c5G::before {
+                content: "\e585";
+            }
         }
-        .calls {
-            background-image: url("../img/ic-phone-new.svg");
-            background-position: 5px 0;
-        }
-        .sms {
-            background-image: url("../img/ic-sms-new.svg");
-            background-position: 10px 0;
-        }
-        .mms {
-            background-image: url("../img/ic-mms-new.svg");
-            background-position: 5px 0;
-        }
-        .net4g {
-            background-image: url("../img/ic-4g-new.svg");
-            background-size: 40px;
-        }
-        .net5g {
-            background-image: url("../img/ic-5g-new.svg");
-            background-size: 40px;
-        }
+        // .calls {
+        //     background-image: url("../img/ic-phone-new.svg");
+        //     background-position: 5px 0;
+        // }
+        // .sms {
+        //     background-image: url("../img/ic-sms-new.svg");
+        //     background-position: 10px 0;
+        // }
+        // .mms {
+        //     background-image: url("../img/ic-mms-new.svg");
+        //     background-position: 5px 0;
+        // }
+        // .net4g {
+        //     background-image: url("../img/ic-4g-new.svg");
+        //     background-size: 40px;
+        // }
+        // .net5g {
+        //     background-image: url("../img/ic-5g-new.svg");
+        //     background-size: 40px;
+        // }
     }
     &__price {
         display: flex;
