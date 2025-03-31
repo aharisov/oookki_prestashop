@@ -71,7 +71,8 @@
             opacity: 0.5;
         }
 
-        &.swiper-button-lock {
+        &.swiper-button-lock,
+        &::after {
             display: none;
         }
     }

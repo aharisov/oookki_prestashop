@@ -28,9 +28,11 @@
 
       {hook h="displayWrapperTop"}
       
-      {block name='breadcrumb'}
-        {include file='_partials/breadcrumb.tpl'}
-      {/block}
+      {if $page.page_name != 'index'}
+        {block name='breadcrumb'}
+          {include file='_partials/breadcrumb.tpl'}
+        {/block}
+      {/if}
       
       {block name="left_column"}
         <div id="left-column" class="col-xs-12 col-md-4 col-lg-3">

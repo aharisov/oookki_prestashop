@@ -6,6 +6,7 @@
   {block name='page_content'}
     {block name='hook_home'}
       {hook h='displayHome'}
+      {hook h='displayFlexInstance'}
     {/block}
   {/block}
 {/block}

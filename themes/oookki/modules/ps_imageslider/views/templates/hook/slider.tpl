@@ -6,7 +6,7 @@
         <div class="swiper-slide">
           <div class="slide-inner bg-dark">
             <div class="slide-text">
-              <h3 class="title">Avec <img src="images/logo-red5.png" alt=""></h3>
+              <h3 class="title">Avec <img src="../img/logo-red2.png" alt=""></h3>
               <div class="anonce effect-glow">{$slide.title}</div>
             </div>
             <div class="slide-photos">
@@ -25,11 +25,11 @@
           </div>
         </div>
       {/foreach}
-    
-      <div class="swiper-pagination"></div>
-      
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
+
+    <div class="swiper-pagination"></div>
+      
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 {/if}

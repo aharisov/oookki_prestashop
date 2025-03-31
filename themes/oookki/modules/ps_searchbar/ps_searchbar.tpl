@@ -2,7 +2,7 @@
   <form method="get" action="{$search_controller_url}">
     <input type="hidden" name="controller" value="search">
     
-    <input type="text" name="s" value="{$search_string}" placeholder="{l s='Search our catalog' d='Shop.Theme.Catalog'}" aria-label="{l s='Search' d='Shop.Theme.Catalog'}">
+    <input type="text" name="s" value="{$search_string}" placeholder="{l s='Rechercher des produits essentiels...' d='Shop.Theme.Catalog'}" aria-label="{l s='Search' d='Shop.Theme.Catalog'}">
     <button type="submit" class="submit-search">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>

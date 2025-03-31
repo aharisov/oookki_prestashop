@@ -2,9 +2,9 @@ import prestashop from 'prestashop';
 import EventEmitter from 'events';
 
 import '@fortawesome/fontawesome-free/js/all.js';
-import './lib/photoswipe-lightbox.esm.min';
-import './lib/photoswipe.esm.min';
-import Swiper from 'swiper/bundle';
+// import './lib/photoswipe-lightbox.esm.min';
+// import './lib/photoswipe.esm.min';
+// import Swiper from 'swiper/bundle';
 
 import './helpers/add-to-cart';
 import './helpers/api-get-product';
