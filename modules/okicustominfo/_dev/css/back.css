@@ -1,0 +1,222 @@
+/* info block */
+.d-flex {
+  display: flex;
+}
+.mb-2 {
+  margin-bottom: 20px;
+}
+.dynamic-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.dynamic-field select {
+  margin: 0 10px;
+}
+#dynamic-fields-container .dynamic-field:first-child .btn {
+  display: none;
+}
+
+.form-group.d-flex {
+  margin: 0 0 10px !important;
+}
+.form-group label {
+  width: 200px;
+  margin-right: 10px;
+}
+.form-group.d-flex label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-family: 'Open Sans', Tahoma, Arial;
+}
+.form-group input {
+  max-width: 50%;
+}
+
+.bootstrap .form-wrapper .col-lg-4 {
+  width: 200px;
+}
+
+/* items list */
+.listing-head {
+  border-bottom: 2px #00b9d9 solid;
+  font-weight: bold;
+  padding-bottom: 9px;
+  padding-top: 15px;
+}
+
+.listing-general-rol:hover,.listing-general-rol.active {
+  background-color: #FAFBFC;
+  transition: background .3s
+}
+
+.listing-body.ui-sortable {
+  padding: 0
+}
+
+.listing-body .sortable-ghost {
+  color: #ffa500
+}
+
+.listing-body .btn-group {
+  padding: 0
+}
+
+.listing-body .btn-group .dropdown-toggle:hover,.listing-body .btn-group .dropdown-toggle:focus {
+  text-decoration: none
+}
+
+.listing-body .btn-group .dropdown-toggle:hover:after,.listing-body .btn-group .dropdown-toggle:focus:after {
+  color: #00aff0
+}
+
+.listing-body .btn-group .dropdown-toggle:after {
+  color: #6c868e;
+  content: "more_vert";
+  font-family: "Material Icons";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-transform: none
+}
+
+.listing-body .btn-group .dropdown-item {
+  color: #6c868e;
+  display: block;
+  padding: .375rem 1.5rem .375rem .938rem;
+  font-size: .875rem
+}
+
+.listing-body .btn-group .dropdown-item:hover {
+  color: #fff !important;
+  background: #25b9d7 !important;
+  text-decoration: none !important
+}
+
+.listing-body .btn-group .dropdown-item .material-icons {
+  font-size: 1.125rem;
+  vertical-align: text-bottom;
+  padding-right: .5rem
+}
+
+.listing-body .status-toggle {
+  padding: .6rem 0
+}
+
+.listing-row.row {
+  border-bottom: #BBCDD2 solid 1px;
+  margin: 0;
+  padding-bottom: 9px;
+  padding-top: 15px;
+}
+
+.listing-row div {
+  padding: 18px 0;
+  line-height: 30px;
+}
+
+.listing-row .drag-handle i {
+  color: #778899;
+}
+
+.listing-row .drag-handle i:hover {
+  color: #00b9d9;
+}
+
+.listing-row div img {
+  width: 120px;
+  border: 1px solid #cecece;
+}
+
+@media (max-width: 768px) {
+  .listing-body .btn-group .dropdown-menu {
+      padding:0.25rem 0;
+      min-width: 5.55rem;
+  }
+
+  .listing-body .btn-group .dropdown-item {
+      padding: .225rem .275rem;
+  }
+
+  .listing-body .btn-group .dropdown-item .material-icons {
+      padding-right: .250rem;
+  }
+
+  .listing-row.row {
+      padding-top: 0.5625rem;
+  }
+
+  .listing-row div {
+      padding: 0.5625rem 0;
+  }
+}
+
+.listing-row .drag-handle i {
+  cursor: grab;
+}
+.listing-row .drag-handle i:active {
+  cursor: grabbing;
+}
+
+.switch-input {
+  background: #DA6E6E;
+  height: 20px;
+  width: 50px;
+  padding: 10px 0;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  margin: -2px 5px 0 0;
+}
+
+.switch-input,.switch-input:after {
+  background: #D96D6E;
+  border: 2px solid #BBCDD2;
+  border-radius: 30px;
+  box-sizing: border-box;
+  color: #6C868E;
+  transition: all 0.5s;
+}
+
+.switch-input:after {
+  background: #FFFFFF;
+  color: #D96D6E;
+  display: block;
+  content: 'close';
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: -5px;
+  left: -3px;
+  transform: rotate(-180deg);
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Material Icons';
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.switch-input>input {
+  display: none;
+}
+
+.switch-input.checked {
+  background-color: var(--edition-success-500) !important;
+}
+
+.switch-input.checked:after {
+  content: 'done';
+  left: 20px;
+  border: 2px solid #BBCDD2;
+  color: #000;
+  line-height: 28px;
+  transform: rotate(0deg);
+}
+
+.switch_text {
+  display: block;
+  margin-top: 15px;
+  font-weight: normal;
+}
