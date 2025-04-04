@@ -1,0 +1,115 @@
+footer {
+    margin-top: 4rem;
+    background: $colorPrimary;
+}
+
+.footer-inner {
+    padding: 2rem 0;
+
+    .footer-menu {
+        width: 100%;
+        margin-bottom: $mb-m;
+
+        h4 {
+            display: inline-block;
+            border-bottom: 1px solid $colorWhite;
+            color: $colorWhite;
+        }
+        a {
+            color: $colorWhite;
+        }
+    }
+}
+
+.footer-bot {
+    padding-bottom: 2rem;
+
+    .footer-logo {
+        display: inline-flex;
+        width: 120px;
+        margin-bottom: $mb-s;
+
+        img {
+            @include imgFit;
+        }
+    }
+    .socials {
+        align-items: center;
+        justify-content: start;
+        color: $colorWhite;
+
+        &__label {
+            margin-right: 0.5rem;
+        }
+        &__list li {
+            display: inline-flex;
+            margin: 0 0.5rem;
+
+            a {
+                display: inline-flex;
+            }
+        }
+        svg {
+            fill: $colorWhite;
+            transition: $transition;
+        }
+
+        .copyright {
+            width: 100%;
+            margin-top: $mb-s;
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .footer-inner {
+        justify-content: space-between;
+
+        .footer-menu {
+            width: 48%;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .footer-bot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .footer-logo {
+            width: 220px;
+            margin-bottom: 0;
+        }
+        .socials {
+            .copyright {
+                width: auto;
+                margin-top: 0;
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .footer-inner {
+        .footer-menu {
+            width: 24%;
+
+            a {
+                position: relative;
+                @include hoverEffect;
+
+                &::after {
+                    height: 1px;
+                    background-color: $colorWhite;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .socials {
+        svg:hover {
+            transform: scale(1.2);
+        }
+    }
+}

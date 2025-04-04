@@ -1,0 +1,49 @@
+$colorPrimary: #000;
+$colorSecond: #f5f5f5;
+// $colorBorder: #b1b1b1;
+$colorBorder: rgba(81, 101, 108, 0.2);
+$colorRed: #BB2532;
+$colorRedTransparent: rgba(187, 37, 50, 0.7);
+$colorRedTransparent2: rgba(187, 37, 50, 0.3);
+$colorGray: #51656c;
+$colorGrayTransparent: rgba(81, 101, 108, 0.1);
+$colorGrayTransparent2: rgba(81, 101, 108, 0.2);
+$colorGrayHover: #f0eeee;
+$colorGrayLight: #b1b1b1;
+$colorOrange: #ec7519;
+$colorWhite: #fff;
+$colorGreen: #48e44b;
+$colorSuccess: #08a90bc0;
+$colorRose: #fcb4b2;
+
+$fontPrimary: "Roboto", Tahoma, Arial, sans-serif;
+$fontTitle: "Oswald", Tahoma, Arial, sans-serif;
+$fontPoppins: "Poppins", Tahoma, Arial, sans-serif;
+$fontIcons: 'Font Awesome 6 Free';
+$fontCommonSize: 16px;
+$fontXXL: 2.986rem;
+$fontXL: 2.488rem;
+$fontL: 2.074rem;
+$fontM: 1.728rem;
+$fontS: 1.44rem;
+$fontXS: 1.2rem;
+$font16: 1rem;
+$font14: 0.875rem;
+$fontXXS: 0.75rem;
+
+$mb-xs: 0.5rem;
+$mb-s: 0.75rem;
+$mb-m: 1rem;
+$mb-l: 1.5rem;
+$mb-xl: 2rem;
+
+$borderRadiusCircle: 50%;
+$borderRadiusCommon: 15px;
+$borderRadiusInner: 14px;
+$borderRadiusS: 5px;
+
+$gapS: 1.125rem;
+$gapL: 2rem;
+
+$transition: 0.2s linear;
+$transitionAccordion: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;

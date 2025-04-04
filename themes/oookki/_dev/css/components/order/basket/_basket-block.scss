@@ -1,0 +1,218 @@
+.basket-block {
+    margin-bottom: $mb-m;
+    padding-bottom: $mb-m;
+    border-bottom: 1px solid $colorGrayTransparent2;
+
+    p {
+        margin-bottom: $mb-s;
+    }
+    &.abon-block p {
+        margin-bottom: $mb-xs;
+    }
+
+    .config-options {
+        margin-top: $mb-l;
+
+        .config-option {
+            display: block;
+            margin-bottom: $mb-m;
+            padding: 1rem;
+            border: 1px solid $colorBorder;
+            border-radius: $borderRadiusCommon;
+            transition: $transition;
+            cursor: pointer;
+
+            .switch {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                padding-left: 2rem;
+                cursor: pointer;
+
+                &::before {
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    background: $colorBorder;
+                    border-radius: $borderRadiusCircle;
+                    content: "";
+                    transition: $transition;
+                }
+                &::after {
+                    position: absolute;
+                    top: 2px;
+                    left: -3px;
+                    display: block;
+                    width: 26px;
+                    height: 26px;
+                    border: 1px solid $colorBorder;
+                    border-radius: $borderRadiusCircle;
+                    content: "";
+                    transition: $transition;
+                }
+                &.one-line {
+                    &::before {
+                        top: 2px;
+                    }
+                    &::after {
+                        top: -1px;
+                    }
+                }
+
+                p {
+                    margin-bottom: 0;
+                    font-weight: 500;
+                }
+                .note {
+                    color: $colorGray;
+                    font-style: italic;
+                    font-size: $font14;
+
+                    &.promo {
+                        color: $colorRedTransparent;
+                    }
+                }
+                img {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            label {
+                cursor: pointer;
+            }
+
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+                cursor: default;
+
+                iframe {
+                    width: 100%;
+                    height: 360px;
+                }
+            }
+
+            .config-text {
+                margin-top: $mb-s;
+                margin-bottom: 0;
+                padding-top: $mb-s;
+                border-top: 1px solid $colorGrayTransparent;
+                color: $colorGray;
+            }
+
+            &:hover {
+                border-color: $colorGray;
+                .switch {
+                    &::before {
+                        background: $colorBorder;
+                    }
+                    &::after {
+                        border-color: $colorGray;
+                    }
+                }
+            }
+            &.active {
+                border-color: $colorRedTransparent;
+
+                .accordion-content {
+                    max-height: 500px;
+                }
+
+                .switch {
+                    &::before {
+                        background: $colorRedTransparent;
+                    }
+                    &::after {
+                        border-color: $colorRedTransparent;
+                    }
+                }
+            }
+            &.active:hover {
+                border-color: $colorRedTransparent;
+                .switch {
+                    &::after {
+                        border-color: $colorRedTransparent;
+                    }
+                }
+            }
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+        input:checked + .config-option {
+            border-color: $colorRedTransparent;
+
+            .switch {
+                &::before {
+                    background: $colorRedTransparent;
+                }
+                &::after {
+                    border-color: $colorRedTransparent;
+                }
+            }
+
+            &:hover {
+                border-color: $colorRedTransparent;
+                .switch {
+                    &::before {
+                        background: $colorRedTransparent;
+                    }
+                    &::after {
+                        border-color: $colorRedTransparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .accordion-content > div {
+        background: $colorGrayTransparent;
+        border-radius: $borderRadiusCommon;
+        margin-top: $mb-m;
+        padding: 1rem 1.5rem;
+    }
+
+    .number-info {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+        .more-info {
+            margin-top: $mb-m;
+
+            svg {
+                margin-left: 0.3rem;
+            }
+        }
+    }
+
+    .config-option.active .number-info {
+        max-height: 500px;
+    }
+}
+
+/*
+@media (min-width: 480px) {
+    .basket-block {
+        .config-options {
+            .config-option {
+                .switch {
+                    img {
+                        right: auto;
+                        left: 8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+*/

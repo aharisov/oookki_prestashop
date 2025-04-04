@@ -127,6 +127,8 @@ themes/*/
 !themes/classic
 !themes/_core
 !themes/_libraries
+!themes/oookki
+!modules/okicustominfo
 
 # Vendors and dependencies
 
@@ -177,3 +179,5 @@ themes/default-bootstrap/modules/*/mails/*
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+
+/themes/oookki/_dev/webpack-errors.json

@@ -1,0 +1,19 @@
+.recommend-list {
+    max-width: 1920px;
+    margin: 4rem auto 3rem;
+    padding: 0 2rem;
+
+    .recommend-slider, .swiper-wrapper {
+        width: 100%;
+    }
+
+    .product-card .inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+            margin-bottom: 0;
+        }
+    }
+}

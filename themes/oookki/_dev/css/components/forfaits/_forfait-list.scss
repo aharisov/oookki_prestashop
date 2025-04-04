@@ -1,0 +1,203 @@
+.plans-list-page {
+    .section-inner {
+        .packs-list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+    }
+}
+
+.plans-advants-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+
+    .right {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+    .advants-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        height: 300px;
+        margin-bottom: $mb-m;
+        border: 1px solid $colorBorder;
+        border-radius: $borderRadiusCommon;
+        overflow: hidden;
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+            height: 55%;
+            padding: 1rem;
+            border-bottom-left-radius: $borderRadiusCommon;
+            border-bottom-right-radius: $borderRadiusCommon;
+            background: rgba($color: $colorGrayHover, $alpha: 0.8);
+
+            h4 {
+                margin-top: $mb-s;
+                margin-bottom: $mb-s;
+                font-size: $fontS;
+                color: $colorRedTransparent;
+            }
+            .link {
+                color: $colorGray;
+            }
+        }
+        .pic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 300px;
+            
+            img {
+                @include imgFit;
+                border-radius: $borderRadiusCommon;
+            }
+        }
+
+        &.big {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
+            margin-bottom: 0;
+            border: 1px solid $colorBorder;
+            border-radius: $borderRadiusCommon;
+
+            .inner {
+                display: block;
+                height: auto;
+                border: none;
+                background: none;
+            }
+            .pic {
+                position: relative;
+                margin-bottom: -6px;
+                height: auto;
+            }
+            img {
+                border-radius: 0;
+                border-bottom-left-radius: $borderRadiusCommon;
+                border-bottom-right-radius: $borderRadiusCommon;
+            }
+        }
+    }
+}
+
+.phones-with-plans {
+    .inner {
+        display: flex;
+        flex-direction: column;
+
+        .swiper {
+            width: 100%;
+        }
+        .block-pic {
+            margin-top: $mb-m;
+            img {
+                border-radius: $borderRadiusCommon;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .plans-advants-list {
+        .advants-item {
+            margin-bottom: 0;
+            &.big {
+                .pic {
+                    height: 450px;
+                    margin-bottom: 0;
+                }
+                img {
+                    @include imgFit;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 640px) {
+    .plans-list-page {
+        .section-inner {
+            .packs-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .plans-advants-list {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .right {
+            width: 60%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .advants-item {
+            &.big {
+                width: 40%;
+            }
+        }
+    }
+
+    .phones-with-plans {
+        .inner {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: $mb-m;
+    
+            .phones-slider {
+                max-width: 400px;
+
+                .swiper-wrapper {
+                    height: 100%;
+                }
+            }
+            .block-pic {
+                margin-top: 0;
+                img {
+                    border-radius: $borderRadiusCommon;
+                    @include imgFit;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .plans-list-page {
+        .section-inner {
+            .packs-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    .plans-advants-list {
+        .right {
+            grid-template-columns: repeat(2, 1fr);
+            width: 70%;
+        }
+        .advants-item {
+            &.big {
+                width: 30%;
+            }
+        }
+    }
+
+    .phones-with-plans {
+        .inner {
+            margin-bottom: 0;
+        }
+    }
+}

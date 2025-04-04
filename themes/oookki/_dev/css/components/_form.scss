@@ -1,0 +1,267 @@
+form {
+    .form-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: $mb-l;
+        padding-bottom: $mb-m;
+        border-bottom: 2px solid $colorRedTransparent2;
+        color: $colorRedTransparent;
+        svg, i {
+            width: 30px;
+            height: 30px;
+            margin-right: $mb-m;
+        }
+        h1, h2 {
+            margin-bottom: 0;
+            font-size: $fontS;
+            text-align: left;
+        }
+    }
+    .form-line {
+        position: relative;
+        margin-bottom: $mb-m;
+
+        &.full-line {
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: $mb-xs;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            max-width: 360px;
+            min-height: 55px;
+            padding: 1rem 0.3rem;
+            border: 2px solid $colorBorder;
+            border-radius: 10px;
+            transition: $transition;
+            font-size: $font16;
+
+            &:focus {
+                border-color: $colorGray;
+            }
+        }
+
+        &.btn-submit-wrap {
+            margin-top: $mb-l;
+        }
+
+        .note {
+            display: flex;
+            margin-top: $mb-s;
+            font-size: $font14;
+            color: $colorGray;
+
+            i {
+                position: relative;
+                top: 3px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 20px;
+                height: 20px;
+                margin-right: $mb-xs;
+                border: 1px solid $colorGray;
+                border-radius: $borderRadiusCircle;
+            }
+            span {
+                display: inline-flex;
+            }
+        }
+        &.error {
+            input {
+                border-color: $colorRedTransparent;
+            }
+        }
+        .error-message {
+            position: relative;
+            display: block;
+            margin-top: $mb-xs;
+            padding-left: 25px;
+            font-size: $font14;
+            color: $colorRedTransparent;
+            i {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 20px;
+                height: 20px;
+                margin-right: 3px;
+                border: 1px solid $colorRedTransparent;
+                border-radius: $borderRadiusCircle;
+                font-size: 12px;
+            }
+        }
+
+        &.with-list {
+            .inner {
+                position: relative;
+
+                &::after {
+                    @include arrow(12px);
+                    margin-top: -2px;
+                }
+            }
+            input {
+                padding-right: 38px;
+            }
+            &.open {
+                .inner::after {
+                    transform: translateY(0) rotate(135deg);
+                }
+                &.error {
+                    .error-message {
+                        position: absolute;
+                    }
+                }
+            }
+        }
+        .datalist {
+            position: absolute;
+            top: 56px;
+            z-index: 99;
+            width: 100%;
+            height: 280px;
+            overflow-y: scroll;
+            padding: 1rem;
+            border: 1px solid $colorBorder;
+            border-radius: 10px;
+            background: $colorSecond;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 5px $colorBorder;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $colorRedTransparent;
+                border-radius: 5px;
+            }
+            .option {
+                padding: 3px 0;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    color: $colorRedTransparent;
+                }
+            }
+        }
+
+        &.with-checkbox {
+            label {
+                @include customCheckbox($colorPrimary, $colorPrimary, 3px);
+
+                span {
+                    display: block;
+
+                    &::before {
+                        transform: translateY(0);
+                    }
+                    &::after {
+                        top: 6px !important;
+                    }
+                }
+            }
+        }
+        .form-line__content {
+            display: flex;
+            align-items: center
+        }
+        .radio-group {
+            label {
+                margin-right: 2rem;
+                @include customRadioBtn;
+
+                span {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &.auth-form {
+        max-width: 640px;
+        .note {
+            margin-top: $mb-m;
+            font-size: $font14;
+        }
+    }
+
+    .form-note {
+        // padding: 0.5rem 1rem;
+        // background: $colorGrayTransparent2;
+        // border-radius: $borderRadiusS;
+        font-style: italic;
+        color: $colorGray;
+        &.success {
+            max-height: 0;
+            margin: 0 0 1rem;
+            padding: 0;
+            background: $colorSuccess;
+            color: $colorWhite;
+            transition: max-height 0.3s ease-in;
+            overflow: hidden;
+
+            &.active {
+                max-height: 300px;
+                padding: 1rem;
+            }
+        }
+    }
+
+    .button-line {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        width: 100% !important;
+        margin-top: $mb-m;
+
+        p {
+            margin-top: $mb-m;
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    form {
+        .form-title {
+            h1, h2 {
+                font-size: $fontS;
+            }
+        }
+    }
+}
+@media (min-width: 640px) {
+    form {
+        .form-title {
+            justify-content: center;
+            svg, i {
+                width: 50px;
+                height: 50px;
+            }
+            h1, h2 {
+                font-size: $fontM;
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    form {
+        .form-title {
+            h1, h2 {
+                font-size: $fontL;
+            }
+        }
+    }
+}

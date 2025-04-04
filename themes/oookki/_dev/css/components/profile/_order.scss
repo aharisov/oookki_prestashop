@@ -1,0 +1,205 @@
+.title-wrap {
+    margin-bottom: $mb-l;
+
+    .btn {
+        svg, i {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.orders-list {
+    &.order-detail {
+        .order-item {
+            border: none;
+
+            .order-body {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    .order-line {
+        &.total {
+            width: 100%;
+            ul {
+                display: block;
+                width: 100%;
+            }
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 0.5rem;
+
+                i {
+                    color: $colorGray;
+                }
+                &:last-child {
+                    font-weight: bold;
+
+                    i {
+                        color: $colorRedTransparent;
+                    }
+                }
+            }
+        }
+    }
+    .order-addr {
+        margin-bottom: $mb-l;
+        .addr-item {
+            min-width: 250px;
+            margin-bottom: $mb-m;
+            padding: 1rem 1.5rem;
+            background: $colorGrayTransparent;
+            border-radius: $borderRadiusCommon;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .order-bot {
+        margin-bottom: $mb-l;
+        padding: 1rem 1.5rem;
+        border: 1px solid $colorGrayTransparent2;
+        border-radius: $borderRadiusCommon;
+    }
+    .order-props {
+        margin-bottom: $mb-l;
+
+        li {
+            margin-bottom: $mb-s;
+            span {
+                display: block;
+            }
+            a {
+                font-weight: bold;
+                color: $colorGray;  
+            }
+            i {
+                font-weight: bold;
+                color: $colorGray;
+            }
+            .order-status {
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .orders-list {
+        .order-props {
+            li {
+                display: flex;
+                align-items: center;
+
+                span {
+                    width: 150px;
+                    margin-right: $mb-m;
+                }
+            }
+
+            .order-status {
+                margin-top: 0;
+            }
+            &.order-history {
+                span {
+                    width: auto;
+                    margin-left: $mb-m;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 640px) {
+    .orders-list {
+        .order-addr {
+            display: flex;
+            justify-content: space-between;
+            .addr-item {
+                width: 48%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .title-wrap {
+        h1 {
+            margin-bottom: $mb-xs;
+        }
+    }
+    .orders-list {
+        .order-line {
+            &.total {
+                max-width: 400px;
+                margin-left: auto;
+            }
+        }
+        .order-addr {
+            flex-direction: column;
+            .addr-item {
+                width: 100%;
+                margin-bottom: $mb-m;
+            }
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .orders-list {
+        .order-addr {
+            flex-direction: row;
+            gap: 1rem;
+            .addr-item {
+                width: 48%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .title-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {margin-bottom: 0;}
+    }
+    .orders-list {
+        .order-bot {
+            display: flex;
+            justify-content: space-between;
+
+            .order-props {
+                position: relative;
+                width: 45%;
+                margin-bottom: 0;
+
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    right: -2.5rem;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 90%;
+                    background: $colorGrayTransparent2;
+                    content: "";
+                }
+                &:last-child::after {
+                    display: none;
+                }
+
+                li {
+                    justify-content: space-between;
+                }
+                .order-status {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

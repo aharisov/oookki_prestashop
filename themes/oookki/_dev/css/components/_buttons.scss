@@ -1,0 +1,108 @@
+.btn {
+    display: inline-flex;
+    @include flexCenter;
+    min-height: 40px;
+    padding: 0.5rem 1rem;
+    border-radius: $borderRadiusCommon;
+    cursor: pointer;
+    transition: $transition;
+
+    &:disabled, &:disabled:hover {
+        background: $colorSecond;
+        border-color: $colorGray;
+        color: $colorGray;
+        cursor: not-allowed;
+    }
+
+    svg, i {
+        width: 16px;
+        height: 16px;
+    }
+    &.icon-right {
+        svg {
+            margin-left: $mb-s;
+        }
+    }
+    &.icon-left {
+        svg {
+            margin-right: $mb-s;
+        }
+    }
+}
+
+.btn-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.8rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    .bar-one,
+    .bar-two,
+    .bar-three {
+        width: 2rem;
+        height: 2.5px;
+        background: $colorPrimary;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+    }
+
+    .bar-one {
+        transform: rotate(0);
+    }
+    .bar-two {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .bar-three {
+        transform: rotate(0);
+    }
+
+    &.opened {
+        .bar-one {
+            transform: rotate(45deg);
+        }
+        .bar-two {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        .bar-three {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.btn-black {
+    @include btn($colorWhite, $colorPrimary, $colorPrimary, $colorWhite, 'full');
+}
+.btn-black__empty {
+    @include btn($colorPrimary, $colorWhite, $colorWhite, $colorPrimary, 'empty');
+}
+.btn-red {
+    @include btn($colorWhite, $colorRed, $colorRed, $colorWhite, 'full');
+}
+.btn-red__empty {
+    @include btn($colorRed, $colorWhite, $colorWhite, $colorRed, 'empty');
+}
+.btn-rose {
+    @include btn($colorWhite, $colorRedTransparent, $colorWhite, $colorRed, 'full');
+}
+
+@media (min-width: 1024px) {
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+    .btn-mobile {
+        display: none;
+    }
+}

@@ -1,0 +1,304 @@
+// Base Styles
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: $fontPrimary;
+    color: $colorPrimary;
+    line-height: 1.4;
+    overflow-x: hidden;
+
+    &.lock {
+        overflow: hidden;
+    }
+}
+  
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fontTitle;
+}
+h1, h2 {
+    margin-bottom: 1.5rem;
+    font-size: $fontL;
+}
+h3, h4 {
+    margin-bottom: 1rem;
+    font-size: $fontM;
+}
+h5, h6 {
+    margin-bottom: 1rem;
+    font-size: $fontS;
+}
+
+p {
+    font-size: 1rem;
+}
+
+img {
+    width: 100%;
+}
+img.icon {
+    width: auto;
+}
+
+button {
+    font-family: $fontPrimary;
+    font-size: $font16;
+}
+
+main {
+    margin-top: 5rem;
+    flex: 1;
+}
+main:has(.top-slider) {
+    margin-top: 50px;
+}
+
+.cont {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.mb-common {
+    margin-bottom: 2.5rem;
+}
+.text-red {
+    color: $colorRed;
+}
+.link {
+    padding: 0;
+    border-bottom: 1px solid $colorPrimary;
+    transition: $transition;
+
+    &:hover {
+        color: $colorRed;
+        border-color: $colorRed;
+    }
+}
+.red {
+    color: $colorRedTransparent;
+}
+.red-full {
+    color: $colorRed;
+}
+
+.section-head {
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+.section-link__bottom {
+    justify-content: center;
+    margin-top: 0.5rem;
+
+    .link {
+        display: inline-flex;
+        font-size: $fontXS;
+    }
+}
+.section-link__top {
+    display: none;
+    font-size: $fontXS;
+}
+
+.up-btn {
+    position: fixed;
+    right: 1rem;
+    bottom: 2rem;
+    z-index: 99999;
+    width: 50px;
+    height: 50px;
+    background: $colorWhite;
+    border: 1px solid $colorPrimary;
+    border-radius: $borderRadiusCircle;
+    transform: rotate(90deg);
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+        background: $colorGrayHover;
+    }
+}
+.product-page .up-btn {
+    bottom: 6rem;
+}
+
+.breadcrumbs {
+    margin-bottom: $mb-l;
+    li {
+        position: relative;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+        padding-right: 0.5rem;
+
+        &::after {
+            position: absolute;
+            right: -0.5rem;
+            content: "/";
+        }
+        &:last-child::after {
+            display: none;
+        }
+
+        a {
+            border-bottom: 1px solid $colorPrimary;
+
+            &:hover {
+                color: $colorGray;
+                border-color: $colorGray;
+            }
+        }
+        span {
+            cursor: default;
+        }
+    }
+}
+ 
+[aria-hidden="true"]:not(svg),
+.hidden {
+    display: none;
+}
+
+.accordion-item {
+    margin-bottom: $mb-m;
+    border: 1px solid $colorBorder;
+    border-radius: $borderRadiusCommon;
+
+    .accordion-head {
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: $borderRadiusCommon;
+        cursor: pointer;
+        transition: $transition;
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid $colorPrimary;
+            border-bottom: 2px solid $colorPrimary;
+            border-bottom-left-radius: 3px;
+            transform: translateY(-50%) rotate(-45deg);
+            transition: $transition;
+            content: "";
+        }
+
+        &:hover {
+            background: $colorSecond;
+        }
+    }
+    .accordion-content {
+        max-height: 0;
+        padding: 0 1rem;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        cursor: default;
+    }
+
+    &.active {
+        .accordion-head:hover {
+            background: none;
+        }
+        .accordion-head::after {
+            transform: translateY(-50%) rotate(135deg);
+        }
+        .accordion-content {
+            max-height: 500px;
+            padding: 0.5rem 1rem 1rem;
+        }
+    }
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+
+    svg, i {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .up-btn {
+        bottom: 4rem;
+    }
+    .icon {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+    }
+}
+@media (min-width: 1024px) {
+    body {
+        line-height: 1.6;
+    }
+    h1, h2 {
+        margin-bottom: 2rem;
+    }
+    h3,h4 {
+        margin-bottom: 1.5rem;
+    }
+
+    main {
+        margin-top: 10rem;
+    }
+    main:has(.top-slider) {
+        margin-top: 122px;
+    }
+
+    .mb-common {
+        margin-bottom: 3rem;
+    }
+
+    .section-head {
+        margin-bottom: $mb-l;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+    .section-link__top {
+        display: inline-flex;
+    }
+    .section-link__bottom {
+        display: none;
+    }
+
+    .up-btn {
+        right: 2rem;
+
+        &:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+    }
+    .product-page .up-btn {
+        bottom: 2rem;
+    }
+}
+@media (min-width: 1200px) {
+    .breadcrumbs li {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1360px) {
+    .mb-common {
+        margin-bottom: 4rem;
+    }
+    .cont {
+        padding: 0;
+    }
+}

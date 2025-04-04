@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+<defs>
+</defs>
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+	<path d="M 62.334 90 H 27.666 c -5.221 0 -9.469 -4.248 -9.469 -9.468 V 9.469 C 18.198 4.248 22.446 0 27.666 0 h 34.668 c 5.22 0 9.468 4.248 9.468 9.469 v 71.063 C 71.802 85.752 67.554 90 62.334 90 z M 27.666 2.967 c -3.585 0 -6.502 2.916 -6.502 6.502 v 71.063 c 0 3.584 2.916 6.501 6.502 6.501 h 34.668 c 3.584 0 6.501 -2.917 6.501 -6.501 V 9.469 c 0 -3.585 -2.917 -6.502 -6.501 -6.502 H 27.666 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<path d="M 54.202 11.62 H 35.799 c -0.82 0 -1.484 -0.664 -1.484 -1.484 c 0 -0.82 0.664 -1.484 1.484 -1.484 h 18.403 c 0.819 0 1.484 0.664 1.484 1.484 C 55.685 10.956 55.021 11.62 54.202 11.62 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<circle cx="44.997" cy="78.487" r="2.817" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+	<path d="M 45 81.801 c -1.826 0 -3.311 -1.485 -3.311 -3.312 c 0 -1.825 1.485 -3.311 3.311 -3.311 c 1.826 0 3.312 1.485 3.312 3.311 C 48.312 80.316 46.827 81.801 45 81.801 z M 45 76.167 c -1.281 0 -2.322 1.041 -2.322 2.322 c 0 1.281 1.042 2.323 2.322 2.323 c 1.281 0 2.323 -1.042 2.323 -2.323 C 47.323 77.208 46.281 76.167 45 76.167 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+</g>
+</svg>

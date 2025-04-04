@@ -1,0 +1,254 @@
+.compare-search-modal {
+    flex-direction: column;
+
+    &.modal {
+        left: 0;
+        width: 100%;
+        border: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        transform: translateX(0) translateY(100%);
+        
+        &.show {
+            bottom: 0;
+            transform: translateY(0);
+        }
+
+        .note {
+            font-size: $font14;
+        }
+    }
+    .title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: $mb-xl;
+        padding-bottom: $mb-s;
+        border-bottom: 1px solid $colorBorder;
+
+        .return {
+            color: $colorGrayLight;
+        }
+        h3 {
+            margin-bottom: 0;
+        }
+        .return {
+            position: absolute;
+            left: 0;
+            top: -22px;
+            opacity: 0;
+            visibility: hidden;
+            transition: $transition;
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    .compare-search {
+        .top {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+
+            input {
+                width: 100%;
+                height: 40px;
+                padding: 0.2rem 0;
+                padding-left: 3rem;
+                padding-right: 1rem;
+                border: 1px solid $colorBorder;
+                border-radius: $borderRadiusS;
+            }
+            .icon {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                width: 24px;
+                height: 24px;
+                color: $colorRedTransparent2;
+                transform: translateY(-50%);
+            }
+        }
+
+        .content {
+            max-height: 200px;
+            margin: $mb-l 0;
+            overflow-y: auto;
+        }
+        .brand-list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0.5rem;
+
+            &.hidden {
+                display: none;
+            }
+            button {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                padding: 1rem;
+                background: $colorGrayTransparent;
+                border: 2px solid $colorGrayTransparent;
+                border-radius: $borderRadiusS;
+                transition: $transition;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: $mb-s;
+                }
+
+                &:hover {
+                    border-color: $colorRedTransparent2;
+                    background: transparent;
+                }
+            }
+        }
+
+        .model-list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0.5rem;
+
+            &.hidden {
+                display: none;
+            }
+            button {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                padding: 1rem;
+                border: 2px solid $colorBorder;
+                border-radius: $borderRadiusS;
+                transition: $transition;
+
+                img {
+                    width: 40px;
+                    height: 50px;
+                    margin-right: $mb-s;
+                }
+
+                &:hover, &.active {
+                    border-color: $colorRedTransparent2;
+                }
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+
+                    &:hover {
+                        border-color: $colorBorder;
+                    }
+                }
+            }
+        }
+    }
+
+    .compare-list {
+        .compare-item {
+            max-height: none;
+
+            &.empty {
+                border-color: $colorGrayLight;
+                background: $colorGrayTransparent;
+            }
+            .pic {
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
+@media (max-height: 720px) {
+    .compare-search-modal {
+        height: 300px;
+        overflow-y: scroll;
+    }
+}
+@media (min-width: 380px) {
+    .compare-search-modal {
+        .title {
+            .return {
+                top: auto;
+            }
+        }
+    }
+}
+@media (min-width: 480px) {
+    .compare-search-modal {
+        .compare-search {
+            .brand-list, .model-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .compare-search-modal {
+
+        &.modal {
+            left: 50%;
+            width: 98%;
+            border: 1px solid $colorBorder;
+            border-bottom-left-radius: $borderRadiusCommon;
+            border-bottom-right-radius: $borderRadiusCommon;
+            transform: translate(-50%, 0);
+            
+            &.show {
+                bottom: 50%;
+                transform: translate(-50%, 50%);
+            }
+    
+            .note {
+                font-size: $font16;
+            }
+        }
+        .compare-search {
+            .top {
+                input {
+                    height: 50px;
+                    font-size: $fontXS;
+                }
+            }
+            .brand-list, .model-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .brand-list {
+                button {
+                    font-size: $fontXS;
+                }
+            }
+            .model-list {
+                button {
+                    font-size: $fontXS;
+                }
+            }
+        }
+
+        .compare-list {
+            .compare-item {
+                max-height: 120px;
+                &:last-child {
+                    display: flex;
+                }
+                .pic {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .compare-search-modal .compare-search .content {
+        max-height: 300px;
+    }
+}

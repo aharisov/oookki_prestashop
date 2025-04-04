@@ -1,0 +1,108 @@
+
+.show-mobile-cart {
+    margin: 0 auto $mb-l;
+}
+.order-cart-hidden {
+    .cart-summary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        &.show {
+            position: relative;
+            transform: translateY(0);
+        }
+    }
+}
+.personal-block {
+    margin-bottom: $mb-l;
+    padding-bottom: $mb-l;
+    border-bottom: 1px solid $colorBorder;
+
+    &__inner {
+        .form-line {
+            input {
+                max-width: none !important;
+            }
+            &__content {
+                display: flex;
+                align-items: center;
+                .radio {
+                    display: inline-flex;
+                    align-items: center;
+                    margin-right: $mb-l;
+                    @include customRadioBtn;
+                }
+                .check {
+                    @include customCheckbox($colorRedTransparent, $colorRedTransparent, 0);
+
+                    span {
+                        display: inline-block;
+
+                        &::before {
+                            top: 4px;
+                        }
+                        &::after {
+                            margin-top: 4px;
+                        }
+                    }
+                }
+            }
+            .note {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 505px) {
+    .personal-block {
+        &__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .form-line {
+                width: 48%;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .show-mobile-cart {
+        display: none;
+    }
+
+    .order-cart-hidden {
+        .cart-summary {
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            overflow-y: unset;
+        }
+    }
+
+    .personal-block {
+        &__inner {
+            .form-line {
+                label {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 800px) {
+    .personal-block {
+        &__inner {
+            .form-line {
+                label {
+                    font-size: $font16;
+                }
+            }
+        }
+    }
+}
