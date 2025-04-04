@@ -6,7 +6,8 @@
   {block name='page_content'}
     {block name='hook_home'}
       {hook h='displayHome'}
-      {hook h='displayFlexInstance'}
+      {hook h='displayOkiCustomInfo' id_block=3 template='home-howto'}
+      {hook h='displayOkiCustomInfo' id_block=1 template='home-advants'}
     {/block}
   {/block}
 {/block}

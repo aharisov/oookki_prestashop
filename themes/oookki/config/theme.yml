@@ -53,8 +53,6 @@ global_settings:
     modules_to_hook:
       displayMainMenu:
         - ps_mainmenu
-      displayAfterBodyOpeningTag:
-        - blockreassurance
       displayNavFullWidth:
         - blockreassurance
       displayAdminCustomers:
@@ -67,27 +65,21 @@ global_settings:
       displayNav1:
         - ps_contactinfo
       displayNav2:
-        - ps_customersignin
         - ps_shoppingcart
+        - ps_customersignin
       displayTop:
         - ps_searchbar
       displayHome:
         - ps_imageslider
         - ps_featuredproducts
-        - ps_banner
-        - ps_customtext
         - ps_specials
         - ps_newproducts
         - ps_bestsellers
       displayFooterBefore:
         - ps_emailsubscription
-        - ps_socialfollow
-        - blockreassurance
       displayFooter:
         - ps_linklist
-        - ps_customeraccountlinks
         - ps_contactinfo
-        - blockwishlist
       displayFooterAfter:
         - blockreassurance
       displayFooterProduct:
@@ -95,10 +87,6 @@ global_settings:
       displayLeftColumn:
         - ps_categorytree
         - ps_facetedsearch
-      displayContactLeftColumn:
-        - ps_contactinfo
-      displayContactRightColumn:
-        - ps_contactinfo
       displayContactContent:
         - contactform
       displaySearch:
@@ -145,6 +133,23 @@ global_settings:
       height: 300
       scope: [ stores ]
   new_password_policy_feature: true
+
+assets:
+  js:
+    all:
+      - id: swiper-lib
+        path: assets/js/lib/swiper-bundle.min.js
+        priority: 0
+        position: bottom
+    product:
+      - id: photoswipe-lightbox-lib
+        path: assets/js/lib/photoswipe-lightbox.esm.min.js
+        priority: 1
+        position: bottom
+      - id: photoswipe-lib
+        path: assets/js/lib/photoswipe.esm.min.js
+        priority: 2
+        position: bottom
 
 theme_settings:
   default_layout: layout-full-width
