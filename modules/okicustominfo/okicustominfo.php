@@ -145,6 +145,11 @@ class OkiCustomInfo extends Module
         $id_block = (int) $params['id_block'];
         $template = isset($params['template']) ? preg_replace('/[^a-zA-Z0-9_-]+/', '', $params['template']) : '';
 
+        // Fetch InfoBlock info
+        $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_blocks` 
+        WHERE `id_block` = ' . $id_block;
+        $infoBlock = Db::getInstance()->executeS($sql);
+
         // Fetch items related to this InfoBlock
         $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_items_' . (int)$id_block . '` 
         WHERE `active` = 1 
@@ -156,6 +161,7 @@ class OkiCustomInfo extends Module
 
         // Assign variables to Smarty
         $this->context->smarty->assign([
+            'infoblock' => $infoBlock[0],
             'items' => $items,
             'module_dir' => _MODULE_DIR_ . $this->name
         ]);

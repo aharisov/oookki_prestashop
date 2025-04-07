@@ -1,7 +1,9 @@
 <section class="home-section faq mb-common">
   <div class="cont">
     <div class="section-head flex">
-        <h2>Quelques conseils ?</h2>
+        {if $infoblock}
+          <h2>{$infoblock.title}</h2>
+        {/if}
     </div>
     <div class="faq-list">
       {if $items}
