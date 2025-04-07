@@ -67,6 +67,10 @@
       {hook h="displayWrapperBottom"}
     </main>
 
+    {block name='hook_footer_before'}
+      {hook h='displayFooterBefore'}
+    {/block}
+
     <footer id="footer" class="js-footer">
       {block name="footer"}
         {include file="_partials/footer.tpl"}

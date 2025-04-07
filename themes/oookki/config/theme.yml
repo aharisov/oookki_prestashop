@@ -72,16 +72,17 @@ global_settings:
       displayHome:
         - ps_imageslider
         - ps_featuredproducts
-        - ps_specials
-        - ps_newproducts
-        - ps_bestsellers
+        # - ps_specials
+        # - ps_newproducts
+        # - ps_bestsellers
+      displayFeatured:
+        - okifeaturedproducts
       displayFooterBefore:
         - ps_emailsubscription
       displayFooter:
         - ps_linklist
-        - ps_contactinfo
       displayFooterAfter:
-        - blockreassurance
+        - ps_socialfollow
       displayFooterProduct:
         - productcomments
       displayLeftColumn:
