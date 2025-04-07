@@ -1,4 +1,5 @@
 {foreach from=$products item="product" key="position"}
+	{* {$product|@print_r} *}
 	{assign var="is_ok" value=false}
 
 	{foreach from=$product.features item=feature}

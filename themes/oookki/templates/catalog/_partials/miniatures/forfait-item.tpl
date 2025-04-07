@@ -29,4 +29,4 @@
 			<a href="#" class="btn btn-red js-open-modal" data-modal="pack-modal" data-id="1">Je souscris</a>
 		</div>
 	</div>
-	{/block}
+{/block}
