@@ -70,7 +70,7 @@ global_settings:
       displayTop:
         - ps_searchbar
       displayHome:
-        - ps_imageslider
+        # - ps_imageslider
         - ps_featuredproducts
         # - ps_specials
         # - ps_newproducts

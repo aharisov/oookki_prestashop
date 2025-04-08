@@ -12,7 +12,13 @@
               <input type="file" name="item[image]" class="form-control" />
               <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
             </div>
-          {else}
+          {elseif $fields["type"][$counter] == "BOOLEAN"}
+            <div class="form-group d-flex">
+              <label>{$field}</label>
+              <input type="checkbox" name="item[{$field|replace:' ':'_'|lower}]" value="1" {if $field|replace:' ':'_'|lower}checked{/if} class="form-control" />
+              <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
+            </div>
+          {else}  
             <div class="form-group d-flex">
               <label>{$field}</label>
               <input type="text" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />

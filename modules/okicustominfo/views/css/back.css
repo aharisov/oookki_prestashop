@@ -33,6 +33,13 @@
 .form-group input {
   max-width: 50%;
 }
+.form-group input[type=checkbox] {
+  width: 30px;
+  height: 30px;
+}
+.form-group input[type=checkbox]:focus {
+  outline: none;
+}
 
 .bootstrap .form-wrapper .col-lg-4 {
   width: 200px;

@@ -112,6 +112,7 @@ class AdminOkiCustomInfoController extends ModuleAdminController
                             <option value="INT" ' . ($type == 'INT' ? 'selected' : '') . '>Integer</option>
                             <option value="FLOAT" ' . ($type == 'FLOAT' ? 'selected' : '') . '>Decimal</option>
                             <option value="image" ' . ($type == 'image' ? 'selected' : '') . '>Image</option>
+                            <option value="BOOLEAN" ' . ($type == 'BOOLEAN' ? 'selected' : '') . '>Boolean</option>
                         </select>
                         <button type="button" class="btn btn-danger delete-field">Delete</button>
                     </div>';
@@ -126,6 +127,7 @@ class AdminOkiCustomInfoController extends ModuleAdminController
                             <option value="INT">Integer</option>
                             <option value="FLOAT">Decimal</option>
                             <option value="image">Image</option>
+                            <option value="BOOLEAN">Boolean</option>
                         </select>
                     </div>';
         }

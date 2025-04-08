@@ -67,7 +67,7 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
             $updateData = [];
             foreach ($_POST as $key => $value) {
                 if (!in_array($key, ['submit_modify_item', 'id_item', 'id_block'])) {
-                    $updateData[$key] = pSQL($value);
+                    $updateData[$key] = pSQL($value, true);
                 }
             }
 

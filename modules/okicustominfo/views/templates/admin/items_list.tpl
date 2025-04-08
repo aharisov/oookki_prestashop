@@ -22,6 +22,7 @@
     </div>
     <div id="sortable-list" class="listing-body">
       {foreach from=$items item=item}
+        {* {$item|@print_r} *}
         <div class="listing-row row" data-id="{$item.id_item}" data-block="{$item.id_block}">
           <div class="col-lg-1 drag-handle">
             <i class="material-icons">drag_handle</i>
@@ -35,6 +36,12 @@
                   <a href="../{$item[$field|replace:' ':'_'|lower]}" target="_blank">
                     <img class="pic" src="../{$item[$field|replace:' ':'_'|lower]}" />
                   </a>
+                {/if}
+              {elseif $field|replace:' ':'_'|lower == 'show_logo'}  
+                {if $item[$field|replace:' ':'_'|lower] == 1}
+                  Oui
+                {else}
+                  Non
                 {/if}
               {else}
                 <p>{$item[$field|replace:' ':'_'|lower]}</p>

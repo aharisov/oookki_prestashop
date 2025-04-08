@@ -16,10 +16,15 @@
               <label>{$name|replace:'_':' '|capitalize}</label>
               <input type="file" name="image" value="{$field}" class="form-control" />
             </div>
+          {elseif $name == "show_logo"}
+            <div class="form-group d-flex">
+              <label>{$name|replace:'_':' '|capitalize}</label>
+              <input type="checkbox" name="{$name}" value="1" {if $field == 1}checked{/if} class="form-control" />
+            </div>
           {else}
             <div class="form-group d-flex">
               <label>{$name|replace:'_':' '|capitalize}</label>
-              <input type="text" name="{$name}" value="{$field}" class="form-control" />
+              <input type="text" name="{$name}" value='{$field}' class="form-control" />
             </div>
           {/if}
         {/if}

@@ -91,7 +91,7 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
             
             foreach ($fieldValues as $field => $value) {
                 $columns[] = pSQL($field);
-                $values[] = "'" . pSQL($value) . "'";
+                $values[] = "'" . pSQL($value, true) . "'";
             }
 
             $sql = "INSERT INTO `$tableName` (`id_block`, " . implode(', ', $columns) . ", `date_created`) 
