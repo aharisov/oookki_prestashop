@@ -9,7 +9,7 @@
       {* {$itemData|@print_r} *}
       {foreach from=$itemData key=name item=field}
         {if $name != "id_item" && $name != "id_block" && $name != "active" && $name != "position"
-            && $name != "date_created" && $name != "date_updated"
+            && $name != "date_created" && $name != "date_updated" && $name != "categories"
         }
           {if $name == "image"}
             <div class="form-group d-flex">
@@ -29,6 +29,16 @@
           {/if}
         {/if}
       {/foreach}
+
+      {assign var="category_ids" value=","|explode:$itemData.categories}
+      <div class="form-group d-flex flex-column">
+        <label for="item_categories">Catégories</label>
+        <select name="item[categories][]" multiple class="form-control" style="height: 150px;">
+          {foreach from=$categories item=category}
+            <option value="{$category.id_category}" {if $category.id_category|in_array:$category_ids}selected{/if}>{$category.name}</option>
+          {/foreach}
+        </select>
+      </div>
 
       <div class="panel-footer">
         <a href="{$link->getAdminLink('AdminOkiCustomInfoItems')|escape:'html':'UTF-8'}&id_block={$id_block}" class="btn btn-secondary">

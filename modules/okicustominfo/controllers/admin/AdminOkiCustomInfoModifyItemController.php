@@ -41,6 +41,7 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
         $this->context->smarty->assign([
             'block_name' => $block->name,
             'itemData' => $itemData,
+            'categories' => Category::getCategories($this->context->language->id, true, false),
             'id_block' => $id_block,
         ]);
 
@@ -67,10 +68,19 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
             $updateData = [];
             foreach ($_POST as $key => $value) {
                 if (!in_array($key, ['submit_modify_item', 'id_item', 'id_block'])) {
-                    $updateData[$key] = pSQL($value, true);
+                    // print_r($value);
+                    
+                    if (isset($value['categories']) && is_array($value['categories'])) {
+                        // If categories is an array, implode and sanitize it
+                        $updateData['categories'] = pSQL(implode(',', $value['categories']), true);
+                    } else {
+                        // For other fields, sanitize the value
+                        $updateData[$key] = pSQL($value, true);
+                    }
                 }
             }
 
+            // echo '<pre>'; print_r($updateData);echo '</pre>';
             // Handle image upload
             if (isset($_FILES['image']) && !empty($_FILES['image'])) {
                 $imageDir = _PS_MODULE_DIR_ . 'okicustominfo/views/img/';

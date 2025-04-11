@@ -27,6 +27,15 @@
           {/if}
           {counter}
         {/foreach}
+        <div class="form-group d-flex flex-column">
+          <label for="item_categories">Catégories</label>
+          <select name="item[categories][]" multiple class="form-control" style="height: 150px;">
+            {foreach from=$categories item=category}
+              <option value="{$category.id_category}">{$category.name}</option>
+            {/foreach}
+          </select>
+          <input type="hidden" name="type[categories]" value="CATEGORIES">
+        </div>
       </div>
       
       <div class="panel-footer">

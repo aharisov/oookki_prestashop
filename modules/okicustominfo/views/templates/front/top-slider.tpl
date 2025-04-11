@@ -1,7 +1,24 @@
 {if $items}
+  {* {$items|@print_r} *}
+  {assign var="counter" value=0}
+  {foreach from=$items item=slide}
+    {assign var="cat_ids" value=","|explode:$slide.categories}
+    {if $category|in_array:$cat_ids}
+      {assign var="counter" value=$counter+1}
+    {/if}
+  {/foreach}
+
+  {if $counter > 0}
   <div class="top-slider swiper mb-common">
     <div class="swiper-wrapper">
       {foreach from=$items item=slide}
+        {assign var="show_slide" value=false}
+        {assign var="categories" value=","|explode:$slide.categories}
+        {if $category|in_array:$categories}
+          {assign var="show_slide" value=true}
+        {/if}
+
+        {if $show_slide}
         <div class="swiper-slide">
           <div class="slide-inner bg-dark">
             <div class="slide-text">
@@ -69,6 +86,7 @@
             <div class="swiper-lazy-preloader"></div>
           </div>
         </div>
+        {/if}
       {/foreach}
     </div>
 
@@ -77,4 +95,5 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
+  {/if}
 {/if}

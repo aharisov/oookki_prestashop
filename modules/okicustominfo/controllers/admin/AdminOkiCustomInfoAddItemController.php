@@ -35,6 +35,7 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
         $this->context->smarty->assign([
             'block_name' => $block->name,
             'fields' => $fields,
+            'categories' => Category::getCategories($this->context->language->id, true, false),
             'id_block' => $id_block,
         ]);
 
@@ -52,6 +53,8 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
             $fields = Tools::getValue('item'); // Get regular form fields
             $fieldValues = []; // Array to store final values
             $fromItems = Tools::getValue('from_items'); // Check if we add item from items page
+            // $categories = Tools::getValue('item[categories]');
+            // $categoriesString = is_array($categories) ? implode(',', $categories) : '';
 
             if (!$id_block || empty($fields)) {
                 $this->errors[] = $this->l('Données invalides.');
@@ -62,7 +65,8 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
             // echo '<pre>'; print_r($fields); echo '</pre>';
             // die();
             foreach ($fields as $field => $value) {
-                $fieldValues[$field] = $value;
+                // echo '<pre>'; print_r($value); echo '</pre>';
+                $fieldValues[$field] = isset($value) ? (is_array($value) ? implode(',', $value) : $value) : '';
             }
 
             // Handle image upload

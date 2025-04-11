@@ -17,6 +17,10 @@ class AdminOkiCustomInfoController extends ModuleAdminController
             'id_block' => ['title' => $this->l('ID'), 'align' => 'center'],
             'name' => ['title' => $this->l('Type')],
             'title' => ['title' => $this->l('Titre')],
+            'categories' => [
+                'title' => $this->l('Catégories'),
+                'callback' => 'renderCategoryNames',
+            ],
             'date_created' => ['title' => $this->l('Créé à')],
             'add_item' => [
                 'title' => $this->l('Actions'),
@@ -61,6 +65,21 @@ class AdminOkiCustomInfoController extends ModuleAdminController
         }
 
         return '<a href="' . $addItemUrl . '" class="btn btn-success btn-sm">' . $this->l('Ajouter un élément') . '</a> ' . $viewButton;
+    }
+
+    public function renderCategoryNames($value, $row)
+    {
+        $ids = explode(',', $value);
+        $names = [];
+
+        foreach ($ids as $id) {
+            $category = new Category((int)$id, $this->context->language->id);
+            if (Validate::isLoadedObject($category)) {
+                $names[] = $category->name;
+            }
+        }
+
+        return implode(', ', $names);
     }
 
     /**
@@ -135,6 +154,10 @@ class AdminOkiCustomInfoController extends ModuleAdminController
         $dynamicFieldsHtml .= '</div>
         <button type="button" id="add-field" class="btn btn-primary">' . $this->l('Add Field') . '</button>';
 
+        $selectedCategories = [];
+        if (isset($this->object) && $this->object->id && !empty($this->object->categories)) {
+            $selectedCategories = explode(',', $this->object->categories);
+        }
         // Define the form for creating or editing an InfoBlock
         $this->fields_form = [
             'legend' => ['title' => $this->l('Créer/Modifier l\'InfoBlock')],
@@ -149,7 +172,18 @@ class AdminOkiCustomInfoController extends ModuleAdminController
                     'type' => 'text',
                     'label' => $this->l('Titre pour afficher dans une section'),
                     'name' => 'title',
-                    'required' => true,
+                    'required' => false,
+                ],
+                [
+                    'type' => 'categories',
+                    'label' => $this->l('Catégories'),
+                    'name' => 'categories',
+                    'tree' => [
+                        'id' => 'categories-tree',
+                        'selected_categories' => $selectedCategories,
+                        'use_search' => true,
+                        'use_checkbox' => true,
+                    ],
                 ],
                 [
                     'type' => 'text',
@@ -186,6 +220,10 @@ class AdminOkiCustomInfoController extends ModuleAdminController
             $properties = json_encode($fields);
             // Assign JSON to properties field
             $_POST['properties'] = $properties;
+            // Get categories
+            $categories = Tools::getValue('categories'); 
+            $categoriesString = is_array($categories) ? implode(',', $categories) : '';
+            $_POST['categories'] = $categoriesString;
 
             if ($id_block) {
                 if (!$this->doesItemsTableExist($id_block)) {
@@ -195,6 +233,7 @@ class AdminOkiCustomInfoController extends ModuleAdminController
                         $block->name = Tools::getValue('name');
                         $block->title = Tools::getValue('title');
                         $block->properties = $properties;
+                        $block->categories = $categoriesString;
                         $block->date_updated = date('Y-m-d H:i:s'); 
                         $block->update();
                         $block->rebuildItemsTable();
@@ -211,6 +250,7 @@ class AdminOkiCustomInfoController extends ModuleAdminController
                             $block->name = Tools::getValue('name');
                             $block->title = Tools::getValue('title');
                             $block->properties = $properties;
+                            $block->categories = $categoriesString;
                             $block->date_updated = date('Y-m-d H:i:s'); 
                             $block->update();
                             $block->rebuildItemsTable();
