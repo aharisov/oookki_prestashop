@@ -22,13 +22,16 @@
     </header>
 
     <main>
+      {block name='top_slider'}
+        
+      {/block}
       {block name='notifications'}
         {*include file='_partials/notifications.tpl'*}
       {/block}
 
       {hook h="displayWrapperTop"}
       
-      {if $page.page_name != 'index'}
+      {* {if $page.page_name != 'index'}
         {block name='breadcrumb'}
           {include file='_partials/breadcrumb.tpl'}
         {/block}
@@ -42,25 +45,15 @@
             {hook h="displayLeftColumn"}
           {/if}
         </div>
-      {/block}
+      {/block} *}
 
       {block name="content_wrapper"}
-        <div id="content-wrapper" class="js-content-wrapper left-column right-column col-md-4 col-lg-3">
+        <div id="content-wrapper" class="js-content-wrapper">
           {hook h="displayContentWrapperTop"}
           {block name="content"}
             <p>Hello world! This is HTML5 Boilerplate.</p>
           {/block}
           {hook h="displayContentWrapperBottom"}
-        </div>
-      {/block}
-
-      {block name="right_column"}
-        <div id="right-column" class="col-xs-12 col-md-4 col-lg-3">
-          {if $page.page_name == 'product'}
-            {hook h='displayRightColumnProduct'}
-          {else}
-            {hook h="displayRightColumn"}
-          {/if}
         </div>
       {/block}
         
@@ -84,6 +77,14 @@
 
     {block name='hook_before_body_closing_tag'}
       {hook h='displayBeforeBodyClosingTag'}
+    {/block}
+
+    <div class="bg-modal"></div>
+
+    {block name='modals'}
+      {if $page.page_name == 'category'}
+        {include file="catalog/_partials/compare-modal.tpl"}
+      {/if}
     {/block}
   </body>
 </html>

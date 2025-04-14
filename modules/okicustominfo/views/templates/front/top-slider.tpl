@@ -1,23 +1,36 @@
 {if $items}
-  {* {$items|@print_r} *}
-  {assign var="counter" value=0}
-  {foreach from=$items item=slide}
-    {assign var="cat_ids" value=","|explode:$slide.categories}
-    {if $category|in_array:$cat_ids}
-      {assign var="counter" value=$counter+1}
-    {/if}
-  {/foreach}
+  {* {$page|@print_r} *}
+  {if $page.page_name == "index"}
+    {assign var="counter" value=1}
+  {else}
+    {assign var="counter" value=0}
+    {foreach from=$items item=slide}
+      {* we get selected category ids *}
+      {assign var="cat_ids" value=","|explode:$slide.categories}
+      {if $category|in_array:$cat_ids}
+        {* we watch if current category is in this array *}
+        {assign var="counter" value=$counter+1}
+      {/if}
+    {/foreach}
+  {/if}
 
+  {* show slider if min 1 slide found *}
   {if $counter > 0}
   <div class="top-slider swiper mb-common">
     <div class="swiper-wrapper">
       {foreach from=$items item=slide}
-        {assign var="show_slide" value=false}
-        {assign var="categories" value=","|explode:$slide.categories}
-        {if $category|in_array:$categories}
+        {if $page.page_name == "index"}
           {assign var="show_slide" value=true}
+        {else}
+          {* we search for the slides in current category *}
+          {assign var="show_slide" value=false}
+          {assign var="categories" value=","|explode:$slide.categories}
+          {if $category|in_array:$categories}
+            {assign var="show_slide" value=true}
+          {/if}
         {/if}
 
+        {* if slide found, show it *}
         {if $show_slide}
         <div class="swiper-slide">
           <div class="slide-inner bg-dark">

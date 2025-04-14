@@ -22,9 +22,7 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-{extends file='layouts/layout-both-columns.tpl'}
-
-{block name='right_column'}{/block}
+{extends file='layouts/layout-common.tpl'}
 
 {block name='content_wrapper'}
   <div id="content-wrapper" class="js-content-wrapper left-column col-xs-12 col-md-8 col-lg-9">

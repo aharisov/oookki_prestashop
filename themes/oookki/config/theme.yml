@@ -52,7 +52,7 @@ global_settings:
         description: Affiche le menu principal
     modules_to_hook:
       displayMainMenu:
-        - ps_mainmenu
+        - ps_linklist
       displayNavFullWidth:
         - blockreassurance
       displayAdminCustomers:
@@ -155,7 +155,7 @@ assets:
 theme_settings:
   default_layout: layout-full-width
   layouts:
-    category: layout-left-column
+    category: layout-product-category
     best-sales: layout-left-column
     new-products: layout-left-column
     prices-drop: layout-left-column
