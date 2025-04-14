@@ -299,3 +299,7 @@ document.addEventListener('DOMContentLoaded',  function(event) {
     closeCompareModal();
     selectProduct();
 });
+
+(window as any).oookkiTheme = (window as any).oookkiTheme || {};
+(window as any).oookkiTheme.closeCompareModal = closeCompareModal;
+(window as any).oookkiTheme.selectProduct = selectProduct;

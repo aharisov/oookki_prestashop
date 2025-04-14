@@ -1,16 +1,18 @@
 const sortDropdown = (): void => {
     const sortActive = document.querySelector(".sort-active") as HTMLElement | null;
     const sortList = document.querySelector(".sort-list") as HTMLElement | null;
-    const sortButtons = document.querySelectorAll(".sort-list-inner button") as NodeListOf<HTMLButtonElement>;
+    const sortButtons = document.querySelectorAll(".sort-list-inner li a") as NodeListOf<HTMLButtonElement>;
     const screenW = window.innerWidth;
     const sortCloseBtn = document.querySelector(".js-sort-close") as HTMLElement | null;
     const bgModal = document.querySelector(".bg-modal") as HTMLElement | null;
-    const sortInput = document.querySelector(".sort-list input[name='sort']") as HTMLInputElement | null;
     const sortHeadActive = document.querySelector(".sort-head__active") as HTMLElement | null;
     const sectionFilter = document.querySelector(".section-filter") as HTMLElement | null;
     const body = document.querySelector("body") as HTMLElement | null;
     
-    if (!sortActive || !sortList || !sortInput || !sortHeadActive || !sectionFilter || !body || !bgModal) return;
+    if (!sortActive || !sortList || !sortHeadActive || !sectionFilter || !bgModal || !body) {
+        console.warn("Sorting popup: missing elements");
+        return;
+    }
     
     // Toggle dropdown visibility
     sortActive.addEventListener("click", () => {
@@ -62,7 +64,6 @@ const sortDropdown = (): void => {
 
             // Update the active selection text
             sortActive.textContent = button.textContent;
-            sortInput.value = button.getAttribute("data-id") || "";
             if (screenW < 550) sortHeadActive.textContent = button.textContent || "";
             sortActive.classList.remove("open");
 
@@ -86,3 +87,6 @@ const sortDropdown = (): void => {
 document.addEventListener('DOMContentLoaded',  function(event) {
     sortDropdown();
 });
+
+(window as any).oookkiTheme = (window as any).oookkiTheme || {};
+(window as any).oookkiTheme.sortDropdown = sortDropdown;

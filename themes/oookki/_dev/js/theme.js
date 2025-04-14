@@ -1,10 +1,21 @@
 import prestashop from 'prestashop';
 import EventEmitter from 'events';
 
+window.oookkiTheme = window.oookkiTheme || {};
+
 import '@fortawesome/fontawesome-free/js/all.js';
 // import './lib/photoswipe-lightbox.esm.min';
 // import './lib/photoswipe.esm.min';
 // import Swiper from 'swiper/bundle';
+
+import './prestashop/selectors';
+
+// import './responsive';
+// import './checkout';
+// import './customer';
+import './prestashop/listing';
+// import './product';
+// import './cart';
 
 import './helpers/add-to-cart';
 import './helpers/api-get-product';
@@ -43,3 +54,5 @@ import './pages/user-profile';
 for (const i in EventEmitter.prototype) {
   prestashop[i] = EventEmitter.prototype[i];
 }
+
+console.info('theme loqded', window.oookkiTheme);
