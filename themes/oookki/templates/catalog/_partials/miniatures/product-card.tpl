@@ -40,8 +40,10 @@
       {/block}
 
       {block name='product_name'}
-        <div class="brand"><a href="">{$product.manufacturer_name}</a></div>
-        <div class="name"><a href="{$product.url}">{$product.name}</a></div>
+        <div class="name-wrap">
+          <div class="brand"><a href="">{$product.manufacturer_name}</a></div>
+          <div class="name"><a href="{$product.url}">{$product.name}</a></div>
+        </div>
       {/block}
 
       {block name='product_price_and_shipping'}
@@ -49,22 +51,18 @@
           {if $product.show_price}
             <div class="price">
               <div class="price-inner">
+                <span aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
+                  {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
+                  {if '' !== $smarty.capture.custom_price}
+                    {$smarty.capture.custom_price nofilter}
+                  {else}
+                    {$product.price}
+                  {/if}
+                </span>
                 {if $product.has_discount}
                   {hook h='displayProductPriceBlock' product=$product type="old_price"}
-  
-                  <span aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
-                  {if $product.discount_type === 'amount'}
-                    <span class="price-old">{$product.discount_amount_to_display}</span>
-                  {/if}
-                {else}  
-                  <span aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
-                    {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
-                    {if '' !== $smarty.capture.custom_price}
-                      {$smarty.capture.custom_price nofilter}
-                    {else}
-                      {$product.price}
-                    {/if}
-                  </span>
+
+                  <span class="price-old" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
                 {/if}
               </div>
             </div>
