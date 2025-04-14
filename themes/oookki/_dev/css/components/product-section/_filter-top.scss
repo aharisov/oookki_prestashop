@@ -34,13 +34,15 @@
         &::before {
             position: absolute;
             left: 1rem;
-            top: 50%;
+            top: 3px;
             width: 24px;
             height: 24px;
-            background-image: url("../img/ic-sliders.svg");
-            @include bgImg;
-            content: "";
-            transform: translateY(-50%);
+            // background-image: url("../img/ic-sliders.svg");
+            // @include bgImg;
+            font-family: FontAwesome;
+            font-size: 24px;
+            content: "\f1de";
+            // transform: translateY(-50%);
         }
     }
     .result {
@@ -98,7 +100,7 @@
 
             .sort-close {
                 position: absolute;
-                top: 1.8rem;
+                top: 1.5rem;
                 right: 1.5rem;
                 width: 30px;
                 height: 30px;
@@ -107,7 +109,7 @@
                 &:hover {
                     transform: scale(1.1)
                 }
-                img {
+                img, svg {
                     @include imgFit;
                 }
             }
@@ -148,7 +150,7 @@
             li {
                 margin-bottom: $mb-m;
             }
-            button {
+            a {
                 position: relative;
                 font-family: $fontPrimary;
                 font-size: $fontXS;
@@ -166,7 +168,7 @@
                     content: "";
                     opacity: 0;
                 }
-                &[aria-selected="true"] {
+                &.current {
                     font-weight: 500;
                     color: $colorRedTransparent;
 
@@ -255,7 +257,8 @@
                 padding: 0;
                 background: $colorSecond;
                 border-radius: $borderRadiusCommon;
-                width: 200px;
+                // width: 200px;
+                min-width: 250px;
                 max-height: 0;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 transform: none;
@@ -278,7 +281,7 @@
                 li {
                     margin-bottom: 0.5rem;
                 }
-                button {
+                a {
                     width: 100%;
                     font-size: $font16;
                     cursor: pointer;
@@ -286,13 +289,17 @@
                     transition: $transition;
 
                     &::after {
-                        right: 0;
+                        right: -20px;
                         width: 10px;
                         height: 8px;
                         border-width: 1px;
                     }
+                    &:hover {
+                        color: $colorRedTransparent;
+                    }
                     &:hover::after {
                         opacity: 1;
+                        border-color: $colorRedTransparent;
                     }
                 }
             }

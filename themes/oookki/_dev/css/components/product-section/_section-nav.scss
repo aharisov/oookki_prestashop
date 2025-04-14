@@ -68,12 +68,10 @@
     }
 }
 @media (min-width: 768px) {
-    .products-nav {
-        .section-nav__item {
-            a {
-                img {
-                    height: 60px;
-                }
+    .section-nav__item {
+        a {
+            img {
+                height: 60px;
             }
         }
     }
@@ -87,6 +85,7 @@
     }
 
     .section-nav__item {
+        max-width: 390px;
         a {
             padding: 2rem 1.5rem;
 
@@ -97,12 +96,10 @@
     }
 }
 @media (min-width: 1360px) {
-    .products-nav {
-        .section-nav__item {
-            a {
-                img {
-                    height: 90px;
-                }
+    .section-nav__item {
+        a {
+            img {
+                height: 90px;
             }
         }
     }

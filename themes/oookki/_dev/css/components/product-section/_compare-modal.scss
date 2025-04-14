@@ -22,11 +22,13 @@
         transition: $transition;
         cursor: pointer;
 
-        img {
+        img, svg {
             @include imgFit;
         }
         &:hover {
-            transform: scale(1.2);
+            // transform: scale(1.2);
+            transform: rotate(90deg);
+            color: $colorRedTransparent;
         }
     }
     .note {
@@ -99,13 +101,22 @@
                 right: 0.5rem;
                 width: 20px;
                 height: 20px;
-                background-image: url("../img/ic-x-circle.svg");
-                @include bgImg;
-                transition: $transition;
+                // background-image: url("../img/ic-x-circle.svg");
+                // @include bgImg;
                 cursor: pointer;
 
-                &:hover {
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-family: $fontIcons;
+                    font-size: 20px;
+                    content: "\f057";
+                    transition: $transition;
+                }
+                &:hover::before {
                     transform: scale(1.1);
+                    color: $colorRedTransparent;
                 }
             }
             &.empty {

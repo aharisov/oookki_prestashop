@@ -14,7 +14,7 @@
     }
     .filter-close {
         position: absolute;
-        top: 1.8rem;
+        top: 1.5rem;
         right: 1.5rem;
         width: 30px;
         height: 30px;
@@ -23,7 +23,7 @@
         &:hover {
             transform: scale(1.2)
         }
-        img {
+        img, svg {
             @include imgFit;
         }
     }
@@ -55,9 +55,14 @@
             }
         }
         &__result {
+            display: inline-flex;
+            align-items: center;
             span {
                 margin-right: 0.3rem;
                 font-weight: bold;
+            }
+            p {
+                font-size: $fontXS;
             }
         }
     }
@@ -90,6 +95,14 @@
                 i {
                     color: $colorRedTransparent2;
                 }
+                i.color {
+                    position: relative;
+                    top: 3px;
+                    display: inline-flex;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: $borderRadiusCircle;
+                }
             }
             .filter-more {
                 border-bottom: 1px solid $colorPrimary;
@@ -112,22 +125,24 @@
                     transform: scaleX(1);
                     transform-origin: bottom left;
                 }
-            }
-            [aria-active="false"] {
-                margin-bottom: 0.3rem;
-                &::after {
-                    display: block;
-                    @include arrow(12px);
+
+                &[aria-active="false"] {
+                    margin-bottom: 0.3rem;
+                    &::after {
+                        display: block;
+                        @include arrow(12px);
+                    }
+                }
+                &[aria-active="true"] {
+                    &::after {
+                        display: block;
+                        @include arrow(12px);
+                        top: 64%;
+                        transform: translateY(-50%) rotate(135deg);
+                    }
                 }
             }
-            [aria-active="true"] {
-                &::after {
-                    display: block;
-                    @include arrow(12px);
-                    top: 64%;
-                    transform: translateY(-50%) rotate(135deg);
-                }
-            }
+            
             &__inner {
                 overflow: hidden;
                 transition: $transitionAccordion;
@@ -136,6 +151,14 @@
                 }
                 &[aria-hidden="false"] {
                     max-height: 300px;
+                }
+
+                &.faceted-slider {
+                    overflow: inherit;
+
+                    .item p {
+                        margin-bottom: 0.8rem;
+                    }
                 }
             }
         }
@@ -155,6 +178,21 @@
     
     &.open {
         transform: translateY(0);
+    }
+
+    .clear-all-wrapper {
+        display: flex;
+        margin-bottom: $mb-m;
+
+        button {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+
+            svg {
+                margin-right: 5px;
+            }
+        }
     }
 }
 
@@ -258,6 +296,18 @@
         }
         .fixed, .absolute {
             max-width: 218px;
+        }
+        .filter-inner .filter-block {
+            .facet-label {
+                &:hover {
+                    a {
+                        color: $colorGray;
+                    }
+                    span::before {
+                        border-color: $colorPrimary !important;
+                    }
+                }
+            }
         }
     }
 }
