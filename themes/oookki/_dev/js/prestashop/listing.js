@@ -270,5 +270,6 @@ $(document).ready(() => {
     window.oookkiTheme.stickyFilter();
     window.oookkiTheme.selectProduct();
     window.oookkiTheme.closeCompareModal();
+    window.oookkiTheme.changeProductCombinations();
   });
 });

@@ -17,6 +17,7 @@
         position: absolute;
         top: 50%;
         left: 1.5rem;
+        z-index: 999;
         transform: translateY(-50%);
         flex-direction: column;
 
@@ -28,10 +29,30 @@
             margin-bottom: $mb-xs;
             border-radius: $borderRadiusCommon;
 
-            &.na {
+            &::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: 120%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                font-size: 12px;
+                padding: 5px 8px;
+                border-radius: 4px;
+                white-space: nowrap;
+                display: none;
+                z-index: 10;
+                transition: transform 0.2s ease;
+            }
+              
+            &:hover::after {
+                display: block;
+            }
+            &.not-in-stock {
                 opacity: 0.8;
             }
-            &.na::before {
+            &.not-in-stock::before {
                 position: absolute;
                 top: -3px;
                 left: 9px;
@@ -177,6 +198,29 @@
             gap: 0.3rem;
             margin-bottom: $mb-l;
 
+            button {
+                display: inline-flex;
+                padding: 0.3rem 0.6rem;
+                border: 1px solid $colorPrimary;
+                border-radius: $borderRadiusS;
+                font-family: $fontTitle;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $colorGrayTransparent;
+                }
+                &.checked {
+                    border-color: $colorRed;
+                }
+                &.checked:hover {
+                    background-color: $colorWhite;
+                }
+                &.not-in-stock {
+                    opacity: 0.3;
+                    cursor: not-allowed ;
+                }
+            }
+            /*
             label {
                 cursor: pointer;
                 span {
@@ -200,7 +244,7 @@
                 &:hover input:checked + span {
                     background-color: $colorWhite;
                 }
-            }
+            }*/
         }
         .price {
             margin-bottom: $mb-l;

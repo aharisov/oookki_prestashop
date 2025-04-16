@@ -58,6 +58,7 @@
             }
         }
         p {
+            margin-bottom: $mb-m;
             text-align: justify;
         }
     }
@@ -74,7 +75,7 @@
     .section-page {
         .brand-description {
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
 
             .logo {
                 max-width: 30%;

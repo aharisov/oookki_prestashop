@@ -16,6 +16,7 @@ import './prestashop/selectors';
 import './prestashop/listing';
 // import './product';
 // import './cart';
+import './prestashop/combinations';
 
 import './helpers/add-to-cart';
 import './helpers/api-get-product';

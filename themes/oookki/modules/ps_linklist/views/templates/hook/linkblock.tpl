@@ -23,7 +23,7 @@
 {if $linkBlocks[0]["hook"] == "displayMainMenu"}
   <ul class="main-menu__inner flex">
     {foreach $linkBlocks as $linkBlock}
-      {assign var="sorted_links" value=$linkBlock.links|sort_by_id}
+      {assign var="sorted_links" value=$linkBlock.links}
       <li class="main-menu__parent">
         <span>{$linkBlock.title}</span>
         <div class="main-menu__dropdown">
