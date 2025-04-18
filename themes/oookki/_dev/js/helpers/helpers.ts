@@ -79,7 +79,7 @@ const openModal = () => {
     const body = document.querySelector("body") as HTMLElement;
     const bg = document.querySelector(".bg-modal") as HTMLDivElement;
     const openButtons = document.querySelectorAll("[data-modal]");
-    const closeButtons = document.querySelectorAll(".modal .modal-close");
+    const closeButtons = document.querySelectorAll(".modal .js-modal-close");
 
     if (!bg || !openButtons || !closeButtons) return;
 
@@ -115,6 +115,7 @@ const openModal = () => {
         if (e.target === bg) {
             document.querySelectorAll(".modal").forEach(modal => {
                 modal.classList.remove("show");
+                document.querySelector('.in-cart-modal')?.remove();
             });
             bg.classList.remove("show");
             body.classList.remove("lock");

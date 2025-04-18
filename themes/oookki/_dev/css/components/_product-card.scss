@@ -246,8 +246,15 @@
                 }
             }*/
         }
-        .price {
-            margin-bottom: $mb-l;
+        
+        .price-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &.w-margin {
+                margin-bottom: $mb-l;
+            }
         }
         .price-inner {
             span {
@@ -402,6 +409,11 @@
     }
     .product-card .promo.empty {
         display: block;
+    }
+    .product-card:not(.mobile) {
+        .price-wrap.w-margin {
+            margin-bottom: 0;
+        }
     }
 }
 @media (min-width: 1024px) {

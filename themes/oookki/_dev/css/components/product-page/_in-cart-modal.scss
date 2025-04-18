@@ -39,7 +39,12 @@
             width: 80px;
             height: 80px;
             margin-right: $mb-m;
+            color: $colorRedTransparent2;
     
+            svg {
+                width: 50px;
+                height: 50px;
+            }
             img {
                 @include imgFit;
                 object-fit: contain;
@@ -68,6 +73,18 @@
                 width: 20px;
                 height: 20px;
                 margin-right: $mb-s;
+            }
+        }
+        .continue {
+            position: relative;
+            top: auto;
+            right: auto;
+            width: auto;
+            height: auto;
+            background-image: none;
+
+            &:hover {
+                transform: none;
             }
         }
     }
@@ -99,9 +116,17 @@
                 margin-bottom: 0;
 
                 a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     padding: 1rem 0;
                     border-top-right-radius: 0;
                     border-bottom-right-radius: $borderRadiusCommon;
+                    color: $colorRedTransparent2;
+                }
+                svg {
+                    width: 50px;
+                    height: 50px;
                 }
                 .discount {
                     top: 0.5rem;
@@ -125,7 +150,7 @@
             }
             .inner {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 padding-bottom: 1rem;
 
@@ -142,6 +167,7 @@
                     }
                 }
                 .to-cart {
+                    margin-left: $mb-l;
                     height: 40px;
                     svg {
                         width: 18px;
@@ -245,6 +271,21 @@
         }
     }
 }
+@media (min-width: 640px) {
+    .in-cart-modal {
+        .modal-recommend {
+            .product-card {
+                .inner {
+                    justify-content: space-between;
+
+                    .btn {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
 @media (min-width: 768px) {
     .in-cart-modal {
         &.modal {
@@ -288,6 +329,9 @@
         .modal-recommend > div {
             height: 100%;
         }
+        .modal-recommend .swiper-wrapper {
+            min-height: 500px;
+        }
         .product-card {
             min-height: 180px;
         }
@@ -306,9 +350,9 @@
             }
         }
 
-        .swiper, .swiper-wrapper {
-            height: 90%;
-        }
+        // .swiper, .swiper-wrapper {
+        //     height: 90%;
+        // }
         .modal-recommend {
             .swiper {
                 padding-right: 40px;
