@@ -1,39 +1,54 @@
 .page-nav {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 3rem;
+
+    .left-nav {
+        margin-bottom: $mb-m;
+    }
 
     .prev, .next {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
         max-width: 40px;
         height: 40px;
         border: 1px solid $colorBorder;
         border-radius: $borderRadiusCircle;
-        background-image: url("../img/ic-arrow-left.svg");
-        @include bgImg;
-        background-position: center;
-        background-size: 80%;
+        // background-image: url("../img/ic-arrow-left.svg");
+        // @include bgImg;
+        // background-position: center;
+        // background-size: 80%;
 
         &:hover {
-            background-position: 2px center;
+            // background-position: 2px center;
             background-color: $colorGrayHover;
         }
     }
-    .next {
-        transform: rotate(180deg);
-    }
-
+    
     ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 0 0.5rem;
+        // margin: 0 0.5rem;
 
         li {
             margin: 0 0.3rem 0.3rem;
+
+            &.current a {
+                background: $colorPrimary;
+                border-color: $colorPrimary;
+                color: $colorWhite;
+            }
+            .prev {
+                margin-right: $mb-m;
+            }
+            .next {
+                // transform: rotate(180deg);
+                margin-left: $mb-m;
+            }
         }
         a, span {
             display: inline-flex;
@@ -45,12 +60,6 @@
             height: 40px;
             border: 1px solid $colorBorder;
             border-radius: $borderRadiusCircle;
-
-            &.current {
-                background: $colorPrimary;
-                border-color: $colorPrimary;
-                color: $colorWhite;
-            }
         }
         span {
             padding-top: 0.3rem;
@@ -60,6 +69,12 @@
 
 @media (min-width: 768px) {
     .page-nav {
+        justify-content: space-between;
+        flex-direction: row;
+
+        .left-nav {
+            margin-bottom: 0;
+        }
         ul {
             margin: 0 1rem;
         }
@@ -72,7 +87,7 @@
                 border-color: $colorRed;
                 color: $colorRed;
             }
-            a.current:hover {
+            &.current a:hover {
                 background: $colorPrimary;
                 border-color: $colorPrimary;
                 color: $colorWhite;

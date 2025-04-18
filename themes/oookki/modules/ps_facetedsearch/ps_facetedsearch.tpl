@@ -1,36 +1,27 @@
-{**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- *}
 {if isset($listing.rendered_facets)}
-<div id="search_filters_wrapper" class="hidden-sm-down">
-  <div id="search_filter_controls" class="hidden-md-up">
-      <span id="_mobile_search_filters_clear_all"></span>
-      <button class="btn btn-secondary ok">
-        <i class="material-icons rtl-no-flip">&#xE876;</i>
-        {l s='OK' d='Shop.Theme.Actions'}
-      </button>
+  <div class="filter-close js-close-filter">
+    <i class="fa-solid fa-xmark"></i>
   </div>
-  {$listing.rendered_facets nofilter}
+  <div class="filter-head flex">
+    <span class="filter-head__title">Filtres</span>
+    <span class="filter-head__result">
+      {if $listing.pagination.total_items > 1}
+        <p>{l s='<span>%product_count%</span> produits' d='Shop.Theme.Catalog' sprintf=['%product_count%' => $listing.pagination.total_items]}</p>
+      {elseif $listing.pagination.total_items > 0}
+        <p>{l s='<span>1</span> produit' d='Shop.Theme.Catalog'}</p>
+      {/if}
+    </span>
+  </div>
+  <div id="search_filters_wrapper" class="filter-form">
+    {* <div id="search_filter_controls" class="hidden-md-up">
+        <span id="_mobile_search_filters_clear_all"></span>
+        <button class="btn btn-secondary ok">
+          <i class="material-icons rtl-no-flip">&#xE876;</i>
+          {l s='OK' d='Shop.Theme.Actions'}
+        </button>
+    </div> *}
+    <div class="filter-inner">
+      {$listing.rendered_facets nofilter}
+    </div>
 </div>
 {/if}

@@ -1,8 +1,33 @@
 .section-inner {
     .cont {
         justify-content: space-between;
-        gap: 1rem;
         flex-wrap: nowrap;
+    }
+
+    .active_filters {
+        margin-bottom: $mb-m;
+        h4 {
+            margin-bottom: 0.5rem;
+            font-size: $fontS;
+        }
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 1px solid $colorBorder;
+            border-radius: 5px;
+
+            li {
+                padding: 0.5rem 1rem;
+                background-color: $colorGrayTransparent;
+                border-radius: 5px;
+
+                svg {
+                    margin-left: 5px;
+                }
+            }
+        }
     }
 }
 
@@ -33,6 +58,7 @@
             }
         }
         p {
+            margin-bottom: $mb-m;
             text-align: justify;
         }
     }
@@ -49,7 +75,7 @@
     .section-page {
         .brand-description {
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
 
             .logo {
                 max-width: 30%;
@@ -63,6 +89,7 @@
 }
 @media (min-width: 768px) {
     .section-products {
+        margin-left: 1rem;
         &__inner {
             grid-template-columns: repeat(2, 1fr);
         }

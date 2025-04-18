@@ -62,12 +62,15 @@ const showMoreFilterValues = (): void => {
 }
 
 const stickyFilter = (): void => {
-    const filterTop = document.getElementById("filter-top") as HTMLElement | null;
+    const filterTop = document.querySelector(".filter-top") as HTMLElement | null;
     const sidebar = document.querySelector(".section-filter") as HTMLElement | null;
     const sidebarInner = document.querySelector(".section-filter__inner") as HTMLElement | null;
     const container = document.querySelector(".section-products") as HTMLElement | null;
     const header = document.querySelector("header") as HTMLElement | null;
     
+    if (!filterTop || !sidebar || !sidebarInner || !container || !header) {
+        console.warn(filterTop, sidebar, sidebarInner, container, header);
+    }
     if (filterTop && sidebar && sidebarInner && container && header) {
         const filterTopOffset = filterTop.offsetTop;
         const sidebarInitialOffset = sidebar.offsetTop - 180;
@@ -112,3 +115,8 @@ document.addEventListener('DOMContentLoaded',  function(event) {
     showMoreFilterValues();
     stickyFilter();
 });
+
+(window as any).oookkiTheme = (window as any).oookkiTheme || {};
+(window as any).oookkiTheme.showCloseFilter = showCloseFilter;
+(window as any).oookkiTheme.openFilterBlock = openFilterBlock;
+(window as any).oookkiTheme.stickyFilter = stickyFilter;

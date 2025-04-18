@@ -129,6 +129,8 @@ themes/*/
 !themes/_libraries
 !themes/oookki
 !modules/okicustominfo
+!modules/okifeaturedproducts
+!modules/okimodals
 
 # Vendors and dependencies
 

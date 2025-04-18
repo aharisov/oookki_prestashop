@@ -5,6 +5,7 @@ class OkiCustomInfoItem extends ObjectModel
     public $id_block;
     public $active;
     public $position;
+    public $categories;
     public $date_created;
     public $date_updated;
 
@@ -14,6 +15,7 @@ class OkiCustomInfoItem extends ObjectModel
             'id_block' => ['type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'],
             'active' => ['type' => self::TYPE_BOOL, 'validate' => 'isBool'],
             'position' => ['type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'],
+            'categories' => ['type' => self::TYPE_STRING, 'validate' => 'isGenericName'],
             'date_created' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
             'date_updated' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
         ]

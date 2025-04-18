@@ -26,3 +26,11 @@
         right: 3.5rem;
     }
 }
+
+.home-products {
+    .products-slider.swiper {
+        .swiper-slide {
+            height: 100%;
+        }
+    }
+}

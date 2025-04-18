@@ -2,6 +2,9 @@
 require_once _PS_MODULE_DIR_ . 'okicustominfo/classes/OkiCustomInfoBlock.php';
 require_once _PS_MODULE_DIR_ . 'okicustominfo/classes/OkiCustomInfoItem.php';
 
+use PrestaShop\PrestaShop\Core\Form\ChoiceProvider\CategoriesChoiceProvider;
+use HelperTreeCategories;
+
 class AdminOkiCustomInfoAddItemController extends ModuleAdminController
 {
     public function __construct()
@@ -32,9 +35,12 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
         // echo '<pre>'; print_r($fields); echo '</pre>';
         // die();
 
+        $categoryTreeHtml = $this->getCategoryTreeHtml();
+
         $this->context->smarty->assign([
             'block_name' => $block->name,
             'fields' => $fields,
+            'categories' => $categoryTreeHtml,
             'id_block' => $id_block,
         ]);
 
@@ -45,6 +51,17 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
         $this->setTemplate('add_item.tpl');
     }
 
+    public function getCategoryTreeHtml()
+    {
+        $tree = new HelperTreeCategories('categories-tree');
+        $tree->setRootCategory(2);
+        $tree->setUseCheckBox(true);
+        $tree->setUseSearch(true);
+        $tree->setInputName('item[categories]');
+
+        return $tree->render();
+    }
+
     public function postProcess()
     {
         if (Tools::isSubmit('submit_add_item')) {
@@ -52,17 +69,15 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
             $fields = Tools::getValue('item'); // Get regular form fields
             $fieldValues = []; // Array to store final values
             $fromItems = Tools::getValue('from_items'); // Check if we add item from items page
-
+            
             if (!$id_block || empty($fields)) {
                 $this->errors[] = $this->l('Données invalides.');
                 return;
             }
-
-            // echo '<pre>'; print_r($_FILES); echo '</pre>';
-            // echo '<pre>'; print_r($fields); echo '</pre>';
-            // die();
+            
             foreach ($fields as $field => $value) {
-                $fieldValues[$field] = $value;
+                // echo '<pre>'; print_r($value); echo '</pre>';
+                $fieldValues[$field] = isset($value) ? (is_array($value) ? implode(',', $value) : $value) : '';
             }
 
             // Handle image upload
@@ -91,7 +106,7 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
             
             foreach ($fieldValues as $field => $value) {
                 $columns[] = pSQL($field);
-                $values[] = "'" . pSQL($value) . "'";
+                $values[] = "'" . pSQL($value, true) . "'";
             }
 
             $sql = "INSERT INTO `$tableName` (`id_block`, " . implode(', ', $columns) . ", `date_created`) 

@@ -31,6 +31,10 @@ const config = {
       {
         test: /\.js$/,
         loader: 'esbuild-loader',
+        options: {
+          loader: 'js', // Specifies the loader type for `.js` files
+          target: 'es2015', // Specifies the ECMAScript version you want to target
+        },
       },
       {
         test: /\.scss$/,

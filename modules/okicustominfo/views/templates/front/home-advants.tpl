@@ -1,7 +1,9 @@
 <section class="home-advants home-section mb-common">
   <div class="cont">
     <div class="section-head flex">
-      <h2>Pourquoi choisir <span>OOOKKI</span> ?</h2>
+      {if $infoblock}
+        <h2>{$infoblock.title}</h2>
+      {/if}
     </div>
     <div class="advants-list flex">
       {if $items}

@@ -1,5 +1,4 @@
 footer {
-    margin-top: 4rem;
     background: $colorPrimary;
 }
 
@@ -46,8 +45,38 @@ footer {
             margin: 0 0.5rem;
 
             a {
+                position: relative;
                 display: inline-flex;
+                color: $colorWhite;
+
+                /*
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    top: -3px;
+                    width: 20px;
+                    height: 20px;
+                    font-family: FontAwesome;
+                    font-size: 20px;
+                }*/
             }
+
+            /*
+            &.facebook {
+                a::before {
+                    content: "\f16d";
+                }
+            }
+            &.instagram {
+                a::before {
+                    content: "\f09a";
+                }
+            }
+            &.linkedin {
+                a::before {
+                    content: "\f08c";
+                }
+            }*/
         }
         svg {
             fill: $colorWhite;
@@ -61,12 +90,39 @@ footer {
     }
 }
 
+.block-newsletter {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background-color: $colorGrayTransparent;
+
+    input[type=email] {
+        padding: 1rem !important;
+    }
+    .btn {
+        width: 200px;
+        margin-top: $mb-s;
+    }
+}
+
 @media (min-width: 480px) {
     .footer-inner {
         justify-content: space-between;
 
         .footer-menu {
             width: 48%;
+        }
+    }
+}
+@media (min-width: 605px) {
+    .block-newsletter {
+        .btn {
+            width: 150px;
+            height: 50px;
+            margin-top: 0;
+            font-size: $font16;
+        }
+        .notes {
+            max-width: 600px;
         }
     }
 }
@@ -89,6 +145,17 @@ footer {
         }
     }
 }
+@media (min-width: 820px) {
+    .block-newsletter {
+        .cont {
+            display: flex;
+            justify-content: center;
+        }
+        h3 {
+            margin-right: $mb-m;
+        }
+    }
+}
 @media (min-width: 1024px) {
     .footer-inner {
         .footer-menu {
@@ -105,8 +172,7 @@ footer {
             }
         }
     }
-}
-@media (min-width: 1024px) {
+
     .socials {
         svg:hover {
             transform: scale(1.2);

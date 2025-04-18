@@ -1,12 +1,25 @@
 import prestashop from 'prestashop';
 import EventEmitter from 'events';
 
-import '@fortawesome/fontawesome-free/js/all.js';
-// import './lib/photoswipe-lightbox.esm.min';
-// import './lib/photoswipe.esm.min';
-// import Swiper from 'swiper/bundle';
+window.oookkiTheme = window.oookkiTheme || {};
 
-import './helpers/add-to-cart';
+import '@fortawesome/fontawesome-free/js/all.js';
+// import 'expose-loader?exposes=Tether!tether';
+// import 'bootstrap/dist/js/bootstrap.min';
+// import 'bootstrap-touchspin';
+
+import './prestashop/selectors';
+
+// import './responsive';
+// import './checkout';
+// import './customer';
+import './prestashop/listing';
+// import './product';
+import './prestashop/cart';
+import './prestashop/block-cart';
+import './prestashop/combinations';
+
+// import './helpers/add-to-cart';
 import './helpers/api-get-product';
 import './helpers/helpers';
 import './helpers/plan-abon-switch';
@@ -20,7 +33,6 @@ import './components/forms';
 import './components/input-mask';
 import './components/main-menu';
 import './components/move-element';
-import './components/open-modal';
 import './components/sliders';
 import './components/sticky-element';
 import './components/sticky-sidebar';
@@ -36,6 +48,7 @@ import './pages/product-sort';
 import './pages/product-tabs';
 import './pages/user-profile';
 
+import './helpers/modals';
 /* eslint-enable */
 
 // "inherit" EventEmitter

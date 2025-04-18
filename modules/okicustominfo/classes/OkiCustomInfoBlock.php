@@ -6,6 +6,7 @@ class OkiCustomInfoBlock extends ObjectModel
     public $name;
     public $title;
     public $properties;
+    public $categories;
     public $date_created;
     public $date_updated;
 
@@ -14,7 +15,8 @@ class OkiCustomInfoBlock extends ObjectModel
         'primary' => 'id_block',
         'fields' => [
             'name' => ['type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'required' => true],
-            'title' => ['type' => self::TYPE_STRING, 'validate' => 'isCleanHtml', 'required' => true],
+            'title' => ['type' => self::TYPE_STRING, 'validate' => 'isCleanHtml', 'required' => false],
+            'categories' => ['type' => self::TYPE_STRING, 'validate' => 'isCleanHtml'],
             'properties' => ['type' => self::TYPE_HTML, 'validate' => 'isCleanHtml'],
             'date_created' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
             'date_updated' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],

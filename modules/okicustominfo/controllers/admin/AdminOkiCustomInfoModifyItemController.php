@@ -2,6 +2,10 @@
 require_once _PS_MODULE_DIR_ . 'okicustominfo/classes/OkiCustomInfoBlock.php';
 require_once _PS_MODULE_DIR_ . 'okicustominfo/classes/OkiCustomInfoItem.php';
 
+use PrestaShop\PrestaShop\Core\Form\ChoiceProvider\CategoriesChoiceProvider;
+use HelperTreeCategories;
+use PrestaShop\PrestaShop\Core\Domain\Category\Query\GetCategoriesTree;
+
 class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
 {
     public function __construct()
@@ -30,17 +34,20 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
 
         $fields = json_decode($block->properties, true);
 
-        // echo '<pre>'; print_r($fields); echo '</pre>';
-        // die();
-
         $itemData = [];
         // Fetch the existing item data
         $sql = 'SELECT * FROM ' . _DB_PREFIX_ . 'okicustominfo_items_' . (int) $id_block . ' WHERE id_item = ' . (int) $id_item;
         $itemData = Db::getInstance()->getRow($sql);
 
+        // echo '<pre>'; print_r($itemData); echo '</pre>';
+        // die();
+
+        $selectedCategories = isset($itemData['categories']) ? explode(',', $itemData['categories']) : [];
+
         $this->context->smarty->assign([
             'block_name' => $block->name,
             'itemData' => $itemData,
+            'categories' => $this->getCategoryTreeHtml($selectedCategories),
             'id_block' => $id_block,
         ]);
 
@@ -49,6 +56,18 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
 
         $this->context->smarty->assign('template_dir', _PS_MODULE_DIR_ . 'okicustominfo/views/templates/admin/');
         $this->setTemplate('modify_item.tpl');
+    }
+
+    public function getCategoryTreeHtml($selectedCategories = [])
+    {
+        $tree = new HelperTreeCategories('categories-tree');
+        $tree->setRootCategory(2);
+        $tree->setUseCheckBox(true);
+        $tree->setUseSearch(true);
+        $tree->setSelectedCategories($selectedCategories);
+        $tree->setInputName('item[categories]');
+
+        return $tree->render();
     }
 
     public function postProcess()
@@ -67,10 +86,19 @@ class AdminOkiCustomInfoModifyItemController extends ModuleAdminController
             $updateData = [];
             foreach ($_POST as $key => $value) {
                 if (!in_array($key, ['submit_modify_item', 'id_item', 'id_block'])) {
-                    $updateData[$key] = pSQL($value);
+                    // print_r($value);
+                    
+                    if (isset($value['categories']) && is_array($value['categories'])) {
+                        // If categories is an array, implode and sanitize it
+                        $updateData['categories'] = pSQL(implode(',', $value['categories']), true);
+                    } else {
+                        // For other fields, sanitize the value
+                        $updateData[$key] = pSQL($value, true);
+                    }
                 }
             }
 
+            // echo '<pre>'; print_r($updateData);echo '</pre>';
             // Handle image upload
             if (isset($_FILES['image']) && !empty($_FILES['image'])) {
                 $imageDir = _PS_MODULE_DIR_ . 'okicustominfo/views/img/';

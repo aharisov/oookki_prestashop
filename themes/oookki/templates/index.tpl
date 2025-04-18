@@ -5,9 +5,12 @@
 
   {block name='page_content'}
     {block name='hook_home'}
+      {hook h='displayOkiCustomInfo' id_block=5 template='top-slider'}
       {hook h='displayHome'}
       {hook h='displayOkiCustomInfo' id_block=3 template='home-howto'}
+      {hook h='displayFeatured'}
       {hook h='displayOkiCustomInfo' id_block=1 template='home-advants'}
+      {hook h='displayOkiCustomInfo' id_block=4 template='faq'}
     {/block}
   {/block}
 {/block}

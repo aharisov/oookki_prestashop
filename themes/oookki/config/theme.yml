@@ -52,7 +52,7 @@ global_settings:
         description: Affiche le menu principal
     modules_to_hook:
       displayMainMenu:
-        - ps_mainmenu
+        - ps_linklist
       displayNavFullWidth:
         - blockreassurance
       displayAdminCustomers:
@@ -70,18 +70,19 @@ global_settings:
       displayTop:
         - ps_searchbar
       displayHome:
-        - ps_imageslider
+        # - ps_imageslider
         - ps_featuredproducts
-        - ps_specials
-        - ps_newproducts
-        - ps_bestsellers
+        # - ps_specials
+        # - ps_newproducts
+        # - ps_bestsellers
+      displayFeatured:
+        - okifeaturedproducts
       displayFooterBefore:
         - ps_emailsubscription
       displayFooter:
         - ps_linklist
-        - ps_contactinfo
       displayFooterAfter:
-        - blockreassurance
+        - ps_socialfollow
       displayFooterProduct:
         - productcomments
       displayLeftColumn:
@@ -154,7 +155,8 @@ assets:
 theme_settings:
   default_layout: layout-full-width
   layouts:
-    category: layout-left-column
+    category: layout-product-category
+    product: layout-product-page
     best-sales: layout-left-column
     new-products: layout-left-column
     prices-drop: layout-left-column

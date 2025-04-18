@@ -33,6 +33,18 @@
 .form-group input {
   max-width: 50%;
 }
+.form-group input[type=checkbox] {
+  width: 30px;
+  height: 30px;
+}
+.form-group .tree-folder-name input[type=checkbox],
+.form-group .tree-item-name input[type=checkbox] {
+  width: auto;
+  height: auto;
+}
+.form-group input[type=checkbox]:focus {
+  outline: none;
+}
 
 .bootstrap .form-wrapper .col-lg-4 {
   width: 200px;

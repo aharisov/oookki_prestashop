@@ -6,21 +6,36 @@
       <div class="mb-2">
         {counter start=0 assign=counter}
         {foreach from=$fields["name"] item=field}
-          {if $fields["type"][$counter] == "image"}
-            <div class="form-group d-flex">
-              <label>{$field}</label>
-              <input type="file" name="item[image]" class="form-control" />
-              <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
-            </div>
-          {else}
-            <div class="form-group d-flex">
-              <label>{$field}</label>
-              <input type="text" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />
-              <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
-            </div>
+          {if $field != null}
+            {if $fields["type"][$counter] == "image"}
+              <div class="form-group d-flex">
+                <label>{$field}</label>
+                <input type="file" name="item[image]" class="form-control" />
+                <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
+              </div>
+            {elseif $fields["type"][$counter] == "BOOLEAN"}
+              <div class="form-group d-flex">
+                <label>{$field}</label>
+                <input type="checkbox" name="item[{$field|replace:' ':'_'|lower}]" value="1" {if $field|replace:' ':'_'|lower}checked{/if} class="form-control" />
+                <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
+              </div>
+            {else}  
+              <div class="form-group d-flex">
+                <label>{$field}</label>
+                <input type="text" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />
+                <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
+              </div>
+            {/if}
+            {counter}
           {/if}
-          {counter}
         {/foreach}
+        
+        <div class="form-group d-flex flex-column">
+          <label for="item_categories">
+            Catégories (pour obtenir des données ou pour afficher)
+          </label>
+          {$categories nofilter}
+        </div>
       </div>
       
       <div class="panel-footer">

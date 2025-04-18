@@ -1,6 +1,6 @@
 declare var Swiper: any;
 
-document.addEventListener('DOMContentLoaded',  function(event) {
+// document.addEventListener('DOMContentLoaded',  function(event) {
     const homeTopSlider = new Swiper('.top-slider', {
         speed: 800,
         // autoplay: {
@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded',  function(event) {
         },
     });
 
-    const modalRecommendSlider = new Swiper(".modal-recommend .swiper", {
+    const modalRecommendSlider = () => {
+        new Swiper(".modal-recommend .swiper", {
         speed: 600,
         slidesPerView: 1,
         spaceBetween: 20,
@@ -133,6 +134,7 @@ document.addEventListener('DOMContentLoaded',  function(event) {
             prevEl: '.swiper-button-prev',
         },
     });
+    }
 
     const productImagesSlider = new Swiper(".product-page__slider .swiper", {
         speed: 600,
@@ -172,4 +174,7 @@ document.addEventListener('DOMContentLoaded',  function(event) {
             prevEl: '.swiper-button-prev',
         },*/
     });
-});
+// });
+
+(window as any).oookkiTheme = (window as any).oookkiTheme || {};
+(window as any).oookkiTheme.modalRecommendSlider = modalRecommendSlider;
