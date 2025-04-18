@@ -40,7 +40,7 @@
       </div>
     </div>
 
-   
+    {hook h='displayOkiCustomInfo' id_block=9 id_category=$category.id template='category-recommended'}
     {hook h='displayOkiCustomInfo' id_block=7 id_category=$category.id template='faq'}
   
   </div>

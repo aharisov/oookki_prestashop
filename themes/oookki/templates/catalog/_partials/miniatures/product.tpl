@@ -1,7 +1,6 @@
 {block name='product_miniature_item'}
-  <article class="product-card product-miniature js-product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
-    {* {$product.attributes_extra|@print_r} *}
-    {* {$product.main_variants|@print_r} *}
+  <article class="product-card {if 5 == $product.id_category_default}mobile{/if} product-miniature js-product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
+    {* {$product|@print_r} *}
 
     {* get active product by storage *}
     {if 5 == $product.id_category_default}
@@ -40,7 +39,6 @@
               />
             </picture>
             {include file='catalog/_partials/product-flags.tpl'}
-            <div class="thumbnail-container" style="display: none;"></div>
           </a>
         {else}
           <a href="{$product.url}" class="thumbnail product-thumbnail">
@@ -52,8 +50,10 @@
                 loading="lazy"
               />
             </picture>
+            {include file='catalog/_partials/product-flags.tpl'}
           </a>
         {/if}
+        <div class="thumbnail-container" style="display: none;"></div>
 
         {foreach from=$product.features item="feature" key="position"}
           {if 6 == $feature["id_feature"]}
@@ -99,57 +99,76 @@
           </ul>
         {/if}
 
-        {if $product.show_price}
-          <div class="price">
-            {* only for smartphones *}
-            {if 5 == $product.id_category_default}
-              <div class="price-suptitle">À partir de</div>
-            {/if}
-            <div class="price-inner">
-              <span aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
-                {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
-                {if '' !== $smarty.capture.custom_price}
-                  {$smarty.capture.custom_price nofilter}
-                {else}
+        <div class="price-wrap w-margin">
+          {if $product.show_price}
+            <div class="price">
+              {* only for smartphones *}
+              {if 5 == $product.id_category_default}
+                <div class="price-suptitle">À partir de</div>
+              {/if}
+              <div class="price-inner">
+                <span aria-label="{l s='Price' d='Shop.Theme.Catalog'}">
+                  {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='products_list'}{/capture}
+                  {if '' !== $smarty.capture.custom_price}
+                    {$smarty.capture.custom_price nofilter}
+                  {else}
+                    {* get price based on active storage (for smartphones) *}
+                    {if 5 == $product.id_category_default && $activeStorageIndex > 0}
+                      {$comboData.attributes_storage[$activeStorage]['price']}
+                    {else}
+                      {$product.price}
+                    {/if}
+                  {/if}
+                </span>
+                {if $product.has_discount}
+                  {hook h='displayProductPriceBlock' product=$product type="old_price"}
                   {* get price based on active storage (for smartphones) *}
                   {if 5 == $product.id_category_default && $activeStorageIndex > 0}
-                    {$comboData.attributes_storage[$activeStorage]['price']}
+                    <span class="price-old" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$comboData.attributes_storage[$activeStorage]['price_original']}</span>
                   {else}
-                    {$product.price}
+                    <span class="price-old" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
                   {/if}
                 {/if}
-              </span>
-              {if $product.has_discount}
-                {hook h='displayProductPriceBlock' product=$product type="old_price"}
-                {* get price based on active storage (for smartphones) *}
-                {if 5 == $product.id_category_default && $activeStorageIndex > 0}
-                  <span class="price-old" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$comboData.attributes_storage[$activeStorage]['price_original']}</span>
+              </div>
+
+              {* show monthly price (for smartphones) *}
+              {if 5 == $product.id_category_default}
+                {if $activeStorageIndex > 0}
+                  {assign var="result" value=$comboData.attributes_storage[$activeStorage]['price_raw']/3}
                 {else}
-                  <span class="price-old" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
+                  {assign var="result" value=$product.price_amount/3}
                 {/if}
+                <div class="price-credit">
+                  <span>ou <i>{$result|string_format:"%.2f"}</i>€</span>
+                  <span>/ mois x 3 mois</span>
+                </div>
               {/if}
             </div>
-
-            {* show monthly price (for smartphones) *}
-            {if 5 == $product.id_category_default}
-              {if $activeStorageIndex > 0}
-                {assign var="result" value=$comboData.attributes_storage[$activeStorage]['price_raw']/3}
-              {else}
-                {assign var="result" value=$product.price_amount/3}
-              {/if}
-              <div class="price-credit">
-                <span>ou <i>{$result|string_format:"%.2f"}</i>€</span>
-                <span>/ mois x 3 mois</span>
-              </div>
-            {/if}
 
             {hook h='displayProductPriceBlock' product=$product type="before_price"}
 
             {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 
             {hook h='displayProductPriceBlock' product=$product type='weight'}
-          </div>
-        {/if}
+          
+          {/if}
+
+          {if 5 != $product.id_category_default}
+            <button 
+              class="btn to-cart btn-red" 
+              type="submit"
+              title="{l s='Add to cart' d='Shop.Theme.Actions'}"
+              data-id-product="{$product.id}"
+              data-qty="1"
+            >
+              {if isset($product.cart_quantity) && $product.cart_quantity > 0}
+                <i class="fa-solid fa-cart-plus"></i>
+              {else}
+                <i class="fa-solid fa-basket-shopping"></i>
+              {/if}
+            </button>
+          {/if}
+        </div>
       {/block}
 
       <div class="compare">
