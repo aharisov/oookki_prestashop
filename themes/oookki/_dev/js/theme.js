@@ -14,10 +14,11 @@ import './prestashop/selectors';
 // import './checkout';
 // import './customer';
 import './prestashop/listing';
-// import './product';
+// import './prestashop/product';
 import './prestashop/cart';
 import './prestashop/block-cart';
 import './prestashop/combinations';
+import './prestashop/product-custom';
 
 // import './helpers/add-to-cart';
 import './helpers/api-get-product';

@@ -5,6 +5,7 @@
     {* get active product by storage *}
     {if 5 == $product.id_category_default}
       {get_product_combinations id_product=$product.id_product assign=comboData}
+      {* {$comboData['attributes_extra']|@print_r} *}
       
       {assign var="foundChecked" value=false}
       {assign var="storageCounter" value=0}
@@ -13,6 +14,13 @@
           {assign var="activeStorage" value=$storage}
           {assign var='foundChecked' value=true}
           {assign var="activeStorageIndex" value=$storageCounter}
+
+          {foreach from=$comboData['attributes_extra'][$storage] item=el}
+            {if $el.qty > 0}
+              {assign var="activeStorageUrl" value=$el.url}
+              {break}
+            {/if}
+          {/foreach}
         {/if}
         {assign var="storageCounter" value=$storageCounter+1}
       {/foreach}
@@ -27,7 +35,7 @@
         {/block}
 
         {if $product.cover}
-          <a href="{$product.url}" class="thumbnail product-thumbnail">
+        <a href="{if $activeStorageUrl}{$activeStorageUrl}{else}{$product.url}{/if}" class="thumbnail product-thumbnail">
             <picture>
               {if !empty($product.cover.bySize.home_default.sources.avif)}<source srcset="{$product.cover.bySize.home_default.sources.avif}" type="image/avif">{/if}
               {if !empty($product.cover.bySize.home_default.sources.webp)}<source srcset="{$product.cover.bySize.home_default.sources.webp}" type="image/webp">{/if}
@@ -41,7 +49,7 @@
             {include file='catalog/_partials/product-flags.tpl'}
           </a>
         {else}
-          <a href="{$product.url}" class="thumbnail product-thumbnail">
+          <a href="{if $activeStorageUrl}{$activeStorageUrl}{else}{$product.url}{/if}" class="thumbnail product-thumbnail">
             <picture>
               {if !empty($urls.no_picture_image.bySize.home_default.sources.avif)}<source srcset="{$urls.no_picture_image.bySize.home_default.sources.avif}" type="image/avif">{/if}
               {if !empty($urls.no_picture_image.bySize.home_default.sources.webp)}<source srcset="{$urls.no_picture_image.bySize.home_default.sources.webp}" type="image/webp">{/if}
@@ -71,7 +79,7 @@
     {block name='product_name'}
       <div class="name-wrap">
         <div class="brand"><a href="{$link->getCategoryLink($product.id_category_default)}?q=Marque-{$product.manufacturer_name}">{$product.manufacturer_name}</a></div>
-        <div class="name"><a href="{$product.url}" content="{$product.url}">{$product.name}</a></div>
+        <div class="name"><a href="{if $activeStorageUrl}{$activeStorageUrl}{else}{$product.url}{/if}" content="{if $activeStorageUrl}{$activeStorageUrl}{else}{$product.url}{/if}">{$product.name}</a></div>
       </div>
     {/block}
 
