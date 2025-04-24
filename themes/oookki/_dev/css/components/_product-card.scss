@@ -64,57 +64,6 @@
             }
         }
     }
-    .badges {
-        position: absolute;
-        top: 1rem;
-        left: 0;
-        z-index: 10;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        margin-bottom: $mb-m;
-        padding: 0 1rem;
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.3rem 1rem;
-            margin: 0;
-            border-radius: $borderRadiusS;
-            font-size: $fontXXS;
-
-            &.new {
-                background: $colorGray;
-                color: $colorWhite;
-            }
-            &.offer {
-                background: $colorGray;
-                color: $colorWhite;
-            }
-            &.special {
-                // top: auto;
-                // bottom: 1rem;
-                // left: 1rem;
-                background: $colorOrange;
-                color: $colorWhite;
-            }
-            &.discount {
-                // right: 1rem;
-                // top: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0.2rem 1rem;
-                background: $colorRedTransparent;
-                border-radius: 10px;
-                font-family: $fontTitle;
-                font-size: $fontXS;
-                color: $colorWhite;
-            }
-        }
-    }
     
     .pic {
         position: relative;
@@ -378,6 +327,58 @@
     }
 }
 
+.badges {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: $mb-m;
+    padding: 0 1rem;
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.3rem 1rem;
+        margin: 0;
+        border-radius: $borderRadiusS;
+        font-size: $fontXXS;
+
+        &.new {
+            background: $colorGray;
+            color: $colorWhite;
+        }
+        &.offer {
+            background: $colorGray;
+            color: $colorWhite;
+        }
+        &.special {
+            // top: auto;
+            // bottom: 1rem;
+            // left: 1rem;
+            background: $colorOrange;
+            color: $colorWhite;
+        }
+        &.discount {
+            // right: 1rem;
+            // top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem 1rem;
+            background: $colorRedTransparent;
+            border-radius: 10px;
+            font-family: $fontTitle;
+            font-size: $fontXS;
+            color: $colorWhite;
+        }
+    }
+}
+
 @media (min-width: 550px) {
     .product-card {
         .promo {
@@ -427,15 +428,6 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
-        .badges {
-            .badge {
-                font-size: $font16;
-
-                // &.new {
-                //     bottom: -50px;
-                // }
-            }
-        }
         .pic a:hover {
             background: $colorGrayTransparent;
             img {
@@ -453,6 +445,15 @@
         .brand a:hover {
             border-bottom: 1px solid $colorGray;
             color: $colorGray;
+        }
+    }
+    .badges {
+        .badge {
+            font-size: $font16;
+
+            // &.new {
+            //     bottom: -50px;
+            // }
         }
     }
 }

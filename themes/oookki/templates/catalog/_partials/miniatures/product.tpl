@@ -3,6 +3,7 @@
     {* {$product|@print_r} *}
 
     {* get active product by storage *}
+    {assign var="activeStorageUrl" value=null}
     {if 5 == $product.id_category_default}
       {get_product_combinations id_product=$product.id_product assign=comboData}
       {* {$comboData['attributes_extra']|@print_r} *}

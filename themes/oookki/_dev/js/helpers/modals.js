@@ -12,11 +12,16 @@ $(function() {
   }
 
   // add to cart with modal show
-  $('.product-card .to-cart').on('click', function (e) {
+  $('.product-card .to-cart, .product-info .add-to-cart').on('click', function (e) {
     e.preventDefault();
 
     const idProduct = $(this).data('id-product');
-    const qtyProduct = $(this).data('qty') ? $(this).data('qty') : 1;
+    const quanInput = $('#quantity_wanted');
+    let qtyProduct = $(this).data('qty') ? $(this).data('qty') : 1;
+
+    if (quanInput) {
+      qtyProduct = quanInput.val();
+    }
     const modalType = 'add_to_cart';
     const btn = $(this);
 
@@ -40,7 +45,13 @@ $(function() {
           const quantity = data?.cart.products_count;
 
           $(btn).attr('disabled', false);
-          $(btn).html('<i class="fa-solid fa-cart-plus"></i>');
+          if (btn.hasClass('to-cart')) {
+            $(btn).html('<i class="fa-solid fa-cart-plus"></i>');
+          } 
+          
+          if (quanInput) {
+            quanInput.val(1);
+          }
           
           // Fetch the modal content from the module
           $.get('/module/okimodals/popup', {

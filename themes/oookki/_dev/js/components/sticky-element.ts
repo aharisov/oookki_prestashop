@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const stickySearchPageTop = document.querySelector(".search-page .filter-top") as HTMLElement;
 
     if (stickyProductTop && window.innerWidth >= 1024) {
-        stickyElement(stickyProductTop, true);
+        if (stickyProductTop.classList.contains('cat-11') 
+            || stickyProductTop.classList.contains('cat-3')) {
+        } else {
+            stickyElement(stickyProductTop, true);
+        }
     }
 
     if (stickyMobileTabs && window.innerWidth < 1024) {
