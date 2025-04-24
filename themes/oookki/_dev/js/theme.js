@@ -1,7 +1,10 @@
 import prestashop from 'prestashop';
 import EventEmitter from 'events';
+// import { Fancybox } from "@fancyapps/ui";
+import 'lightbox2';
 
 window.oookkiTheme = window.oookkiTheme || {};
+// window.Fancybox = Fancybox;
 
 import '@fortawesome/fontawesome-free/js/all.js';
 // import 'expose-loader?exposes=Tether!tether';
@@ -29,6 +32,7 @@ import './helpers/region-country-lists';
 import './helpers/remove-from-cart';
 import './helpers/reveal-on-scroll';
 import './helpers/show-more-items';
+import './helpers/modals';
 
 import './components/forms';
 import './components/input-mask';
@@ -49,7 +53,6 @@ import './pages/product-sort';
 import './pages/product-tabs';
 import './pages/user-profile';
 
-import './helpers/modals';
 /* eslint-enable */
 
 // "inherit" EventEmitter
