@@ -14,7 +14,7 @@ function initTabs() {
                 panel.setAttribute("aria-hidden", "false");
 
                 // Get panel position and subtract offset (e.g., 20px for spacing)
-                const offset = 100;
+                const offset = 150;
                 const panelTop = panel.getBoundingClientRect().top + window.scrollY - offset;
 
                 // Smooth scroll
@@ -56,8 +56,8 @@ function initTabs() {
     });
 
     // Ensure the first tab is active on load
-    const firstTab = tabButtons[0]?.dataset.tab;
-    if (firstTab) activateTab(firstTab);  
+    // const firstTab = tabButtons[0]?.dataset.tab;
+    // if (firstTab) activateTab(firstTab);  
 }
 
 document.addEventListener("DOMContentLoaded", () => {

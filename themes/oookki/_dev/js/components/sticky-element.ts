@@ -4,7 +4,7 @@ function stickyElement(element: HTMLElement, hideHeader: boolean) {
     const elementRect = element.getBoundingClientRect();
     const header = document.querySelector("header") as HTMLElement | null;
 
-    const originalTop = elementRect.top + window.scrollY - 70;
+    const originalTop = elementRect.top + window.scrollY - 100;
     const stickyClass = "sticky";
 
     function handleScroll() {

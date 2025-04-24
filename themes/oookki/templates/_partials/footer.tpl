@@ -15,3 +15,6 @@
     {/block}
   </div>
 </div>
+<div class="up-btn">
+  <i class="fa-solid fa-arrow-up"></i>
+</div>

@@ -116,17 +116,21 @@ main:has(.top-slider) {
     right: 1rem;
     bottom: 2rem;
     z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     background: $colorWhite;
     border: 1px solid $colorPrimary;
     border-radius: $borderRadiusCircle;
-    transform: rotate(90deg);
+    font-size: 24px;
     transition: $transition;
     cursor: pointer;
 
     &:hover {
-        background: $colorGrayHover;
+        background: $colorPrimary;
+        color: $colorWhite;
     }
 }
 .product-page .up-btn {
@@ -280,10 +284,6 @@ main:has(.top-slider) {
 
     .up-btn {
         right: 2rem;
-
-        &:hover {
-            transform: rotate(90deg) scale(1.2);
-        }
     }
     .product-page .up-btn {
         bottom: 2rem;

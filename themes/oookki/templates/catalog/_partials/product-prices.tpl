@@ -40,7 +40,7 @@
             {foreach from=$product.features item="feature"}
               {if 14 == $feature.id_feature || 15 == $feature.id_feature}
                 <li>
-                    <span class="left">{$feature.name} €</span>
+                    <span class="left">{$feature.name}</span>
                     <span class="right">{$feature.value} €</span>
                 </li>
               {/if}
