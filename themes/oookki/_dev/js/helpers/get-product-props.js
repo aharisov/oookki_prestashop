@@ -41,7 +41,7 @@ function initTabs() {
           const offset = 150;
           const panelTop = $panel.offset().top - offset;
 
-          console.info('panel offset', $panel.offset().top);
+          // console.info('panel offset', $panel.offset().top);
   
           if ($panel.offset().top < 250) {
             $("html, body").animate({ scrollTop: panelTop }, 400);

@@ -11,7 +11,9 @@
         <div class="product-top__tabs-switch">
           <button type="button" class="tab-button active" data-type="1" data-tab="product-info">Présentation</button>
           <button type="button" class="tab-button" data-type="2" data-tab="product-features" data-prod-id="{$product.id}">Caractéristiques</button>
-          <button type="button" class="tab-button" data-type="3" data-tab="product-description" data-prod-id="{$product.id}">Description</button>
+          {if $product.description}
+            <button type="button" class="tab-button" data-type="3" data-tab="product-description" data-prod-id="{$product.id}">Description</button>
+          {/if}
         </div>
       </div>
       <div class="product-top__price flex">
