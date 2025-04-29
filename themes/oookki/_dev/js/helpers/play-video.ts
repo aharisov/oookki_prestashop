@@ -51,3 +51,6 @@ function playVideo() {
 document.addEventListener("DOMContentLoaded", () => {
     playVideo();
 });
+
+(window as any).oookkiTheme = (window as any).oookkiTheme || {};
+(window as any).oookkiTheme.playVideo = playVideo;

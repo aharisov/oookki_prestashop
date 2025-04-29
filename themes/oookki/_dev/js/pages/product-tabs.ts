@@ -40,7 +40,7 @@ function initTabs() {
             if (button.dataset.tab) {
                 activateTab(button.dataset.tab);
             }
-
+            
             // Close mobile menu after selection
             if (tabSwitch) {
                 tabSwitch.classList.remove("open");

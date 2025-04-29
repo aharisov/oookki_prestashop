@@ -164,7 +164,14 @@
           </div>
         </div>
       {/block}
+
+      {block name='product_footer'}
+        {* {hook h='displayFooterProduct' product=$product category=$category} *}
+      {/block}
     </article>
+
+    <article id="product-features" class="product-features tab-panel" aria-hidden="true"></article>
+    <article id="product-description" class="product-description tab-panel" aria-hidden="true"></article>
 
     {block name='product_accessories'}
       {if $accessories}
@@ -179,10 +186,6 @@
           </div>
         </section>
       {/if}
-    {/block}
-
-    {block name='product_footer'}
-      {hook h='displayFooterProduct' product=$product category=$category}
     {/block}
 
     {block name='product_images_modal'}
