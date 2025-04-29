@@ -173,25 +173,35 @@
     <article id="product-features" class="product-features tab-panel" aria-hidden="true"></article>
     <article id="product-description" class="product-description tab-panel" aria-hidden="true"></article>
 
-    {block name='product_accessories'}
-      {if $accessories}
-        <section class="product-accessories clearfix">
-          <p class="h5 text-uppercase">{l s='You might also like' d='Shop.Theme.Catalog'}</p>
-          <div class="products row">
-            {foreach from=$accessories item="product_accessory" key="position"}
-              {block name='product_miniature'}
-                {include file='catalog/_partials/miniatures/product.tpl' product=$product_accessory position=$position productClasses="col-xs-12 col-sm-6 col-lg-4 col-xl-3"}
-              {/block}
-            {/foreach}
-          </div>
-        </section>
-      {/if}
-    {/block}
-
     {block name='product_images_modal'}
       {* {include file='catalog/_partials/product-images-modal.tpl'} *}
     {/block}
 
   </div>
 
+  {block name='product_accessories'}
+    {if $accessories}
+      <section class="section-products products-slider recommend-list mb-common">
+        <div>
+          <div class="section-head flex">
+            <h2>{l s='You might also like' d='Shop.Theme.Catalog'}</h2>
+          </div>
+          <div class="recommend-slider swiper">
+            <div class="swiper-wrapper">
+              {foreach from=$accessories item="product_accessory" key="position"}
+                {block name='product_miniature'}
+                  {include file='catalog/_partials/miniatures/product-recommend-card.tpl' product=$product_accessory position=$position productClasses=""}
+                {/block}
+              {/foreach}
+              <div class="swiper-pagination circle"></div>
+          
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+    {/if}
+  {/block}
+  {* {$product|@print_r} *}
+  {hook h='displayOkiCustomInfo' id_block=9 id_category=$product.id_category_default template='category-recommended'}
 {/block}
