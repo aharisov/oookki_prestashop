@@ -36,12 +36,14 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
         // die();
 
         $categoryTreeHtml = $this->getCategoryTreeHtml();
+        $products = $this->getProducts();
 
         $this->context->smarty->assign([
             'block_name' => $block->name,
             'fields' => $fields,
             'categories' => $categoryTreeHtml,
             'id_block' => $id_block,
+            'products' => $products
         ]);
 
         $this->addJS(_MODULE_DIR_ . 'okicustominfo/views/js/back.js');
@@ -124,5 +126,31 @@ class AdminOkiCustomInfoAddItemController extends ModuleAdminController
                 $this->errors[] = $this->l('Échec de l\'ajout de l\'élément.');
             }
         }
+    }
+
+    public function getProducts() {
+        $id_lang = (int) $this->context->language->id;
+
+        $products = Product::getProducts(
+            $id_lang,
+            0,
+            1000, 
+            'name',
+            'asc'
+        );
+
+        $result = [];
+        $categories = [5, 7, 9];
+        foreach ($products as $product) {
+            // echo '<pre>'; print_r($product); echo '</pre>';
+            if (in_array($product['id_category_default'], $categories)) {
+                $result[] = [
+                    'id' => $product['id_product'],
+                    'name' => $product['name']
+                ];
+            }
+        }
+
+        return $result;
     }
 }

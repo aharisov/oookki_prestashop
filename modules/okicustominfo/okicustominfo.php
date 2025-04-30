@@ -152,16 +152,29 @@ class OkiCustomInfo extends Module
             $category = "";
         }
 
+        if (!empty($params['id_product'])) {
+            $product = $params['id_product'];
+        } else {
+            $product = "";
+        }
+
         // Fetch InfoBlock info
         $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_blocks` 
         WHERE `id_block` = ' . $id_block;
         $infoBlock = Db::getInstance()->executeS($sql);
 
         // Fetch items related to this InfoBlock
-        $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_items_' . (int)$id_block . '` 
-        WHERE `active` = 1 
-        ORDER BY `position` ASC';
-        $items = Db::getInstance()->executeS($sql);
+        if ($product) {
+            $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_items_' . (int)$id_block . '` 
+            WHERE `active` = 1 AND `product_id` = ' . $product . '
+            ORDER BY `position` ASC';
+            $items = Db::getInstance()->executeS($sql);
+        } else {
+            $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'okicustominfo_items_' . (int)$id_block . '` 
+            WHERE `active` = 1 
+            ORDER BY `position` ASC';
+            $items = Db::getInstance()->executeS($sql);
+        }
 
         // Determine template file: Use provided template or default
         $templateFile = !empty($template) ? 'views/templates/front/' . $template . '.tpl' : 'views/templates/front/base.tpl';

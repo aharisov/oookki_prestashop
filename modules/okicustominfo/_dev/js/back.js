@@ -118,6 +118,13 @@ $(document).ready(function() {
         }
     });
   });
+
+  // choose product
+  $('#product-select').on('change', function () {
+    const selectedId = $('#product-select option:selected').data('id');
+    console.info('id', selectedId);
+    $('#product-id').val(selectedId);
+  });
 /*
   $('#sortable-list').sortable({
     animation: 150,

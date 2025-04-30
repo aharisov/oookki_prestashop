@@ -204,4 +204,5 @@
   {/block}
   {* {$product|@print_r} *}
   {hook h='displayOkiCustomInfo' id_block=9 id_category=$product.id_category_default template='category-recommended'}
+  {hook h='displayOkiCustomInfo' id_block=10 id_product=$product.id template='faq-product'}
 {/block}
