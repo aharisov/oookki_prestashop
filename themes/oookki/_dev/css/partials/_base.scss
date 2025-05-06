@@ -137,6 +137,11 @@ main:has(.top-slider) {
     bottom: 6rem;
 }
 
+.alert-danger {
+    font-style: italic;
+    color: $colorRedTransparent;
+}
+
 .breadcrumbs {
     margin-bottom: $mb-l;
     li {

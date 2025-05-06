@@ -12,7 +12,7 @@ $(function() {
   }
 
   // add to cart with modal show
-  $('.product-card .to-cart, .product-info .add-to-cart').on('click', function (e) {
+  $('.product-card .to-cart, .product-info .add-to-cart, .in-cart-modal .to-cart').on('click', function (e) {
     e.preventDefault();
 
     const idProduct = $(this).data('id-product');
@@ -47,7 +47,14 @@ $(function() {
           $(btn).attr('disabled', false);
           if (btn.hasClass('to-cart')) {
             $(btn).html('<i class="fa-solid fa-cart-plus"></i>');
-          } 
+          }
+          
+          if (btn.hasClass('in-cart-recommend')) {
+            // prestashop.emit('updateCart', {
+            //   response,
+            // });
+            location.reload();
+          }
           
           if (quanInput) {
             quanInput.val(1);

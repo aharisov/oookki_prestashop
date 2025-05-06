@@ -25,9 +25,9 @@
       {block name='top_slider'}
         
       {/block}
-      {block name='notifications'}
-        {*include file='_partials/notifications.tpl'*}
-      {/block}
+      {* {block name='notifications'}
+        {include file='_partials/notifications.tpl'}
+      {/block} *}
 
       {hook h="displayWrapperTop"}
       
