@@ -37,9 +37,11 @@ function applyInputMask(input: HTMLInputElement, pattern: string) {
 const inputPhone = document.getElementById("phone-number") as HTMLInputElement;
 const inputRio = document.getElementById("phone-rio") as HTMLInputElement;
 const inputBirthDate = document.getElementById("birth-date") as HTMLInputElement;
+const inputBirthDate2 = document.getElementById("field-birthday") as HTMLInputElement;
 const inputPostalCode = document.getElementById("postal-code") as HTMLInputElement;
 
 if (inputPhone) applyInputMask(inputPhone, "00 00 00 00 00");
 if (inputRio) applyInputMask(inputRio, "00 X XXXXXX 0X0");
 if (inputBirthDate) applyInputMask(inputBirthDate, "00/00/0000");
+if (inputBirthDate2) applyInputMask(inputBirthDate2, "00/00/0000");
 if (inputPostalCode) applyInputMask(inputPostalCode, "00000");

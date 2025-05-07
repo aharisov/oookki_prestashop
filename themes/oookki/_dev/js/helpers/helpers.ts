@@ -127,7 +127,7 @@ const showHidePass = (input: string): void => {
     const passwordInput = document.getElementById(input) as HTMLInputElement;
     if (!passwordInput) return;
 
-    const parent = passwordInput.closest(".inner");
+    const parent = passwordInput.closest("div");
     if (!parent) return;
     
     const toggleButton = parent.querySelector(".js-toggle-pass") as HTMLElement;
@@ -156,5 +156,6 @@ document.addEventListener('DOMContentLoaded',  function(event) {
     openCloseSearch();
     openModal();
     showHidePass("field-password");
+    showHidePass("field-password1");
     showHidePass("field-new_password");
 });

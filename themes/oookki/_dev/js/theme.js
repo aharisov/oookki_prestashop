@@ -23,6 +23,7 @@ import './prestashop/cart-custom';
 import './prestashop/block-cart';
 import './prestashop/combinations';
 import './prestashop/product-custom';
+// import './prestashop/checkout';
 
 // import './helpers/add-to-cart';
 import './helpers/api-get-product';
@@ -46,7 +47,7 @@ import './components/sticky-sidebar';
 
 import './pages/compare-page';
 import './pages/order-plan-change';
-import './pages/order';
+import './pages/order-new';
 import './pages/product-compare';
 import './pages/product-filter';
 import './pages/product-payment';
