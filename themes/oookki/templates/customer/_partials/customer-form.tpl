@@ -28,32 +28,36 @@
   {/block}
 
 <form action="{block name='customer_form_actionurl'}{$action}{/block}" id="customer-form" class="js-customer-form" method="post">
-  <div>
-    {block "form_fields"}
-      {foreach from=$formFields item="field"}
-        {block "form_field"}
-          {if $field.type === "password"}
-            <div class="field-password-policy">
-              {form_field field=$field}
-            </div>
-          {else}
-            {form_field field=$field}
-          {/if}
-        {/block}
-      {/foreach}
-      {$hook_create_account_form nofilter}
-    {/block}
+  <div class="personal-block">
+    <div class="personal-block__inner">
+      {block "form_fields"}
+        {foreach from=$formFields item="field"}
+          {block "form_field"}
+            {form_field field=$field num=''}
+          {/block}
+        {/foreach}
+        {$hook_create_account_form nofilter}
+      {/block}
+    </div>
   </div>
 
   {block name='customer_form_footer'}
-    <footer class="form-footer clearfix">
+    <div class="order-buttons full">
       <input type="hidden" name="submitCreate" value="1">
-      {block "form_buttons"}
-        <button class="btn btn-primary form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
-          {l s='Save' d='Shop.Theme.Actions'}
-        </button>
-      {/block}
-    </footer>
+      <a href="/" class="link order-reset">
+        <i class="fa-solid fa-xmark"></i>
+        <span>Abandonner ma commande</span>
+      </a>
+      <div class="buttons-wrap" bis_skin_checked="1">
+        {block "form_buttons"}
+          <button class="btn btn-red form-control-submit" data-link-action="save-customer" type="submit">
+            {l s='Save' d='Shop.Theme.Actions'}
+          </button>
+        {/block}
+      </div>
+    </div>
+
+    <div class="order-note"><span class="red">*</span> Champs obligatoires</div>
   {/block}
 
 </form>

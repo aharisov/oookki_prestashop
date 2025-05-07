@@ -35,7 +35,7 @@
     <div class="clearfix">
       <form method="GET" action="{$urls.pages.order}">
         <button
-          class="continue btn btn-primary float-xs-right"
+          class="continue btn btn-black"
           name="controller"
           type="submit"
           value="order"
@@ -47,10 +47,12 @@
     </div>
 
   {else}
-    <ul class="nav nav-inline my-2" role="tablist">
-      <li class="nav-item">
+    {* <p>Connectez-vous pour profiter d'une remise et gagner du temps à la souscription.</p> *}
+    
+    <ul class="nav order-info-nav flex" role="tablist">
+      <li class="nav-item {if !$show_login_form}active{/if}">
         <a
-          class="nav-link {if !$show_login_form}active{/if}"
+          class="nav-link"
           data-toggle="tab"
           href="#checkout-guest-form"
           role="tab"
@@ -65,13 +67,9 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <span class="nav-separator"> | </span>
-      </li>
-
-      <li class="nav-item">
+      <li class="nav-item {if $show_login_form}active{/if}">
         <a
-          class="nav-link {if $show_login_form}active{/if}"
+          class="nav-link"
           data-link-action="show-login-form"
           data-toggle="tab"
           href="#checkout-login-form"
