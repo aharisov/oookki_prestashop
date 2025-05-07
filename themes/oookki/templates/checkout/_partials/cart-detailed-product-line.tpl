@@ -1,20 +1,21 @@
 <div class="summary-product">
   <!--  product line left content: image-->
   <div class="product-pic">
-    {if $product.default_image}
-      <picture>
-        {if !empty($product.default_image.bySize.cart_default.sources.avif)}<source srcset="{$product.default_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
-        {if !empty($product.default_image.bySize.cart_default.sources.webp)}<source srcset="{$product.default_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
-        
-          <a href="{$product.url}" target="_blank"><img src="{$product.default_image.bySize.cart_default.url}" alt="{$product.name|escape:'quotes'}" loading="lazy"></a>
-      </picture>
-    {else}
-      <picture>
-        {if !empty($urls.no_picture_image.bySize.cart_default.sources.avif)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
-        {if !empty($urls.no_picture_image.bySize.cart_default.sources.webp)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
-        <a href="{$product.url}" target="_blank"><img src="{$urls.no_picture_image.bySize.cart_default.url}" loading="lazy" /></a>
-      </picture>
-    {/if}
+    <a href="{$product.url}" target="_blank">
+      {if $product.default_image}
+        <picture>
+          {if !empty($product.default_image.bySize.cart_default.sources.avif)}<source srcset="{$product.default_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
+          {if !empty($product.default_image.bySize.cart_default.sources.webp)}<source srcset="{$product.default_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
+          <img src="{$product.default_image.bySize.cart_default.url}" alt="{$product.name|escape:'quotes'}" loading="lazy">
+        </picture>
+      {else}
+        <picture>
+          {if !empty($urls.no_picture_image.bySize.cart_default.sources.avif)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.avif}" type="image/avif">{/if}
+          {if !empty($urls.no_picture_image.bySize.cart_default.sources.webp)}<source srcset="{$urls.no_picture_image.bySize.cart_default.sources.webp}" type="image/webp">{/if}
+          <img src="{$urls.no_picture_image.bySize.cart_default.url}" loading="lazy" />
+        </picture>
+      {/if}
+    </a>
 
     {if $product.has_discount}
       <div class="badges">
