@@ -1,5 +1,9 @@
 footer {
     background: $colorPrimary;
+
+    &.order-footer {
+        margin-top: 4rem;
+    }
 }
 
 .footer-inner {

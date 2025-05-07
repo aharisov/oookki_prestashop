@@ -51,13 +51,14 @@ form {
 
         .note {
             display: flex;
-            margin-top: $mb-s;
+            width: 100%;
+            margin-top: $mb-m;
             font-size: $font14;
             color: $colorGray;
 
             i {
                 position: relative;
-                top: 3px;
+                top: 0;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
@@ -176,7 +177,18 @@ form {
         }
         .form-line__content {
             display: flex;
-            align-items: center
+            align-items: center;
+
+            span {
+                em {
+                    font-size: $font14;
+                    color: $colorGray;
+                }
+            }
+        }
+        .form-line__content:not(.radio-group) {
+            flex-direction: column;
+            align-items: flex-start;
         }
         .radio-group {
             label {

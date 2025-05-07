@@ -7,14 +7,18 @@
         .order-step {
             display: inline-flex;
             align-items: center;
+            color: $colorBorder;
 
+            i {
+                font-size: 20px;
+            }
             svg {
                 width: 20px;
                 height: 20px;
             }
-            path {
-                fill: $colorBorder;
-            }
+            // path {
+            //     fill: $colorBorder;
+            // }
             span {
                 display: inline-flex;
                 width: 30px;
@@ -24,9 +28,10 @@
             }
 
             &.current, &.ready {
-                path {
-                    fill: $colorGreen;
-                }
+                color: $colorGreen;
+                // path {
+                //     fill: $colorGreen;
+                // }
                 span {
                     background: $colorGreen;
                 }
@@ -51,10 +56,16 @@
             }
         }
 
+        .icon-mobile {
+            color: $colorGreen;
+        }
+        i {
+            font-size: 30px;
+        }
         svg {
             width: 30px;
             height: 30px;
-            path {fill: $colorGreen;}
+            // path {fill: $colorGreen;}
         }
     }
 }
@@ -86,7 +97,10 @@
                     height: 3px;
                     border-radius: 10px;
                 }
-                svg {
+                i {
+                    font-size: 30px;
+                }
+                svg{
                     width: 30px;
                     height: 30px;
                 }
