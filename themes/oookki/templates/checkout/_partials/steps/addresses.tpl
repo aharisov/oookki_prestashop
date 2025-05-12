@@ -8,6 +8,7 @@
       action="{url entity='order' params=['id_address' => $id_address]}"
       data-refresh-url="{url entity='order' params=['ajax' => 1, 'action' => 'addressForm']}"
     >
+      <div class="personal-block personal-info">
       {if $use_same_address}
         <p>
           {if $cart.is_virtual}
@@ -17,8 +18,12 @@
           {/if}
         </p>
       {else}
-        <h2 class="h4">{l s='Shipping Address' d='Shop.Theme.Checkout'}</h2>
+        <h3>{l s='Shipping Address' d='Shop.Theme.Checkout'}</h3>
       {/if}
+
+      <p class="add-address">
+        <a href="{$new_address_delivery_url}" class="btn btn-black icon-left"><i class="fa-solid fa-address-book"></i>{l s='add new address' d='Shop.Theme.Actions'}</a>
+      </p>
 
       {if $show_delivery_address_form}
         <div id="delivery-address">
@@ -46,13 +51,10 @@
           <p class="alert alert-danger js-address-error" name="alert-delivery" style="display: none">{l s="Your address is incomplete, please update it." d="Shop.Notifications.Error"}</p>
         {/if}
 
-        <p class="add-address">
-          <a href="{$new_address_delivery_url}"><i class="material-icons">&#xE145;</i>{l s='add new address' d='Shop.Theme.Actions'}</a>
-        </p>
-
         {if $use_same_address && !$cart.is_virtual}
           <p>
-            <a data-link-action="different-invoice-address" href="{$use_different_address_url}">
+            <a data-link-action="different-invoice-address" class="btn btn-red__empty icon-left" href="{$use_different_address_url}">
+              <i class="fa-solid fa-location-dot"></i>  
               {l s='Billing address differs from shipping address' d='Shop.Theme.Checkout'}
             </a>
           </p>
@@ -62,7 +64,11 @@
 
       {if !$use_same_address}
 
-        <h2 class="h4">{l s='Your Invoice Address' d='Shop.Theme.Checkout'}</h2>
+        <h3>{l s='Your Invoice Address' d='Shop.Theme.Checkout'}</h3>
+
+        <p class="add-address">
+          <a href="{$new_address_invoice_url}" class="btn btn-black icon-left"><i class="fa-solid fa-address-book"></i> {l s='add new address' d='Shop.Theme.Actions'}</a>
+        </p>
 
         {if $show_invoice_address_form}
           <div id="invoice-address">
@@ -89,13 +95,10 @@
           {else}
             <p class="alert alert-danger js-address-error" name="alert-invoice" style="display: none">{l s="Your address is incomplete, please update it." d="Shop.Notifications.Error"}</p>
           {/if}
-
-          <p class="add-address">
-            <a href="{$new_address_invoice_url}"><i class="material-icons">&#xE145;</i>{l s='add new address' d='Shop.Theme.Actions'}</a>
-          </p>
         {/if}
 
       {/if}
+      </div>
 
       {if !$form_has_continue_button}
         <div class="order-buttons full">
@@ -104,8 +107,8 @@
               <span>Abandonner ma commande</span>
           </a>
           <div class="buttons-wrap">
-            <a href="order-step1.php" class="btn btn-black__empty prev-step">Précédent</a>
-            <button type="submit" class="btn btn-primary continue float-xs-right" name="confirm-addresses" value="1">
+            <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-personal-information-step">Étape précédente</button>
+            <button type="submit" class="btn btn-red continue" name="confirm-addresses" value="1">
               {l s='Continue' d='Shop.Theme.Actions'}
             </button>
             <input type="hidden" id="not-valid-addresses" class="js-not-valid-addresses" value="{$not_valid_addresses}">

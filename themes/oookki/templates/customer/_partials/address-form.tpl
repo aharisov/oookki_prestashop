@@ -60,7 +60,7 @@
           <div class="buttons-wrap">
             <input type="hidden" name="submitAddress" value="1">
             {block name='form_buttons'}
-              <a href="order-step1.php" class="btn btn-black__empty prev-step">Précédent</a>
+              <a href="order-step1.php" class="btn btn-black__empty prev-step">Étape précédente</a>
               <button class="btn btn-red next-step form-control-submit" type="submit">
                 {l s='Save' d='Shop.Theme.Actions'}
               </button>

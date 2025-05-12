@@ -34,15 +34,21 @@
 {block name='form_buttons'}
   {if !$form_has_continue_button}
     <button type="submit" class="btn btn-red">{l s='Save' d='Shop.Theme.Actions'}</button>
-    <a class="js-cancel-address cancel-address" href="{url entity='order' params=['cancelAddress' => {$type}]}">{l s='Cancel' d='Shop.Theme.Actions'}</a>
+    <a class="js-cancel-address cancel-address btn btn-black icon-left" href="{url entity='order' params=['cancelAddress' => {$type}]}">
+      <i class="fa-solid fa-arrow-rotate-left"></i>  
+      {l s='Cancel' d='Shop.Theme.Actions'}
+    </a>
   {else}
     <form>
-      <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-personal-information-step">Précédent</a>
+      <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-personal-information-step">Étape précédente</button>
       <button type="submit" class="continue btn btn-red" name="confirm-addresses" value="1">
           {l s='Continue' d='Shop.Theme.Actions'}
       </button>
       {if $customer.addresses|count > 0}
-        <a class="js-cancel-address cancel-address float-xs-right" href="{url entity='order' params=['cancelAddress' => {$type}]}">{l s='Cancel' d='Shop.Theme.Actions'}</a>
+        <a class="js-cancel-address cancel-address btn btn-black icon-left" href="{url entity='order' params=['cancelAddress' => {$type}]}">
+          <i class="fa-solid fa-arrow-rotate-left"></i>  
+          {l s='Cancel' d='Shop.Theme.Actions'}
+        </a>
       {/if}
     </form>
   {/if}

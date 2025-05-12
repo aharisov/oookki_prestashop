@@ -60,6 +60,17 @@ function changeHeaderStepActivity() {
     })
 }
 
+// check if delivery address is edited
+function checkAddrStep() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramEdit = urlParams.get('editAddress');
+    const paramAdd = urlParams.get('newAddress');
+    // console.log('edit addr:', param);
+    if (paramEdit != null || paramAdd != null) {
+        $('.buttons-wrap .prev-step').remove();
+    }
+}
+
 $(function(){
     changePersonalTabs();
 
@@ -89,4 +100,5 @@ $(function(){
     });
 
     changeHeaderStepActivity();
+    checkAddrStep();
 })

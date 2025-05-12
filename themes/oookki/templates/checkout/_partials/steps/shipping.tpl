@@ -79,7 +79,7 @@
               <span>Abandonner ma commande</span>
           </a>
           <div class="buttons-wrap">
-            <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-addresses-step">Précédent</button>
+            <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-addresses-step">Étape précédente</button>
             <button type="submit" class="continue btn btn-red" name="confirmDeliveryOption" value="1">
               {l s='Continue' d='Shop.Theme.Actions'}
             </button>
