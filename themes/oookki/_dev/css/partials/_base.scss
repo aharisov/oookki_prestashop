@@ -208,6 +208,9 @@ main:has(.top-slider) {
         &:hover {
             background: $colorSecond;
         }
+        &.switch:hover {
+            background: transparent;
+        }
     }
     .accordion-content {
         max-height: 0;
