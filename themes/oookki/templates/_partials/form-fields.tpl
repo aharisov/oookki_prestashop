@@ -156,6 +156,7 @@
             name="{$field.name}"
             type="{$field.type}"
             value="{$field.value|default}"
+            {if $field.name == "phone"}placeholder="Ex : 07 00 01 02 03"{/if}
             {if $field.autocomplete}autocomplete="{$field.autocomplete}"{/if}
             {if isset($field.availableValues.placeholder)}placeholder="{$field.availableValues.placeholder}"{/if}
             {if $field.maxLength}maxlength="{$field.maxLength}"{/if}

@@ -37,25 +37,36 @@
 
       {block name="address_form_fields"}
         <section class="form-fields">
-          {block name='form_fields'}
-            {foreach from=$formFields item="field"}
-              {block name='form_field'}
-                {form_field field=$field}
-              {/block}
-            {/foreach}
-          {/block}
+          <div class="personal-block personal-info">
+            {block name='form_fields'}
+              <div class="personal-block__inner">
+                {foreach from=$formFields item="field"}
+                  {block name='form_field'}
+                    {form_field field=$field num=""}
+                  {/block}
+                {/foreach}
+              </div>
+            {/block}
+          </div>
         </section>
       {/block}
 
       {block name="address_form_footer"}
-      <footer class="form-footer clearfix">
-        <input type="hidden" name="submitAddress" value="1">
-        {block name='form_buttons'}
-          <button class="btn btn-primary form-control-submit float-xs-right" type="submit">
-            {l s='Save' d='Shop.Theme.Actions'}
-          </button>
-        {/block}
-      </footer>
+        <div class="order-buttons full">
+          <a href="/" class="link order-reset">
+              <i class="fa-solid fa-xmark"></i> 
+              <span>Abandonner ma commande</span>
+          </a>
+          <div class="buttons-wrap">
+            <input type="hidden" name="submitAddress" value="1">
+            {block name='form_buttons'}
+              <a href="order-step1.php" class="btn btn-black__empty prev-step">Précédent</a>
+              <button class="btn btn-red next-step form-control-submit" type="submit">
+                {l s='Save' d='Shop.Theme.Actions'}
+              </button>
+            {/block}
+          </div>
+        </div>
       {/block}
 
     </form>

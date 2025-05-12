@@ -6,8 +6,8 @@
 {/if}
 <div class="order-current-step flex">
   <div class="content flex">
-    <p class="sup-title">Étape {$num} / 4</p>
-    <div class="title">{$title}</div>
+    <p class="sup-title">Étape <span>{$num}</span> / 5</p>
+    <div class="title"></div>
   </div>
   <div class="icon-mobile">{$icon nofilter}</div>
 </div>

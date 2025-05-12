@@ -34,7 +34,7 @@ function applyInputMask(input: HTMLInputElement, pattern: string) {
     });
 }
 
-const inputPhone = document.getElementById("phone-number") as HTMLInputElement;
+const inputPhone = document.getElementById("field-phone") as HTMLInputElement;
 const inputRio = document.getElementById("phone-rio") as HTMLInputElement;
 const inputBirthDate = document.getElementById("birth-date") as HTMLInputElement;
 const inputBirthDate2 = document.getElementById("field-birthday") as HTMLInputElement;

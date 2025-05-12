@@ -84,8 +84,15 @@
 }
 
 .checkout-step {
-    &.-complete {
+    &.-complete,
+    &.-unreachable {
         display: none;
+    }
+    &.-complete.-current {
+        display: block;
+    }
+    p {
+        margin-bottom: $mb-xs;
     }
 }
 
