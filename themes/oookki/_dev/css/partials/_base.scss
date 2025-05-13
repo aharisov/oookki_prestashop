@@ -75,7 +75,7 @@ main:has(.top-slider) {
 .text-red {
     color: $colorRed;
 }
-.link {
+.link, .form-line a {
     padding: 0;
     border-bottom: 1px solid $colorPrimary;
     transition: $transition;
