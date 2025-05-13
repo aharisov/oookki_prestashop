@@ -29,9 +29,9 @@
               {if $add_product_link}</a>{/if}
             </div>
             <div class="product-props">{$product.quantity} x {$product.price}</div>
-            {if count($product.attributes) > 0}
+            {* {if count($product.attributes) > 0}
               <div class="product-props">{$product.attributes|@print_r}</div>
-            {/if}
+            {/if} *}
           </div>
           <div class="product-price">{$product.total}</div>
           {* {hook h='displayProductPriceBlock' product=$product type="unit_price"} *}

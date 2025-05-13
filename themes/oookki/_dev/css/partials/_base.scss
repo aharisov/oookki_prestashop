@@ -244,6 +244,10 @@ main:has(.top-slider) {
     }
 }
 
+.notifications-wrapper {
+    margin-bottom: $mb-m;
+}
+
 @media (min-width: 768px) {
     .up-btn {
         bottom: 4rem;

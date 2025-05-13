@@ -43,8 +43,8 @@
     </article>
   {/foreach}
   {if $interactive}
-    <p>
+    {* <p>
       <button class="ps-hidden-by-js form-control-submit center-block" type="submit">{l s='Save' d='Shop.Theme.Actions'}</button>
-    </p>
+    </p> *}
   {/if}
 {/block}
