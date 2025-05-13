@@ -20,25 +20,24 @@
         input {
             max-width: none !important;
         }
+    }
+}
 
-        .js-toggle-pass {
-            position: absolute;
-            top: auto;
-            right: 0;
-            height: 55px;
-            border-radius: 0;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+.js-toggle-pass {
+    position: absolute;
+    top: auto;
+    right: 0;
+    height: 55px;
+    border-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 
-            svg {
-                width: 25px;
-                height: 25px;
-
-                &.fa-eye-slash {
-                    display: none;
-                }
-            }
-        }
+    .fa-eye-slash {
+        display: none;
+    }
+    svg {
+        width: 25px;
+        height: 25px;
     }
 }
 

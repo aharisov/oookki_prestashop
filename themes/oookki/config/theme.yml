@@ -142,15 +142,6 @@ assets:
         path: assets/js/lib/swiper-bundle.min.js
         priority: 0
         position: bottom
-    product:
-      - id: photoswipe-lightbox-lib
-        path: assets/js/lib/photoswipe-lightbox.esm.min.js
-        priority: 1
-        position: bottom
-      - id: photoswipe-lib
-        path: assets/js/lib/photoswipe.esm.min.js
-        priority: 2
-        position: bottom
 
 theme_settings:
   default_layout: layout-full-width
@@ -161,3 +152,5 @@ theme_settings:
     new-products: layout-left-column
     prices-drop: layout-left-column
     contact: layout-left-column
+    order-confirmation: layout-order
+    order: layout-order

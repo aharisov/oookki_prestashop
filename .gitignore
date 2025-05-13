@@ -131,6 +131,8 @@ themes/*/
 !modules/okicustominfo
 !modules/okifeaturedproducts
 !modules/okimodals
+!modules/okicustomprops
+modules/okicustominfo/views/img
 
 # Vendors and dependencies
 

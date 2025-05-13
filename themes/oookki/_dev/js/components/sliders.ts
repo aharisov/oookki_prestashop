@@ -136,19 +136,21 @@ declare var Swiper: any;
     });
     }
 
-    const productImagesSlider = new Swiper(".product-page__slider .swiper", {
-        speed: 600,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+    const productImagesSlider = () => {
+        new Swiper(".product-page__slider .swiper", {
+            speed: 600,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
 
     const orderPackSlider = new Swiper(".packs-list-modal .swiper", {
         speed: 600,
@@ -178,3 +180,6 @@ declare var Swiper: any;
 
 (window as any).oookkiTheme = (window as any).oookkiTheme || {};
 (window as any).oookkiTheme.modalRecommendSlider = modalRecommendSlider;
+(window as any).oookkiTheme.productImagesSlider = productImagesSlider;
+
+productImagesSlider();

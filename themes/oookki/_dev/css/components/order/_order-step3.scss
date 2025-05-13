@@ -3,7 +3,7 @@
         &.delivery-options {
             .config-option {
                 .switch {
-                    padding-left: 0;
+                    padding: 0 0 0 0.5rem;
                     
                     .label-pic {
                         position: relative;
@@ -11,6 +11,9 @@
                         left: 2rem;
                         color: $colorRedTransparent;
 
+                        i {
+                            font-size: 30px;
+                        }
                         svg {
                             width: 30px;
                             height: 30px;
@@ -44,6 +47,41 @@
     }
 }
 
+.address-selector {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.5rem;
+    margin-bottom: $mb-l;
+
+    .address-item {
+        position: relative;
+        padding: 1rem;
+        border: 1px solid $colorBorder;
+        border-radius: $borderRadiusCommon;
+
+        .custom-radio {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            @include customRadioBtn;
+        }
+        h4 {
+            position: relative;
+            top: -4px;
+            margin-bottom: $mb-xs;
+            margin-left: 2.5rem;
+            font-size: $fontS;
+        }
+        .address-footer {
+            display: flex;
+            justify-content: space-around;
+        }
+        hr {
+            border-color: $colorBorder;
+        }
+    }
+}
+
 @media (min-width: 480px) {
     .basket-block {
         .config-options {
@@ -63,5 +101,21 @@
                 }
             }
         }
+    }
+}
+
+@media (min-width: 640px) {
+    .address-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 768px) {
+    .address-selector {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (min-width: 850px) {
+    .address-selector {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

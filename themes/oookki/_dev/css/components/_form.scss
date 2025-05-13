@@ -30,7 +30,9 @@ form {
         }
         input[type="text"],
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="tel"],
+        select {
             width: 100%;
             max-width: 360px;
             min-height: 55px;
@@ -44,6 +46,20 @@ form {
                 border-color: $colorGray;
             }
         }
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 1rem;
+            border: 2px solid $colorBorder;
+            border-radius: 10px;
+            transition: $transition;
+            font-size: $font16;
+            resize: none;
+
+            &:focus {
+                border-color: $colorGray;
+            }
+        }
 
         &.btn-submit-wrap {
             margin-top: $mb-l;
@@ -51,13 +67,14 @@ form {
 
         .note {
             display: flex;
-            margin-top: $mb-s;
+            width: 100%;
+            margin-top: $mb-m;
             font-size: $font14;
             color: $colorGray;
 
             i {
                 position: relative;
-                top: 3px;
+                top: 0;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
@@ -176,7 +193,18 @@ form {
         }
         .form-line__content {
             display: flex;
-            align-items: center
+            align-items: center;
+
+            span {
+                em {
+                    font-size: $font14;
+                    color: $colorGray;
+                }
+            }
+        }
+        .form-line__content:not(.radio-group) {
+            flex-direction: column;
+            align-items: flex-start;
         }
         .radio-group {
             label {

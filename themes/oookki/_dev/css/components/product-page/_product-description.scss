@@ -1,3 +1,8 @@
+.description-top {
+    p {
+        font-size: $fontXS;
+    }
+}
 .description-section {
     margin-bottom: $mb-xl;
 
@@ -27,12 +32,18 @@
         picture img {
             border-radius: $borderRadiusCommon;
         }
+        .image {
+            display: inline-flex;
+            max-height: 380px;
+            overflow: hidden;
+        }
         .cover {
             position: absolute;
             top: 0;
             left: 0;
             z-index: 10;
             cursor: pointer;
+            overflow: hidden;
 
             img {
                 @include imgFit;
@@ -72,6 +83,11 @@
     }
 }
 @media (min-width: 1024px) {
+    .description-top {
+        p {
+            font-size: $fontS;
+        }
+    }
     .description-section {
         display: flex;
         justify-content: space-between;

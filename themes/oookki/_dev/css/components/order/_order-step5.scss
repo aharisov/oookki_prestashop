@@ -40,6 +40,7 @@
         }
         &:first-child {
             position: relative;
+            min-height: 300px;
             margin-bottom: 2rem;
             .pic {
                 position: absolute;

@@ -7,7 +7,7 @@
         margin-bottom: $mb-s;
     }
     &.abon-block p {
-        margin-bottom: $mb-xs;
+        margin-bottom: $mb-m;
     }
 
     .config-options {
@@ -43,7 +43,7 @@
                 }
                 &::after {
                     position: absolute;
-                    top: 2px;
+                    top: 15px;
                     left: -3px;
                     display: block;
                     width: 26px;
@@ -58,7 +58,7 @@
                         top: 2px;
                     }
                     &::after {
-                        top: -1px;
+                        top: 12px;
                     }
                 }
 
@@ -124,6 +124,7 @@
 
                 .accordion-content {
                     max-height: 500px;
+                    padding: 1rem 1rem 0 1rem;
                 }
 
                 .switch {

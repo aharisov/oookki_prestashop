@@ -68,6 +68,7 @@ const CheckUpdateQuantityOperations = {
 /**
  * Attach Bootstrap TouchSpin event handlers
  */
+/*
 function createSpin() {
   $.each($(spinnerSelector), (index, spinner) => {
     $(spinner).TouchSpin({
@@ -84,7 +85,7 @@ function createSpin() {
   $(prestashop.themeSelectors.touchspin).off('touchstart.touchspin');
 
   CheckUpdateQuantityOperations.switchErrorStat();
-}
+}*/
 
 const preventCustomModalOpen = (event) => {
   if (window.shouldPreventModal) {
@@ -100,6 +101,49 @@ $(document).ready(() => {
   const productLineInCartSelector = prestashop.themeSelectors.cart.productLineQty;
   const promises = [];
 
+  function initCartSpin() {
+    var $quanInputCommon = $('.js-cart-line-product-quantity');
+    var $plus = $('.product-quantity .touchspin-up');
+    var $minus = $('.product-quantity .touchspin-down');
+  
+    $plus.on('click', function () {
+      var $quanInput = $(this).parent().parent().find('.js-cart-line-product-quantity');
+      var current = parseInt($quanInput.val()) || 1;
+      $quanInput.val(current + 1);
+      $quanInput.trigger('change');
+  
+      handleCartAction();
+    });
+  
+    $minus.on('click', function () {
+      var $quanInput = $(this).parent().parent().find('.js-cart-line-product-quantity');
+      var current = parseInt($quanInput.val()) || 1;
+      if (current > 1) {
+        $quanInput.val(current - 1);
+      }
+      $quanInput.trigger('change');
+  
+      handleCartAction();
+    });
+  
+    $quanInputCommon.on('focusout', () => {
+      if ($(this).val() === '' || $(this).val() < $(this).attr('min')) {
+        $(this).val($(this).attr('min'));
+        $(this).trigger('change');
+      }
+    });
+  
+    $('body').on('change keyup', $quanInputCommon, (e) => {
+      // console.info('update info', e);
+      if ($(this).val() !== '') {
+        prestashop.emit('updateProduct', {
+          eventType: 'updatedProductQuantity',
+          event: e,
+        });
+      }
+    });
+  }
+
   prestashop.on('updateCart', () => {
     $(prestashop.themeSelectors.cart.quickview).modal('hide');
   });
@@ -111,10 +155,12 @@ $(document).ready(() => {
       preventCustomModalOpen(modalEvent);
     });
 
-    createSpin();
+    // createSpin();
+    initCartSpin();
   });
 
-  createSpin();
+  // createSpin();
+  initCartSpin();
 
   const $body = $('body');
 
@@ -156,6 +202,7 @@ $(document).ready(() => {
   }
 
   function parseCartAction($target, namespace) {
+    console.info('in cart info', $target, namespace)
     if (!isTouchSpin(namespace)) {
       return {
         url: $target.attr('href'),

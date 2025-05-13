@@ -4,53 +4,63 @@
   {hook h='displayPersonalInformationTop' customer=$customer}
 
   {if $customer.is_logged && !$customer.is_guest}
+    <div class="basket-block pay-summary">
+      <div class="pay-block">
+      <p class="identity">
+        {* [1][/1] is for a HTML tag. *}
+        {l s='Connected as [1]%firstname% %lastname%[/1].'
+          d='Shop.Theme.Customeraccount'
+          sprintf=[
+            '[1]' => "<a href='{$urls.pages.identity}' class='link'>",
+            '[/1]' => "</a>",
+            '%firstname%' => $customer.firstname,
+            '%lastname%' => $customer.lastname
+          ]
+        }
+      </p>
+      <p>
+        {* [1][/1] is for a HTML tag. *}
+        {l
+          s='Not you? [1]Log out[/1]'
+          d='Shop.Theme.Customeraccount'
+          sprintf=[
+          '[1]' => "<p><a href='{$urls.actions.logout}' class='btn btn-black__empty'>",
+          '[/1]' => "</a></p>"
+          ]
+        }
+      </p>
+      </div>
+      {if !isset($empty_cart_on_logout) || $empty_cart_on_logout}
+        <p class="order-note">{l s='If you sign out now, your cart will be emptied.' d='Shop.Theme.Checkout'}</p>
+      {/if}
+    </div>
 
-    <p class="identity">
-      {* [1][/1] is for a HTML tag. *}
-      {l s='Connected as [1]%firstname% %lastname%[/1].'
-        d='Shop.Theme.Customeraccount'
-        sprintf=[
-          '[1]' => "<a href='{$urls.pages.identity}'>",
-          '[/1]' => "</a>",
-          '%firstname%' => $customer.firstname,
-          '%lastname%' => $customer.lastname
-        ]
-      }
-    </p>
-    <p>
-      {* [1][/1] is for a HTML tag. *}
-      {l
-        s='Not you? [1]Log out[/1]'
-        d='Shop.Theme.Customeraccount'
-        sprintf=[
-        '[1]' => "<a href='{$urls.actions.logout}'>",
-        '[/1]' => "</a>"
-        ]
-      }
-    </p>
-    {if !isset($empty_cart_on_logout) || $empty_cart_on_logout}
-      <p><small>{l s='If you sign out now, your cart will be emptied.' d='Shop.Theme.Checkout'}</small></p>
-    {/if}
-
-    <div class="clearfix">
-      <form method="GET" action="{$urls.pages.order}">
-        <button
-          class="continue btn btn-primary float-xs-right"
-          name="controller"
-          type="submit"
-          value="order"
-        >
-          {l s='Continue' d='Shop.Theme.Actions'}
-        </button>
-      </form>
-
+    <div class="order-buttons full">
+      <a href="/" class="link order-reset">
+          <i class="fa-solid fa-xmark"></i> 
+          <span>Abandonner ma commande</span>
+      </a>
+      <div class="buttons-wrap">
+        <form method="GET" action="{$urls.pages.order}">
+          <button
+            class="continue btn btn-black"
+            name="controller"
+            type="submit"
+            value="order"
+          >
+            {l s='Continue' d='Shop.Theme.Actions'}
+          </button>
+        </form>
+      </div>
     </div>
 
   {else}
-    <ul class="nav nav-inline my-2" role="tablist">
-      <li class="nav-item">
+    {* <p>Connectez-vous pour profiter d'une remise et gagner du temps à la souscription.</p> *}
+    
+    <ul class="nav order-info-nav flex" role="tablist">
+      <li class="nav-item {if !$show_login_form}active{/if}">
         <a
-          class="nav-link {if !$show_login_form}active{/if}"
+          class="nav-link"
           data-toggle="tab"
           href="#checkout-guest-form"
           role="tab"
@@ -65,13 +75,9 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <span class="nav-separator"> | </span>
-      </li>
-
-      <li class="nav-item">
+      <li class="nav-item {if $show_login_form}active{/if}">
         <a
-          class="nav-link {if $show_login_form}active{/if}"
+          class="nav-link"
           data-link-action="show-login-form"
           data-toggle="tab"
           href="#checkout-login-form"

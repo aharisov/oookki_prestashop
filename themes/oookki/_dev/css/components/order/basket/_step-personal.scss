@@ -1,0 +1,110 @@
+.order-info-nav {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: $mb-l 0;
+    .nav-item {
+        width: 100%;
+        padding-left: 1rem;
+        border: 1px solid $colorBorder;
+        border-radius: $borderRadiusCommon;
+        transition: $transition;
+        cursor: pointer;
+
+        &:first-child {
+            margin-bottom: $mb-m;
+        }
+        a {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            padding-left: 2rem;
+            cursor: pointer;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: $colorBorder;
+                border-radius: $borderRadiusCircle;
+                content: "";
+                transition: $transition;
+                transform: translateY(-50%);
+            }
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: -3px;
+                display: block;
+                width: 26px;
+                height: 26px;
+                border: 1px solid $colorBorder;
+                border-radius: $borderRadiusCircle;
+                content: "";
+                transition: $transition;
+                transform: translateY(-50%);
+            }
+        }
+
+        &:hover {
+            border-color: $colorGray;
+            a {
+                &::before {
+                    background: $colorBorder;
+                }
+                &::after {
+                    border-color: $colorGray;
+                }
+            }
+        }
+        &.active {
+            border-color: $colorRedTransparent;
+
+            a {
+                &::before {
+                    background: $colorRedTransparent;
+                }
+                &::after {
+                    border-color: $colorRedTransparent;
+                }
+            }
+        }
+        &.active:hover {
+            border-color: $colorRedTransparent;
+            a {
+                &::after {
+                    border-color: $colorRedTransparent;
+                }
+            }
+        }
+    }
+}
+
+.checkout-step {
+    &.-complete,
+    &.-unreachable {
+        display: none;
+    }
+    &.-complete.-current {
+        display: block;
+    }
+    p {
+        margin-bottom: $mb-m;
+    }
+}
+
+@media (min-width: 500px) {
+    .order-info-nav {
+        flex-direction: row;
+        .nav-item {
+            width: 49%;
+
+            &:first-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

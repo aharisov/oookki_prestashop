@@ -4,7 +4,7 @@ function stickyElement(element: HTMLElement, hideHeader: boolean) {
     const elementRect = element.getBoundingClientRect();
     const header = document.querySelector("header") as HTMLElement | null;
 
-    const originalTop = elementRect.top + window.scrollY - 70;
+    const originalTop = elementRect.top + window.scrollY - 100;
     const stickyClass = "sticky";
 
     function handleScroll() {
@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const stickySearchPageTop = document.querySelector(".search-page .filter-top") as HTMLElement;
 
     if (stickyProductTop && window.innerWidth >= 1024) {
-        stickyElement(stickyProductTop, true);
+        if (stickyProductTop.classList.contains('cat-11') 
+            || stickyProductTop.classList.contains('cat-3')) {
+        } else {
+            stickyElement(stickyProductTop, true);
+        }
     }
 
     if (stickyMobileTabs && window.innerWidth < 1024) {

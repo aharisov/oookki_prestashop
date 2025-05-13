@@ -12,6 +12,7 @@ function smarty_function_get_product_combinations($params, &$smarty)
         return '';
     }
     $context = Context::getContext();
+    $link = $context->link;
 
     $productObj = new Product((int)$params['id_product'], false, $context->language->id);
     $combinations = $productObj->getAttributeCombinations($context->language->id);
@@ -117,12 +118,26 @@ function smarty_function_get_product_combinations($params, &$smarty)
             $combinedGroups[$storage] = [];
         }
 
+        $url = $link->getProductLink(
+            $params['id_product'],
+            null,
+            null,
+            null,
+            $context->language->id,
+            null,
+            $entry['id'],
+            false,
+            false,
+            true
+        );
+
         $combinedGroups[$storage][$color] = [
             'id_combination' => $entry['id'],
             'qty' => $entry['qty'],
             'price' => $entry['price'],
             'price_raw' => $entry['price_raw'],
-            'price_original' => $entry['original_price']
+            'price_original' => $entry['original_price'],
+            'url' => $url
         ];
     }
 
@@ -138,6 +153,7 @@ function smarty_function_get_product_combinations($params, &$smarty)
             $priceRaw = $data["price_raw"];
         }
     
+        $storageStock[$storage]["id"] = $storage;
         $storageStock[$storage]["qty"] = $totalQty;
         $storageStock[$storage]["price"] = $price;
         $storageStock[$storage]["price_original"] = $priceOriginal;

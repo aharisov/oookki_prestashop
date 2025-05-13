@@ -1,0 +1,17 @@
+#desc-oki_properties-new {
+    display: none;
+}
+/* props form */
+.bootstrap label {
+    font-size: 15px;
+}
+.bootstrap legend {
+    font-size: 22px;
+}
+#content.bootstrap input {
+    font-size: 14px;
+}
+.checkbox {
+    width: 20px;
+    height: 20px;
+}

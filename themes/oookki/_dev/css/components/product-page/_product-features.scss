@@ -59,6 +59,9 @@
                     margin-bottom: $mb-xs;
                     color: $colorGray;
 
+                    &.empty-prop {
+                        color: $colorRedTransparent2;
+                    }
                     span {
                         font-weight: 500;
                         color: $colorPrimary;

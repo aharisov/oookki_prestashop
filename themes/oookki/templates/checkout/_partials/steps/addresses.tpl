@@ -1,27 +1,3 @@
-{**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- *}
 {extends file='checkout/_partials/steps/checkout-step.tpl'}
 
 {block name='step_content'}
@@ -32,7 +8,7 @@
       action="{url entity='order' params=['id_address' => $id_address]}"
       data-refresh-url="{url entity='order' params=['ajax' => 1, 'action' => 'addressForm']}"
     >
-
+      <div class="personal-block personal-info">
       {if $use_same_address}
         <p>
           {if $cart.is_virtual}
@@ -42,8 +18,12 @@
           {/if}
         </p>
       {else}
-        <h2 class="h4">{l s='Shipping Address' d='Shop.Theme.Checkout'}</h2>
+        <h3>{l s='Shipping Address' d='Shop.Theme.Checkout'}</h3>
       {/if}
+
+      <p class="add-address">
+        <a href="{$new_address_delivery_url}" class="btn btn-black icon-left"><i class="fa-solid fa-address-book"></i>{l s='add new address' d='Shop.Theme.Actions'}</a>
+      </p>
 
       {if $show_delivery_address_form}
         <div id="delivery-address">
@@ -71,13 +51,10 @@
           <p class="alert alert-danger js-address-error" name="alert-delivery" style="display: none">{l s="Your address is incomplete, please update it." d="Shop.Notifications.Error"}</p>
         {/if}
 
-        <p class="add-address">
-          <a href="{$new_address_delivery_url}"><i class="material-icons">&#xE145;</i>{l s='add new address' d='Shop.Theme.Actions'}</a>
-        </p>
-
         {if $use_same_address && !$cart.is_virtual}
           <p>
-            <a data-link-action="different-invoice-address" href="{$use_different_address_url}">
+            <a data-link-action="different-invoice-address" class="btn btn-red__empty icon-left" href="{$use_different_address_url}">
+              <i class="fa-solid fa-location-dot"></i>  
               {l s='Billing address differs from shipping address' d='Shop.Theme.Checkout'}
             </a>
           </p>
@@ -87,7 +64,11 @@
 
       {if !$use_same_address}
 
-        <h2 class="h4">{l s='Your Invoice Address' d='Shop.Theme.Checkout'}</h2>
+        <h3>{l s='Your Invoice Address' d='Shop.Theme.Checkout'}</h3>
+
+        <p class="add-address">
+          <a href="{$new_address_invoice_url}" class="btn btn-black icon-left"><i class="fa-solid fa-address-book"></i> {l s='add new address' d='Shop.Theme.Actions'}</a>
+        </p>
 
         {if $show_invoice_address_form}
           <div id="invoice-address">
@@ -114,20 +95,24 @@
           {else}
             <p class="alert alert-danger js-address-error" name="alert-invoice" style="display: none">{l s="Your address is incomplete, please update it." d="Shop.Notifications.Error"}</p>
           {/if}
-
-          <p class="add-address">
-            <a href="{$new_address_invoice_url}"><i class="material-icons">&#xE145;</i>{l s='add new address' d='Shop.Theme.Actions'}</a>
-          </p>
         {/if}
 
       {/if}
+      </div>
 
       {if !$form_has_continue_button}
-        <div class="clearfix">
-          <button type="submit" class="btn btn-primary continue float-xs-right" name="confirm-addresses" value="1">
-            {l s='Continue' d='Shop.Theme.Actions'}
-          </button>
-          <input type="hidden" id="not-valid-addresses" class="js-not-valid-addresses" value="{$not_valid_addresses}">
+        <div class="order-buttons full">
+          <a href="/" class="link order-reset">
+              <i class="fa-solid fa-xmark"></i> 
+              <span>Abandonner ma commande</span>
+          </a>
+          <div class="buttons-wrap">
+            <button type="button" class="btn btn-black__empty prev-step" data-prev-step="checkout-personal-information-step">Étape précédente</button>
+            <button type="submit" class="btn btn-red continue" name="confirm-addresses" value="1">
+              {l s='Continue' d='Shop.Theme.Actions'}
+            </button>
+            <input type="hidden" id="not-valid-addresses" class="js-not-valid-addresses" value="{$not_valid_addresses}">
+          </div>
         </div>
       {/if}
 

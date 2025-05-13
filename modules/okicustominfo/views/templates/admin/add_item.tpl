@@ -6,6 +6,7 @@
       <div class="mb-2">
         {counter start=0 assign=counter}
         {foreach from=$fields["name"] item=field}
+          {* {$field|@print_r} *}
           {if $field != null}
             {if $fields["type"][$counter] == "image"}
               <div class="form-group d-flex">
@@ -21,8 +22,20 @@
               </div>
             {else}  
               <div class="form-group d-flex">
-                <label>{$field}</label>
-                <input type="text" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />
+                {if $field|replace:' ':'_'|lower == 'product_name'}
+                  <label>{$field}</label>
+                  <select id="product-select" name="item[{$field|replace:' ':'_'|lower}]" class="form-control">
+                    <option value="">-- Choisir un produit --</option>
+                    {foreach from=$products item=product}
+                      <option value="{$product['name']}" data-id={$product['id']}>{$product['name']}</option>
+                    {/foreach}
+                  </select>
+                {elseif $field|replace:' ':'_'|lower == 'product_id'}
+                  <input id="product-id" type="hidden" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />
+                {else}
+                  <label>{$field}</label>
+                  <input type="text" name="item[{$field|replace:' ':'_'|lower}]" class="form-control" />
+                {/if}
                 <input type="hidden" name="type[{$field|replace:' ':'_'|lower}]" value="{$fields["type"][$counter]}">
               </div>
             {/if}

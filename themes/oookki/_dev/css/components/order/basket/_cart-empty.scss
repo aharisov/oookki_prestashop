@@ -1,10 +1,14 @@
 .cart-empty {
 
-    .icon {
+    .empty-icon {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: calc($mb-l*2) 0 $mb-l;
+        color: $colorGrayTransparent;
+        i {
+            font-size: 120px;
+        }
         svg {
             width: 120px;
             height: 120px;

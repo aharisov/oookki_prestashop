@@ -32,12 +32,15 @@
                         'js-current-step' => $step_is_current
                     ]|classnames}"
   >
-    <h1 class="step-title js-step-title h3">
-      <i class="material-icons rtl-no-flip done">&#xE876;</i>
-      <span class="step-number">{$position}</span>
+    <h3 class="step-title js-step-title h3">
+      {* <span class="step-number">{$position}</span> *}
       {$title}
-      <span class="step-edit text-muted"><i class="material-icons edit">mode_edit</i> {l s='Edit' d='Shop.Theme.Actions'}</span>
-    </h1>
+      {* <span class="step-edit text-muted"><i class="material-icons edit">mode_edit</i> {l s='Edit' d='Shop.Theme.Actions'}</span> *}
+    </h3>
+
+    {block name='notifications'}
+      {include file='_partials/notifications.tpl'}
+    {/block}
 
     <div class="content">
       {block name='step_content'}DUMMY STEP CONTENT{/block}

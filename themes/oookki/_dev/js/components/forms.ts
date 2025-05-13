@@ -103,27 +103,27 @@ const formValidation = (
         let allValid = true;
 
         // validate radio buttons
-        if (checkRadioGroup) {
-            if (!isRadioGroupSelected("sex")) {
-                let radioElem = document.querySelector(".radio-group") as HTMLInputElement;
-                if (!radioElem) return false;
+        // if (checkRadioGroup) {
+        //     if (!isRadioGroupSelected("sex")) {
+        //         let radioElem = document.querySelector(".radio-group") as HTMLInputElement;
+        //         if (!radioElem) return false;
                 
-                showErrorMessage(radioElem, "Veuillez sélectionner votre civilité");
+        //         showErrorMessage(radioElem, "Veuillez sélectionner votre civilité");
 
-                allValid = false;
-                return false;
-            }
-        }
+        //         allValid = false;
+        //         return false;
+        //     }
+        // }
 
         // validate inputs
         inputs.forEach(input => {
-            if (checkRadioGroup) {
-                handleRadioGroup("sex");
-                if (!input.value.trim() && isRadioGroupSelected("sex")) {
-                    allValid = false;
-                    return false;
-                }
-            } else {
+            // if (checkRadioGroup) {
+            //     handleRadioGroup("sex");
+            //     if (!input.value.trim() && isRadioGroupSelected("sex")) {
+            //         allValid = false;
+            //         return false;
+            //     }
+            // } else {
                 if (input.hasAttribute("required") && !input.value.trim()) {
                     allValid = false;
 
@@ -133,7 +133,7 @@ const formValidation = (
                 } else {
                     allValid = true;
                 }
-            }
+            // }
         });
 
         // validate checkboxes
@@ -201,7 +201,8 @@ const updatedAddress = () => {
     window.location.href = "profile-addresses.php"; 
 }
 
-formValidation(".order-wrap", ".next-step", ".order-wrap input:required", true, () => showNextStep);
+formValidation(".js-login-form", ".continue", ".js-login-form input:required", true, () => {console.info('ok')});
+formValidation(".js-customer-form", ".continue", ".js-customer-form input:required", true, () => {console.info('ok')});
 formValidation(".signin-form", "#submit-login", ".signin-form input:required", false, () => login());
 formValidation(".signup-form", "#submit-register", ".signup-form .form-line__title + input:required", false, () => login());
 formValidation(".restore-form", "#submit-restore", ".restore-form input:required", false, () => restoreSuccess());

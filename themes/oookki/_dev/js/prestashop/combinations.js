@@ -19,7 +19,7 @@ function changeProductCombinations() {
             },
             dataType: 'json',
             success: function(result){
-                // console.info(result);
+                // console.info('comb res', result);
                 let productColors = $(productCard).find('.colors .color');
                 
                 productColors.each(function() {
@@ -41,6 +41,19 @@ function changeProductCombinations() {
                     if (productOldPrice != null) {
                         $(productCard).find('.price-inner .price-old').text(productOldPrice);
                     }
+                })
+
+                let productUrl = '';
+                productColors.each(function() {
+                    let colorName = $(this).attr('aria-label').trim();
+                    let productQty = result.data[colorName].qty;
+
+                    if (productQty != 0) {
+                        productUrl = result.data[colorName].url;
+                    }
+
+                    $(productCard).find('.thumbnail').attr('href', productUrl);
+                    $(productCard).find('.name a').attr('href', productUrl);
                 })
             },
             error: function(xhr, status, error) {

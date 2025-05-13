@@ -23,9 +23,9 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {block name='step'}
-  <section class="checkout-step -unreachable" id="{$identifier}">
+  {* <section class="checkout-step -unreachable" id="{$identifier}">
     <h1 class="step-title js-step-title h3">
       <span class="step-number">{$position}</span> {$title}
     </h1>
-  </section>
+  </section> *}
 {/block}
