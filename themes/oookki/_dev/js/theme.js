@@ -55,6 +55,7 @@ import './pages/product-payment';
 import './pages/product-sort';
 // import './pages/product-tabs';
 import './pages/user-profile';
+import './helpers/save-viewed-product';
 
 /* eslint-enable */
 
