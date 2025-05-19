@@ -27,8 +27,16 @@
     {include file='_partials/form-errors.tpl' errors=$errors['']}
   {/block}
 
-<form action="{block name='customer_form_actionurl'}{$action}{/block}" id="customer-form" class="js-customer-form" method="post">
-  <div class="personal-block">
+<form action="{block name='customer_form_actionurl'}{$action}{/block}" id="customer-form" class="{if $page.page_name == "registration"}signup-form auth-form{/if} js-customer-form" method="post">
+  {if $page.page_name == "registration"}
+    <div class="form-title">
+      <i class="fa-solid fa-id-card"></i>
+      <h1>Créez votre compte OOOKKI</h1>
+    </div>
+  {/if}
+  <p class="top-note">{l s='Already have an account?' d='Shop.Theme.Customeraccount'} <a href="{$urls.pages.authentication}" class="link">{l s='Log in instead!' d='Shop.Theme.Customeraccount'}</a></p>
+  
+  <div class="{if $page.page_name != "registration"}personal-block{/if}">
     <div class="personal-block__inner">
       {block "form_fields"}
         {foreach from=$formFields item="field"}
@@ -42,22 +50,35 @@
   </div>
 
   {block name='customer_form_footer'}
-    <div class="order-buttons full">
-      <input type="hidden" name="submitCreate" value="1">
-      <a href="/" class="link order-reset">
-        <i class="fa-solid fa-xmark"></i>
-        <span>Abandonner ma commande</span>
-      </a>
-      <div class="buttons-wrap" bis_skin_checked="1">
+    {if $page.page_name == "registration"}
+      <div class="form-note"><span class="red">*</span> Champs obligatoires</div>
+
+      <div class="form-line button-line">
         {block "form_buttons"}
-          <button class="btn btn-red form-control-submit" data-link-action="save-customer" type="submit">
+          <button id="submit-register" class="btn btn-black form-control-submit" data-link-action="save-customer" type="submit">
             {l s='Save' d='Shop.Theme.Actions'}
           </button>
         {/block}
       </div>
-    </div>
+    {/if}
+    {if $page.page_name != "registration"}
+      <div class="order-buttons full">
+        <input type="hidden" name="submitCreate" value="1">
+        <a href="/" class="link order-reset">
+          <i class="fa-solid fa-xmark"></i>
+          <span>Abandonner ma commande</span>
+        </a>
+        <div class="buttons-wrap" bis_skin_checked="1">
+          {block "form_buttons"}
+            <button class="btn btn-red form-control-submit" data-link-action="save-customer" type="submit">
+              {l s='Save' d='Shop.Theme.Actions'}
+            </button>
+          {/block}
+        </div>
+      </div>
 
-    <div class="order-note"><span class="red">*</span> Champs obligatoires</div>
+      <div class="order-note"><span class="red">*</span> Champs obligatoires</div>
+    {/if}
   {/block}
 
 </form>
