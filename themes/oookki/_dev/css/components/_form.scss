@@ -233,9 +233,9 @@ form {
         font-style: italic;
         color: $colorGray;
         &.success {
-            max-height: 0;
+            // max-height: 0;
             margin: 0 0 1rem;
-            padding: 0;
+            padding: 1rem;
             background: $colorSuccess;
             color: $colorWhite;
             transition: max-height 0.3s ease-in;
@@ -262,6 +262,17 @@ form {
             background-color: #f2dede;
             border-color: #ebcccc;
             color: #a94442;
+        }
+    }
+    &.restore-form .alert {
+        display: flex;
+        max-width: none;
+        margin-bottom: $mb-m;
+
+        svg {
+            width: 25px;
+            height: 25px;
+            margin-right: 1rem;
         }
     }
 
